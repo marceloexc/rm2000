@@ -18,6 +18,9 @@ Proposed feature overview:
 
 ![image](filename_mockup.png)
 
+[replica_filename_demo.webm](https://github.com/marceloexc/replica/assets/35786323/15420d9e-4e9a-4e76-a085-eb8186673db8)
+
+
 * Use ScreenCaptureKit for inbuilt support of recording system audio in a variety of formats - [no more messing around with Soundflower](https://github.com/mattingalls/Soundflower)
 
 ## Considerations
