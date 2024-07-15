@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EBE4E9482C43244D00397EF2 /* replicaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* replicaApp.swift */; };
+		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
+		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
+		EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94E2C43244F00397EF2 /* Preview Assets.xcassets */; };
+		EBE4E95A2C43245000397EF2 /* replicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9592C43245000397EF2 /* replicaTests.swift */; };
+		EBE4E9642C43245000397EF2 /* replicaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9632C43245000397EF2 /* replicaUITests.swift */; };
+		EBE4E9662C43245000397EF2 /* replicaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9652C43245000397EF2 /* replicaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBE4E9562C43245000397EF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBE4E93C2C43244D00397EF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBE4E9432C43244D00397EF2;
+			remoteInfo = replica;
+		};
+		EBE4E9602C43245000397EF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBE4E93C2C43244D00397EF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBE4E9432C43244D00397EF2;
+			remoteInfo = replica;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EBE4E9442C43244D00397EF2 /* replica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = replica.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE4E9472C43244D00397EF2 /* replicaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replicaApp.swift; sourceTree = "<group>"; };
+		EBE4E9492C43244D00397EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EBE4E94B2C43244F00397EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBE4E94E2C43244F00397EF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EBE4E9502C43244F00397EF2 /* replica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = replica.entitlements; sourceTree = "<group>"; };
+		EBE4E9552C43245000397EF2 /* replicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = replicaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE4E9592C43245000397EF2 /* replicaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replicaTests.swift; sourceTree = "<group>"; };
+		EBE4E95F2C43245000397EF2 /* replicaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = replicaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE4E9632C43245000397EF2 /* replicaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replicaUITests.swift; sourceTree = "<group>"; };
+		EBE4E9652C43245000397EF2 /* replicaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replicaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBE4E9412C43244D00397EF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE4E9522C43245000397EF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE4E95C2C43245000397EF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EBE4E93B2C43244D00397EF2 = {
+			isa = PBXGroup;
+			children = (
+				EBE4E9462C43244D00397EF2 /* replica */,
+				EBE4E9582C43245000397EF2 /* replicaTests */,
+				EBE4E9622C43245000397EF2 /* replicaUITests */,
+				EBE4E9452C43244D00397EF2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EBE4E9452C43244D00397EF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBE4E9442C43244D00397EF2 /* replica.app */,
+				EBE4E9552C43245000397EF2 /* replicaTests.xctest */,
+				EBE4E95F2C43245000397EF2 /* replicaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBE4E9462C43244D00397EF2 /* replica */ = {
+			isa = PBXGroup;
+			children = (
+				EBE4E9472C43244D00397EF2 /* replicaApp.swift */,
+				EBE4E9492C43244D00397EF2 /* ContentView.swift */,
+				EBE4E94B2C43244F00397EF2 /* Assets.xcassets */,
+				EBE4E9502C43244F00397EF2 /* replica.entitlements */,
+				EBE4E94D2C43244F00397EF2 /* Preview Content */,
+			);
+			path = replica;
+			sourceTree = "<group>";
+		};
+		EBE4E94D2C43244F00397EF2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EBE4E94E2C43244F00397EF2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EBE4E9582C43245000397EF2 /* replicaTests */ = {
+			isa = PBXGroup;
+			children = (
+				EBE4E9592C43245000397EF2 /* replicaTests.swift */,
+			);
+			path = replicaTests;
+			sourceTree = "<group>";
+		};
+		EBE4E9622C43245000397EF2 /* replicaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EBE4E9632C43245000397EF2 /* replicaUITests.swift */,
+				EBE4E9652C43245000397EF2 /* replicaUITestsLaunchTests.swift */,
+			);
+			path = replicaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EBE4E9432C43244D00397EF2 /* replica */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBE4E9692C43245000397EF2 /* Build configuration list for PBXNativeTarget "replica" */;
+			buildPhases = (
+				EBE4E9402C43244D00397EF2 /* Sources */,
+				EBE4E9412C43244D00397EF2 /* Frameworks */,
+				EBE4E9422C43244D00397EF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = replica;
+			productName = replica;
+			productReference = EBE4E9442C43244D00397EF2 /* replica.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EBE4E9542C43245000397EF2 /* replicaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBE4E96C2C43245000397EF2 /* Build configuration list for PBXNativeTarget "replicaTests" */;
+			buildPhases = (
+				EBE4E9512C43245000397EF2 /* Sources */,
+				EBE4E9522C43245000397EF2 /* Frameworks */,
+				EBE4E9532C43245000397EF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBE4E9572C43245000397EF2 /* PBXTargetDependency */,
+			);
+			name = replicaTests;
+			productName = replicaTests;
+			productReference = EBE4E9552C43245000397EF2 /* replicaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EBE4E95E2C43245000397EF2 /* replicaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBE4E96F2C43245000397EF2 /* Build configuration list for PBXNativeTarget "replicaUITests" */;
+			buildPhases = (
+				EBE4E95B2C43245000397EF2 /* Sources */,
+				EBE4E95C2C43245000397EF2 /* Frameworks */,
+				EBE4E95D2C43245000397EF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBE4E9612C43245000397EF2 /* PBXTargetDependency */,
+			);
+			name = replicaUITests;
+			productName = replicaUITests;
+			productReference = EBE4E95F2C43245000397EF2 /* replicaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBE4E93C2C43244D00397EF2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					EBE4E9432C43244D00397EF2 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					EBE4E9542C43245000397EF2 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = EBE4E9432C43244D00397EF2;
+					};
+					EBE4E95E2C43245000397EF2 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = EBE4E9432C43244D00397EF2;
+					};
+				};
+			};
+			buildConfigurationList = EBE4E93F2C43244D00397EF2 /* Build configuration list for PBXProject "replica" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EBE4E93B2C43244D00397EF2;
+			productRefGroup = EBE4E9452C43244D00397EF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EBE4E9432C43244D00397EF2 /* replica */,
+				EBE4E9542C43245000397EF2 /* replicaTests */,
+				EBE4E95E2C43245000397EF2 /* replicaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EBE4E9422C43244D00397EF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */,
+				EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE4E9532C43245000397EF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE4E95D2C43245000397EF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EBE4E9402C43244D00397EF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
+				EBE4E9482C43244D00397EF2 /* replicaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE4E9512C43245000397EF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBE4E95A2C43245000397EF2 /* replicaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE4E95B2C43245000397EF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBE4E9642C43245000397EF2 /* replicaUITests.swift in Sources */,
+				EBE4E9662C43245000397EF2 /* replicaUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EBE4E9572C43245000397EF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBE4E9432C43244D00397EF2 /* replica */;
+			targetProxy = EBE4E9562C43245000397EF2 /* PBXContainerItemProxy */;
+		};
+		EBE4E9612C43245000397EF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBE4E9432C43244D00397EF2 /* replica */;
+			targetProxy = EBE4E9602C43245000397EF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EBE4E9672C43245000397EF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EBE4E9682C43245000397EF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		EBE4E96A2C43245000397EF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = replica/replica.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"replica/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replica;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EBE4E96B2C43245000397EF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = replica/replica.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"replica/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replica;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		EBE4E96D2C43245000397EF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replicaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/replica.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/replica";
+			};
+			name = Debug;
+		};
+		EBE4E96E2C43245000397EF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replicaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/replica.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/replica";
+			};
+			name = Release;
+		};
+		EBE4E9702C43245000397EF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replicaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = replica;
+			};
+			name = Debug;
+		};
+		EBE4E9712C43245000397EF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replicaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = replica;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EBE4E93F2C43244D00397EF2 /* Build configuration list for PBXProject "replica" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBE4E9672C43245000397EF2 /* Debug */,
+				EBE4E9682C43245000397EF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBE4E9692C43245000397EF2 /* Build configuration list for PBXNativeTarget "replica" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBE4E96A2C43245000397EF2 /* Debug */,
+				EBE4E96B2C43245000397EF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBE4E96C2C43245000397EF2 /* Build configuration list for PBXNativeTarget "replicaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBE4E96D2C43245000397EF2 /* Debug */,
+				EBE4E96E2C43245000397EF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBE4E96F2C43245000397EF2 /* Build configuration list for PBXNativeTarget "replicaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBE4E9702C43245000397EF2 /* Debug */,
+				EBE4E9712C43245000397EF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBE4E93C2C43244D00397EF2 /* Project object */;
+}
