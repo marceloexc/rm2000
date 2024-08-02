@@ -9,7 +9,7 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	
 	let encodingParams: [String: Any] = [
 		AVFormatIDKey: kAudioFormatMPEG4AAC,
-		AVSampleRateKey: 32000,
+		AVSampleRateKey: 48000,
 		AVNumberOfChannelsKey: 2,
 		AVEncoderBitRateKey: 128000
 	]
@@ -44,7 +44,7 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 		stream = SCStream(filter: filter, configuration: streamConfiguration, delegate: self)
 		do {
 			print("Adding stream outputs")
-			try stream.addStreamOutput(self, type: .screen, sampleHandlerQueue: .global())
+//			try stream.addStreamOutput(self, type: .screen, sampleHandlerQueue: .global())
 			try stream.addStreamOutput(self, type: .audio, sampleHandlerQueue: .global())
 			print("Starting stream capture")
 			try await stream.startCapture()
@@ -63,7 +63,7 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 		print("Starting recording to file: \(fileURL)")
 		try await self.prepareStream()
 		
-		// Start audio writing
+		// start audio writing
 		await self.audioWriter(fileURL: fileURL)
 	}
 	
@@ -79,12 +79,7 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	func audioWriter(fileURL: URL) async {
 		print("Initializing audio writer for file: \(fileURL)")
 		do {
-			let format = AVAudioFormat(settings: encodingParams)
-			guard let format = format else {
-				print("Failed to create AVAudioFormat")
-				return
-			}
-			audioFile = try AVAudioFile(forWriting: fileURL, settings: format.settings)
+			audioFile = try AVAudioFile(forWriting: fileURL, settings: encodingParams, commonFormat: .pcmFormatFloat32, interleaved: false)
 		} catch {
 			print("Failed to create AVAudioFile: \(error.localizedDescription)")
 			return
@@ -92,38 +87,27 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	}
 	
 	func stream(_ stream: SCStream, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, of type: SCStreamOutputType) {
-		print("Received sample buffer of type: \(type)")
 		
+		print("stream..")
 		guard type == .audio else {
-			print("Ignoring non-audio sample buffer")
+			print("recieved video type - we don't want this!")
 			return
 		}
 		
+		print("Received sample buffer of type: \(type)")
 		guard sampleBuffer.isValid else {
 			print("Invalid sample buffer")
 			return
 		}
-		
-		guard let formatDescription = sampleBuffer.formatDescription,
-			  let asbd = formatDescription.audioStreamBasicDescription else {
-			print("Failed to get audio format description")
-			return
-		}
-		
-		print("Audio format: \(asbd.mSampleRate) Hz, \(asbd.mChannelsPerFrame) channels, \(asbd.mBitsPerChannel) bits")
-		
 		guard let samples = sampleBuffer.asPCMBuffer else {
 			print("Failed to convert sample buffer to PCM buffer")
 			return
 		}
 		
-		print("Successfully converted to PCM buffer with \(samples.frameLength) frames")
-		
 		do {
 			try audioFile?.write(from: samples)
-			print("Successfully wrote \(samples.frameLength) frames to audio file")
 		} catch {
-			print("Couldn't write samples: \(error.localizedDescription)")
+			assertionFailure("Couldn't write samples: \(error.localizedDescription)")
 		}
 	}
 	
@@ -136,30 +120,16 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 
 extension CMSampleBuffer {
 	var asPCMBuffer: AVAudioPCMBuffer? {
-		guard let formatDescription = self.formatDescription,
-			  let asbd = formatDescription.audioStreamBasicDescription else {
-			print("Failed to get audio stream basic description")
-			return nil
+		try? self.withAudioBufferList { audioBufferList, _ -> AVAudioPCMBuffer? in
+			guard let absd = self.formatDescription?.audioStreamBasicDescription else {
+				print("failed absd")
+				return nil
+			}
+			guard let format = AVAudioFormat(standardFormatWithSampleRate: absd.mSampleRate, channels: absd.mChannelsPerFrame) else{
+				print("failed format")
+				return nil
+			}
+			return AVAudioPCMBuffer(pcmFormat: format, bufferListNoCopy: audioBufferList.unsafePointer)
 		}
-		
-		var mutableASBD = asbd // Create a mutable copy
-		let format = AVAudioFormat(streamDescription: &mutableASBD)
-		
-		guard let format = format else {
-			print("Failed to create AVAudioFormat")
-			return nil
-		}
-		
-		guard let pcmBuffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: UInt32(self.numSamples)) else {
-			print("Failed to create PCM buffer")
-			return nil
-		}
-		
-		pcmBuffer.frameLength = pcmBuffer.frameCapacity
-		
-		let audioBufferList = pcmBuffer.mutableAudioBufferList
-		CMSampleBufferCopyPCMDataIntoAudioBufferList(self, at: 0, frameCount: Int32(pcmBuffer.frameCapacity), into: audioBufferList)
-		
-		return pcmBuffer
 	}
 }
