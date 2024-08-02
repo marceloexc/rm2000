@@ -10,9 +10,9 @@ import SwiftUI
 struct ContentView: View {
 	
 	@State var fileDirectory: String = "/Users/marceloexc/Downloads/"
-	@State var textToRecord: String = "recording.mov"
+	@State var textToRecord: String = "recording.aac"
 	@State private var isRecording: Bool = false
-	let recordingManager = RecordingManager()
+	let recorder = Recorder()
 	
 	var body: some View {
 		VStack {
@@ -50,7 +50,7 @@ struct ContentView: View {
 	private func startRecording() {
 		Task {
 			do {
-				try await recordingManager.startRecording(filename: textToRecord, directory: fileDirectory)
+				try await recorder.startRecording(filename: textToRecord, directory: fileDirectory)
 				isRecording = true
 			} catch {
 				print("Error starting recording: \(error)")
@@ -61,7 +61,7 @@ struct ContentView: View {
 	private func stopRecording() {
 		Task {
 			do {
-				try await recordingManager.stopRecording()
+				recorder.stopRecording()
 				isRecording = false
 			} catch {
 				print("Error stopping recording: \(error)")
