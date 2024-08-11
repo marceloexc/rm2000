@@ -6,6 +6,20 @@ Replica is a lightweight audio sampling tool for macOS. It uses the ScreenCaptur
 
 Quickly record audio samples from any application, organize them with tags, and search them from anywhere
 
+# Building
+
+replica requires Xcode and macOS 13 or newer.
+
+It is recommended to have a Development Signing Certificate active on Xcode so that the Screen Recording permission dialog doesn't show up after every single build. A **Development Signing Certificate** is not the same as an **Apple Developer ID** and is completely free to make.
+
+1. Open the settings for `replica.xcodeproj`
+
+2. Go to the `Signing and Capabilities` tab
+
+3. Selecting the `replica` target
+
+4. Create a new Development seam and set Signing Certificate as "Development"
+
 ## Power of Persuasion
 
 Proposed feature overview:
