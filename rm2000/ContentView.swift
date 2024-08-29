@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  replica
-//
-//  Created by Marcelo Mendez on 7/13/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -19,7 +12,7 @@ struct ContentView: View {
 			Image(systemName: "waveform.circle.fill")
 				.imageScale(.large)
 				.foregroundStyle(.tint)
-			Text("REPLICA")
+			Text("rm2000")
 				.font(.title)
 			
 			TextField("Enter directory here", text: self.$fileDirectory)
