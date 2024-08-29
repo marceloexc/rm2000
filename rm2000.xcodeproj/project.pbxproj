@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB7C0DA52C46E1FF003274B4 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7C0DA42C46E1FF003274B4 /* Recording.swift */; };
-		EBE4E9482C43244D00397EF2 /* replicaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* replicaApp.swift */; };
+		EB7C0DA52C46E1FF003274B4 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7C0DA42C46E1FF003274B4 /* Recorder.swift */; };
+		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
 		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
 		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
 		EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94E2C43244F00397EF2 /* Preview Assets.xcassets */; };
-		EBE4E95A2C43245000397EF2 /* replicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9592C43245000397EF2 /* replicaTests.swift */; };
-		EBE4E9642C43245000397EF2 /* replicaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9632C43245000397EF2 /* replicaUITests.swift */; };
-		EBE4E9662C43245000397EF2 /* replicaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9652C43245000397EF2 /* replicaUITestsLaunchTests.swift */; };
+		EBE4E95A2C43245000397EF2 /* rm2000Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9592C43245000397EF2 /* rm2000Tests.swift */; };
+		EBE4E9642C43245000397EF2 /* rm2000UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9632C43245000397EF2 /* rm2000UITests.swift */; };
+		EBE4E9662C43245000397EF2 /* rm2000UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9652C43245000397EF2 /* rm2000UITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +35,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EB7C0DA42C46E1FF003274B4 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
-		EBE4E9442C43244D00397EF2 /* replica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = replica.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBE4E9472C43244D00397EF2 /* replicaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replicaApp.swift; sourceTree = "<group>"; };
+		EB7C0DA42C46E1FF003274B4 /* Recorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
+		EBE4E9442C43244D00397EF2 /* RM2000 Portable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Portable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE4E9472C43244D00397EF2 /* rm2000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000.swift; sourceTree = "<group>"; };
 		EBE4E9492C43244D00397EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EBE4E94B2C43244F00397EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBE4E94E2C43244F00397EF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EBE4E9502C43244F00397EF2 /* replica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = replica.entitlements; sourceTree = "<group>"; };
-		EBE4E9552C43245000397EF2 /* replicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = replicaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBE4E9592C43245000397EF2 /* replicaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replicaTests.swift; sourceTree = "<group>"; };
-		EBE4E95F2C43245000397EF2 /* replicaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = replicaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBE4E9632C43245000397EF2 /* replicaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replicaUITests.swift; sourceTree = "<group>"; };
-		EBE4E9652C43245000397EF2 /* replicaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = replicaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EBE4E9502C43244F00397EF2 /* rm2000.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = rm2000.entitlements; sourceTree = "<group>"; };
+		EBE4E9552C43245000397EF2 /* rm2000Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rm2000Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE4E9592C43245000397EF2 /* rm2000Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000Tests.swift; sourceTree = "<group>"; };
+		EBE4E95F2C43245000397EF2 /* rm2000UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rm2000UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE4E9632C43245000397EF2 /* rm2000UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000UITests.swift; sourceTree = "<group>"; };
+		EBE4E9652C43245000397EF2 /* rm2000UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000UITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +77,9 @@
 		EBE4E93B2C43244D00397EF2 = {
 			isa = PBXGroup;
 			children = (
-				EBE4E9462C43244D00397EF2 /* replica */,
-				EBE4E9582C43245000397EF2 /* replicaTests */,
-				EBE4E9622C43245000397EF2 /* replicaUITests */,
+				EBE4E9462C43244D00397EF2 /* rm2000 */,
+				EBE4E9582C43245000397EF2 /* rm2000Tests */,
+				EBE4E9622C43245000397EF2 /* rm2000UITests */,
 				EBE4E9452C43244D00397EF2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,24 +88,24 @@
 		EBE4E9452C43244D00397EF2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBE4E9442C43244D00397EF2 /* replica.app */,
-				EBE4E9552C43245000397EF2 /* replicaTests.xctest */,
-				EBE4E95F2C43245000397EF2 /* replicaUITests.xctest */,
+				EBE4E9442C43244D00397EF2 /* RM2000 Portable.app */,
+				EBE4E9552C43245000397EF2 /* rm2000Tests.xctest */,
+				EBE4E95F2C43245000397EF2 /* rm2000UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EBE4E9462C43244D00397EF2 /* replica */ = {
+		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
-				EBE4E9472C43244D00397EF2 /* replicaApp.swift */,
+				EBE4E9472C43244D00397EF2 /* rm2000.swift */,
 				EBE4E9492C43244D00397EF2 /* ContentView.swift */,
 				EBE4E94B2C43244F00397EF2 /* Assets.xcassets */,
-				EBE4E9502C43244F00397EF2 /* replica.entitlements */,
+				EBE4E9502C43244F00397EF2 /* rm2000.entitlements */,
 				EBE4E94D2C43244F00397EF2 /* Preview Content */,
-				EB7C0DA42C46E1FF003274B4 /* Recording.swift */,
+				EB7C0DA42C46E1FF003274B4 /* Recorder.swift */,
 			);
-			path = replica;
+			path = rm2000;
 			sourceTree = "<group>";
 		};
 		EBE4E94D2C43244F00397EF2 /* Preview Content */ = {
@@ -116,29 +116,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		EBE4E9582C43245000397EF2 /* replicaTests */ = {
+		EBE4E9582C43245000397EF2 /* rm2000Tests */ = {
 			isa = PBXGroup;
 			children = (
-				EBE4E9592C43245000397EF2 /* replicaTests.swift */,
+				EBE4E9592C43245000397EF2 /* rm2000Tests.swift */,
 			);
-			path = replicaTests;
+			path = rm2000Tests;
 			sourceTree = "<group>";
 		};
-		EBE4E9622C43245000397EF2 /* replicaUITests */ = {
+		EBE4E9622C43245000397EF2 /* rm2000UITests */ = {
 			isa = PBXGroup;
 			children = (
-				EBE4E9632C43245000397EF2 /* replicaUITests.swift */,
-				EBE4E9652C43245000397EF2 /* replicaUITestsLaunchTests.swift */,
+				EBE4E9632C43245000397EF2 /* rm2000UITests.swift */,
+				EBE4E9652C43245000397EF2 /* rm2000UITestsLaunchTests.swift */,
 			);
-			path = replicaUITests;
+			path = rm2000UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EBE4E9432C43244D00397EF2 /* replica */ = {
+		EBE4E9432C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EBE4E9692C43245000397EF2 /* Build configuration list for PBXNativeTarget "replica" */;
+			buildConfigurationList = EBE4E9692C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000" */;
 			buildPhases = (
 				EBE4E9402C43244D00397EF2 /* Sources */,
 				EBE4E9412C43244D00397EF2 /* Frameworks */,
@@ -148,14 +148,14 @@
 			);
 			dependencies = (
 			);
-			name = replica;
+			name = rm2000;
 			productName = replica;
-			productReference = EBE4E9442C43244D00397EF2 /* replica.app */;
+			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Portable.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EBE4E9542C43245000397EF2 /* replicaTests */ = {
+		EBE4E9542C43245000397EF2 /* rm2000Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EBE4E96C2C43245000397EF2 /* Build configuration list for PBXNativeTarget "replicaTests" */;
+			buildConfigurationList = EBE4E96C2C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000Tests" */;
 			buildPhases = (
 				EBE4E9512C43245000397EF2 /* Sources */,
 				EBE4E9522C43245000397EF2 /* Frameworks */,
@@ -166,14 +166,14 @@
 			dependencies = (
 				EBE4E9572C43245000397EF2 /* PBXTargetDependency */,
 			);
-			name = replicaTests;
+			name = rm2000Tests;
 			productName = replicaTests;
-			productReference = EBE4E9552C43245000397EF2 /* replicaTests.xctest */;
+			productReference = EBE4E9552C43245000397EF2 /* rm2000Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EBE4E95E2C43245000397EF2 /* replicaUITests */ = {
+		EBE4E95E2C43245000397EF2 /* rm2000UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EBE4E96F2C43245000397EF2 /* Build configuration list for PBXNativeTarget "replicaUITests" */;
+			buildConfigurationList = EBE4E96F2C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000UITests" */;
 			buildPhases = (
 				EBE4E95B2C43245000397EF2 /* Sources */,
 				EBE4E95C2C43245000397EF2 /* Frameworks */,
@@ -184,9 +184,9 @@
 			dependencies = (
 				EBE4E9612C43245000397EF2 /* PBXTargetDependency */,
 			);
-			name = replicaUITests;
+			name = rm2000UITests;
 			productName = replicaUITests;
-			productReference = EBE4E95F2C43245000397EF2 /* replicaUITests.xctest */;
+			productReference = EBE4E95F2C43245000397EF2 /* rm2000UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EBE4E93F2C43244D00397EF2 /* Build configuration list for PBXProject "replica" */;
+			buildConfigurationList = EBE4E93F2C43244D00397EF2 /* Build configuration list for PBXProject "rm2000" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,9 +225,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EBE4E9432C43244D00397EF2 /* replica */,
-				EBE4E9542C43245000397EF2 /* replicaTests */,
-				EBE4E95E2C43245000397EF2 /* replicaUITests */,
+				EBE4E9432C43244D00397EF2 /* rm2000 */,
+				EBE4E9542C43245000397EF2 /* rm2000Tests */,
+				EBE4E95E2C43245000397EF2 /* rm2000UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,8 +264,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
-				EB7C0DA52C46E1FF003274B4 /* Recording.swift in Sources */,
-				EBE4E9482C43244D00397EF2 /* replicaApp.swift in Sources */,
+				EB7C0DA52C46E1FF003274B4 /* Recorder.swift in Sources */,
+				EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBE4E95A2C43245000397EF2 /* replicaTests.swift in Sources */,
+				EBE4E95A2C43245000397EF2 /* rm2000Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,8 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBE4E9642C43245000397EF2 /* replicaUITests.swift in Sources */,
-				EBE4E9662C43245000397EF2 /* replicaUITestsLaunchTests.swift in Sources */,
+				EBE4E9642C43245000397EF2 /* rm2000UITests.swift in Sources */,
+				EBE4E9662C43245000397EF2 /* rm2000UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,12 +291,12 @@
 /* Begin PBXTargetDependency section */
 		EBE4E9572C43245000397EF2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EBE4E9432C43244D00397EF2 /* replica */;
+			target = EBE4E9432C43244D00397EF2 /* rm2000 */;
 			targetProxy = EBE4E9562C43245000397EF2 /* PBXContainerItemProxy */;
 		};
 		EBE4E9612C43245000397EF2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EBE4E9432C43244D00397EF2 /* replica */;
+			target = EBE4E9432C43244D00397EF2 /* rm2000 */;
 			targetProxy = EBE4E9602C43245000397EF2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -425,26 +425,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = replica/replica.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_ENTITLEMENTS = rm2000/rm2000.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"replica/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_ASSET_PATHS = "\"rm2000/Preview Content\"";
+				DEVELOPMENT_TEAM = 5L5B87F6FJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Your Fucking App";
+				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Portable";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = "0.1 Alpha";
-				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replica;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.rm2000;
+				PRODUCT_NAME = "RM2000 Portable";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -455,26 +457,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = replica/replica.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_ENTITLEMENTS = rm2000/rm2000.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"replica/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_ASSET_PATHS = "\"rm2000/Preview Content\"";
+				DEVELOPMENT_TEAM = 5L5B87F6FJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Your Fucking App";
+				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Portable";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = "0.1 Alpha";
-				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replica;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.rm2000;
+				PRODUCT_NAME = "RM2000 Portable";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -494,7 +498,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/replica.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/replica";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rm2000.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/rm2000";
 			};
 			name = Debug;
 		};
@@ -512,7 +516,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/replica.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/replica";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rm2000.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/rm2000";
 			};
 			name = Release;
 		};
@@ -551,7 +555,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EBE4E93F2C43244D00397EF2 /* Build configuration list for PBXProject "replica" */ = {
+		EBE4E93F2C43244D00397EF2 /* Build configuration list for PBXProject "rm2000" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBE4E9672C43245000397EF2 /* Debug */,
@@ -560,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBE4E9692C43245000397EF2 /* Build configuration list for PBXNativeTarget "replica" */ = {
+		EBE4E9692C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBE4E96A2C43245000397EF2 /* Debug */,
@@ -569,7 +573,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBE4E96C2C43245000397EF2 /* Build configuration list for PBXNativeTarget "replicaTests" */ = {
+		EBE4E96C2C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBE4E96D2C43245000397EF2 /* Debug */,
@@ -578,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBE4E96F2C43245000397EF2 /* Build configuration list for PBXNativeTarget "replicaUITests" */ = {
+		EBE4E96F2C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBE4E9702C43245000397EF2 /* Debug */,
