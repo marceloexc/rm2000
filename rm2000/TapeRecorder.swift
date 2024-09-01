@@ -5,7 +5,7 @@ import ScreenCaptureKit
 import CoreGraphics
 import VideoToolbox
 
-class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
+class TapeRecorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	
 	let encodingParams: [String: Any] = [
 		AVFormatIDKey: kAudioFormatMPEG4AAC,
@@ -54,7 +54,7 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 		}
 	}
 	
-	func startRecording(filename: String, directory: String) async throws {
+	func startStream(filename: String, directory: String) async throws {
 		
 		// construct a full fileURL from the two strings
 		let directoryURL = URL(fileURLWithPath: directory)
@@ -67,7 +67,7 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 		await self.audioWriter(fileURL: fileURL)
 	}
 	
-	func stopRecording() {
+	func stopStream() {
 		print("Stopping recording")
 		if stream != nil {
 			stream.stopCapture()
@@ -114,7 +114,7 @@ class Recorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	func stream(_ stream: SCStream, didStopWithError error: Error) {
 		print("Stream stopped with error: \(error.localizedDescription)")
 		self.stream = nil
-		self.stopRecording()
+		self.stopStream()
 	}
 }
 

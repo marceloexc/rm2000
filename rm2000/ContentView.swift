@@ -2,10 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
 	
+	@StateObject private var recordingState = TapeRecorderState()
 	@State var fileDirectory: String = "/Users/marceloexc/Downloads/"
 	@State var textToRecord: String = "recording.aac"
-	@State private var isRecording: Bool = false
-	let recorder = Recorder()
 	
 	var body: some View {
 		VStack {
@@ -21,7 +20,7 @@ struct ContentView: View {
 			TextField("Enter text to record", text: $textToRecord)
 				.textFieldStyle(.roundedBorder)
 			
-			if isRecording {
+			if recordingState.isRecording {
 				Button(action: stopRecording) {
 					HStack {
 						Image(systemName: "stop.circle")
@@ -41,27 +40,38 @@ struct ContentView: View {
 	}
 	
 	private func startRecording() {
-		Task {
-			do {
-				try await recorder.startRecording(filename: textToRecord, directory: fileDirectory)
-				isRecording = true
-			} catch {
-				print("Error starting recording: \(error)")
-			}
-		}
+		recordingState.startRecording(filename: textToRecord, directory: fileDirectory)
 	}
 	
 	private func stopRecording() {
-		Task {
-			do {
-				recorder.stopRecording()
-				isRecording = false
-			} catch {
-				print("Error stopping recording: \(error)")
-			}
-		}
+		recordingState.stopRecording()
 	}
 }
+
+struct MenuBarView: View {
+	@EnvironmentObject private var recordingState: TapeRecorderState
+	@Environment(\.openWindow) private var openWindow
+	
+	var body: some View {
+		Text("RM2000 Public Beta")
+		Divider()
+		Button("Open") {
+			openWindow(id: "main-window")
+		}
+		Button(recordingState.isRecording ? "Stop Recording" : "Start Recording") {
+			if recordingState.isRecording {
+				recordingState.stopRecording()
+			} else {
+				recordingState.startRecording(filename: "default.aac", directory: "/Users/marceloexc/Downloads/")
+			}
+		}
+		Divider()
+		Button("Quit RM2000") {
+			NSApplication.shared.terminate(nil)
+		}.keyboardShortcut("q")
+	}
+}
+
 
 #Preview {
 	ContentView()
