@@ -2,8 +2,7 @@ import SwiftUI
 import OSLog
 
 struct ContentView: View {
-	
-	@StateObject private var recordingState = TapeRecorderState()
+	@EnvironmentObject private var recordingState: TapeRecorderState
 	@State var fileDirectory: String = "/Users/marceloexc/Downloads/"
 	@State var textToRecord: String = "recording.aac"
 	
@@ -75,7 +74,7 @@ struct MenuBarView: View {
 	}
 }
 
-
 #Preview {
 	ContentView()
+		.environmentObject(TapeRecorderState())
 }

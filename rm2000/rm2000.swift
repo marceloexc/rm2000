@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct rm2000: App {
 	
-	@State private var recordingState = TapeRecorderState()
+	@StateObject private var recordingState = TapeRecorderState()
 	
     var body: some Scene {
 		WindowGroup(id:	"main-window") {
