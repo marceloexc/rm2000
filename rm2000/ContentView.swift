@@ -1,4 +1,5 @@
 import SwiftUI
+import OSLog
 
 struct ContentView: View {
 	
@@ -28,6 +29,7 @@ struct ContentView: View {
 					}
 				}
 				.foregroundColor(.red)
+				let _ = Logger.sharedStreamState.info("Changing state in the main window")
 			} else {
 				Button(action: startRecording) {
 					HStack {
@@ -60,6 +62,7 @@ struct MenuBarView: View {
 		}
 		Button(recordingState.isRecording ? "Stop Recording" : "Start Recording") {
 			if recordingState.isRecording {
+				Logger.sharedStreamState.info("Changing state in the menubar")
 				recordingState.stopRecording()
 			} else {
 				recordingState.startRecording(filename: "default.aac", directory: "/Users/marceloexc/Downloads/")

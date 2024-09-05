@@ -4,12 +4,13 @@ import AVFAudio
 import ScreenCaptureKit
 import CoreGraphics
 import VideoToolbox
+import OSLog
 
 class TapeRecorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	
 	let encodingParams: [String: Any] = [
 		AVFormatIDKey: kAudioFormatMPEG4AAC,
-		AVSampleRateKey: 48000,
+		AVSampleRateKey: 48000,	
 		AVNumberOfChannelsKey: 2,
 		AVEncoderBitRateKey: 128000
 	]
@@ -37,16 +38,14 @@ class TapeRecorder: NSObject, SCStreamDelegate, SCStreamOutput {
 			throw NSError(domain: "RecordingError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Can't find display with ID \(CGMainDisplayID()) in sharable content"])
 		}
 		
-		print("Using \(display.description) as the main display")
+		Logger.streamProcess.info("Using \(display.description) as the main display")
 		
 		let filter = SCContentFilter(display: display, excludingApplications: [], exceptingWindows: [])
 		
 		stream = SCStream(filter: filter, configuration: streamConfiguration, delegate: self)
 		do {
-			print("Adding stream outputs")
-//			try stream.addStreamOutput(self, type: .screen, sampleHandlerQueue: .global())
 			try stream.addStreamOutput(self, type: .audio, sampleHandlerQueue: .global())
-			print("Starting stream capture")
+			Logger.streamProcess.info("Starting stream capture")
 			try await stream.startCapture()
 		} catch {
 			assertionFailure("Couldn't start stream capture.")
@@ -60,7 +59,7 @@ class TapeRecorder: NSObject, SCStreamDelegate, SCStreamOutput {
 		let directoryURL = URL(fileURLWithPath: directory)
 		let fileURL = directoryURL.appendingPathComponent(filename)
 		
-		print("Starting recording to file: \(fileURL)")
+		Logger.streamProcess.info("Starting recording to file: \(fileURL)")
 		try await self.prepareStream()
 		
 		// start audio writing
@@ -68,7 +67,7 @@ class TapeRecorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	}
 	
 	func stopStream() {
-		print("Stopping recording")
+		Logger.streamProcess.info("Stopping recording")
 		if stream != nil {
 			stream.stopCapture()
 		}
@@ -77,30 +76,29 @@ class TapeRecorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	}
 	
 	func audioWriter(fileURL: URL) async {
-		print("Initializing audio writer for file: \(fileURL)")
+		Logger.streamProcess.info("Initializing audio writer for file: \(fileURL)")
 		do {
 			audioFile = try AVAudioFile(forWriting: fileURL, settings: encodingParams, commonFormat: .pcmFormatFloat32, interleaved: false)
 		} catch {
-			print("Failed to create AVAudioFile: \(error.localizedDescription)")
+			Logger.streamProcess.error("Failed to create AVAudioFile: \(error.localizedDescription)")
 			return
 		}
 	}
 	
 	func stream(_ stream: SCStream, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, of type: SCStreamOutputType) {
 		
-		print("stream..")
 		guard type == .audio else {
-			print("recieved video type - we don't want this!")
+			Logger.streamProcess.warning("Recieved incompatible VIDEO stream type.")
 			return
 		}
 		
-		print("Received sample buffer of type: \(type)")
+//		Logger.streamProcess.debug("Received sample buffer of type: \(type.rawValue)")
 		guard sampleBuffer.isValid else {
-			print("Invalid sample buffer")
+			Logger.streamProcess.warning("Invalid sample buffer")
 			return
 		}
 		guard let samples = sampleBuffer.asPCMBuffer else {
-			print("Failed to convert sample buffer to PCM buffer")
+			Logger.streamProcess.warning("Failed to convert sample buffer to PCM buffer")
 			return
 		}
 		
@@ -112,7 +110,7 @@ class TapeRecorder: NSObject, SCStreamDelegate, SCStreamOutput {
 	}
 	
 	func stream(_ stream: SCStream, didStopWithError error: Error) {
-		print("Stream stopped with error: \(error.localizedDescription)")
+		Logger.streamProcess.error("Stream stopped with error: \(error.localizedDescription)")
 		self.stream = nil
 		self.stopStream()
 	}
@@ -122,11 +120,11 @@ extension CMSampleBuffer {
 	var asPCMBuffer: AVAudioPCMBuffer? {
 		try? self.withAudioBufferList { audioBufferList, _ -> AVAudioPCMBuffer? in
 			guard let absd = self.formatDescription?.audioStreamBasicDescription else {
-				print("failed absd")
+				Logger.streamProcess.error("Failed setting description for basic audio stream")
 				return nil
 			}
 			guard let format = AVAudioFormat(standardFormatWithSampleRate: absd.mSampleRate, channels: absd.mChannelsPerFrame) else{
-				print("failed format")
+				Logger.streamProcess.error("Failed formatting the audio file with the set sample size of  \(absd.mSampleRate)")
 				return nil
 			}
 			return AVAudioPCMBuffer(pcmFormat: format, bufferListNoCopy: audioBufferList.unsafePointer)
