@@ -74,6 +74,18 @@ struct MenuBarView: View {
 	}
 }
 
+struct SidebarView: View {
+	var body: some View {
+		List {
+			Label("Tags 1", systemImage: "tv")
+			Label("Tags 1", systemImage: "tv")
+			Label("Tags 1", systemImage: "tv")
+			Label("Tags 1", systemImage: "tv")
+		}
+		.listStyle(SidebarListStyle())
+	}
+}
+
 #Preview {
 	ContentView()
 		.environmentObject(TapeRecorderState())

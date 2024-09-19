@@ -7,8 +7,12 @@ struct rm2000: App {
 	
     var body: some Scene {
 		WindowGroup(id:	"main-window") {
-            ContentView()
-				.environmentObject(recordingState)
+			NavigationSplitView {
+				SidebarView()
+			} detail: {
+				ContentView()
+					.environmentObject(recordingState)
+			}
         }
 		MenuBarExtra("RP2000 Portable", systemImage: "recordingtape") {
 			MenuBarView()
