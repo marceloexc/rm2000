@@ -8,7 +8,6 @@ struct ContentView: View {
 	@State private var showingPopover = false
 	@State private var showingSheet = false
 
-	
 	var body: some View {
 		ZStack {
 			Color(red: 0.999, green: 0.664, blue: 0.083)
@@ -70,43 +69,6 @@ struct ContentView: View {
 	
 	private func stopRecording() {
 		recordingState.stopRecording()
-	}
-}
-
-struct MenuBarView: View {
-	@EnvironmentObject private var recordingState: TapeRecorderState
-	@Environment(\.openWindow) private var openWindow
-	
-	var body: some View {
-		Text("RM2000 Public Beta")
-		Divider()
-		Button("Open") {
-			openWindow(id: "main-window")
-		}
-		Button(recordingState.isRecording ? "Stop Recording" : "Start Recording") {
-			if recordingState.isRecording {
-				Logger.sharedStreamState.info("Changing state in the menubar")
-				recordingState.stopRecording()
-			} else {
-				recordingState.startRecording(filename: "default.aac", directory: "/Users/marceloexc/Downloads/")
-			}
-		}
-		Divider()
-		Button("Quit RM2000") {
-			NSApplication.shared.terminate(nil)
-		}.keyboardShortcut("q")
-	}
-}
-
-struct SidebarView: View {
-	var body: some View {
-		List {
-			Label("Tags 1", systemImage: "tv")
-			Label("Tags 1", systemImage: "tv")
-			Label("Tags 1", systemImage: "tv")
-			Label("Tags 1", systemImage: "tv")
-		}
-		.listStyle(SidebarListStyle())
 	}
 }
 

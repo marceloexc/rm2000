@@ -10,6 +10,8 @@
 		EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6065182C850A300017CB33 /* TapeRecorderState.swift */; };
 		EB7C0DA52C46E1FF003274B4 /* TapeRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7C0DA42C46E1FF003274B4 /* TapeRecorder.swift */; };
 		EBAF02632C8A132800520D44 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF02622C8A132800520D44 /* Logging.swift */; };
+		EBBBFE862CA1F57300E987B1 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE852CA1F57300E987B1 /* MenuBar.swift */; };
+		EBBBFE882CA1F5A100E987B1 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE872CA1F5A100E987B1 /* SideBar.swift */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
 		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
 		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 		EB6065182C850A300017CB33 /* TapeRecorderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeRecorderState.swift; sourceTree = "<group>"; };
 		EB7C0DA42C46E1FF003274B4 /* TapeRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeRecorder.swift; sourceTree = "<group>"; };
 		EBAF02622C8A132800520D44 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		EBBBFE852CA1F57300E987B1 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		EBBBFE872CA1F5A100E987B1 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		EBE4E9442C43244D00397EF2 /* RM2000 Portable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Portable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9472C43244D00397EF2 /* rm2000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000.swift; sourceTree = "<group>"; };
 		EBE4E9492C43244D00397EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EBBBFE842CA1F55100E987B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBE4E9492C43244D00397EF2 /* ContentView.swift */,
+				EBBBFE852CA1F57300E987B1 /* MenuBar.swift */,
+				EBBBFE872CA1F5A100E987B1 /* SideBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EBE4E93B2C43244D00397EF2 = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +116,8 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EBBBFE842CA1F55100E987B1 /* Views */,
 				EBE4E9472C43244D00397EF2 /* rm2000.swift */,
-				EBE4E9492C43244D00397EF2 /* ContentView.swift */,
 				EBE4E94B2C43244F00397EF2 /* Assets.xcassets */,
 				EBE4E9502C43244F00397EF2 /* rm2000.entitlements */,
 				EBE4E94D2C43244F00397EF2 /* Preview Content */,
@@ -271,6 +285,8 @@
 			files = (
 				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
 				EBAF02632C8A132800520D44 /* Logging.swift in Sources */,
+				EBBBFE882CA1F5A100E987B1 /* SideBar.swift in Sources */,
+				EBBBFE862CA1F57300E987B1 /* MenuBar.swift in Sources */,
 				EB7C0DA52C46E1FF003274B4 /* TapeRecorder.swift in Sources */,
 				EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */,
 				EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */,
