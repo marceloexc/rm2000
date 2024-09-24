@@ -22,9 +22,7 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	func stopRecording() {
 		recorder.stopRecording()
 	}
-	
-	// MARK: - TapeRecorderDelegate methods
-	
+		
 	func tapeRecorderDidStartRecording(_ recorder: TapeRecorder) {
 		// This might not be necessary if we set isRecording to true in startRecording
 	}
