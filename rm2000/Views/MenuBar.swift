@@ -17,7 +17,7 @@ struct MenuBarView: View {
 				Logger.sharedStreamState.info("Changing state in the menubar")
 				recordingState.stopRecording()
 			} else {
-				recordingState.startRecording(filename: "default.aac", directory: "/Users/marceloexc/Downloads/")
+				recordingState.startRecording()
 			}
 		}
 		Divider()

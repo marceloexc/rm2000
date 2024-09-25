@@ -9,13 +9,29 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 		recorder.delegate = self
 	}
 	
-	func startRecording(filename: String, directory: String) {
+	func startRecording() {
 		Task {
 			await MainActor.run {
 				// Set isRecording to true immediately to update UI
 				self.isRecording = true
 			}
-			await recorder.startRecording(filename: filename, directory: directory)
+			
+			let fileManager = FileManager.default
+			let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+			
+			let directoryURL = appSupportURL.appendingPathComponent("com.marceloexc.rm2000")
+			
+			try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+			
+			print(UUID().uuidString + ".aac")
+			
+			let fileName = UUID().uuidString + ".aac"
+			
+			print("The directory:", directoryURL.absoluteString)
+			
+			print("the filename: ", fileName)
+			
+			await recorder.startRecording(filename: fileName, directory: directoryURL)
 		}
 	}
 	

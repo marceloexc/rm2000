@@ -35,13 +35,7 @@ struct ContentView: View {
 					.foregroundStyle(.tint)
 				Text("rm2000")
 					.font(.title)
-				
-				TextField("Enter directory here", text: self.$fileDirectory)
-					.textFieldStyle(.roundedBorder)
-				
-				TextField("Enter text to record", text: $textToRecord)
-					.textFieldStyle(.roundedBorder)
-				
+
 				if recordingState.isRecording {
 					Button(action: stopRecording) {
 						HStack {
@@ -64,7 +58,7 @@ struct ContentView: View {
 	}
 	
 	private func startRecording() {
-		recordingState.startRecording(filename: textToRecord, directory: fileDirectory)
+		recordingState.startRecording()
 	}
 	
 	private func stopRecording() {
