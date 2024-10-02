@@ -3,33 +3,14 @@ import OSLog
 
 struct ContentView: View {
 	@EnvironmentObject private var recordingState: TapeRecorderState
-	@State var fileDirectory: String = "/Users/marceloexc/Downloads/"
-	@State var textToRecord: String = "recording.aac"
-	@State private var showingPopover = false
-	@State private var showingSheet = false
+	@State private var showingRenameSheet = false
+	@State private var newFilename: String = ""
 
 	var body: some View {
 		ZStack {
 			Color(red: 0.999, green: 0.664, blue: 0.083)
 				.ignoresSafeArea()
 			VStack {
-				Button("Show popup") {
-					showingSheet = true
-				}
-				.popover(isPresented: $showingSheet, content: {
-					Text("Your content here")
-						.font(.headline)
-						.padding()
-				})
-				
-				Button("Show sheet") {
-					showingPopover.toggle()
-				}
-				.sheet(isPresented: $showingPopover, content: {
-					Text("Your content here")
-						.font(.headline)
-						.padding()
-				})
 				Image(systemName: "waveform.circle.fill")
 					.imageScale(.large)
 					.foregroundStyle(.tint)
@@ -54,6 +35,9 @@ struct ContentView: View {
 					}.cornerRadius(3.0)
 				}
 			}
+			.sheet(isPresented: $showingRenameSheet, content: {
+				RenameView(currentFilename: recordingState.currentSampleFile ?? "", newFilename: $newFilename, onRename: renameRecording)
+			})
 		}
 	}
 	
@@ -63,6 +47,12 @@ struct ContentView: View {
 	
 	private func stopRecording() {
 		recordingState.stopRecording()
+		showingRenameSheet = true
+	}
+	
+	private func renameRecording() {
+		recordingState.renameRecording(to: newFilename)
+		showingRenameSheet = false
 	}
 }
 
