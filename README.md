@@ -1,18 +1,18 @@
-# RP2000 Portable
+# RM2000 Portable
 
 <img src="https://upload.wikimedia.org/wikipedia/en/6/6c/Replica_%28Front_Cover%29.png" align="right" width="128" height="128" style="margin: 0 10px">
 
-RP2000 Portable is a lightweight audio sampling tool for macOS. It uses the ScreenCaptureKit introduced in macOS 12 Monterey.
+RM2000 Portable is a lightweight audio sampling tool for macOS. It uses the ScreenCaptureKit introduced in macOS 12 Monterey.
 
 Quickly record audio samples from any application, organize them with tags, and search them from anywhere
 
 # Building
 
-RP2000 Portable requires Xcode and macOS 13 or newer.
+RM2000 Portable requires Xcode and macOS 13 or newer.
 
 It is recommended to have a Development Signing Certificate active on Xcode so that the Screen Recording permission dialog doesn't show up after every single build. A **Development Signing Certificate** is not the same as an **Apple Developer ID** and is completely free to make.
 
-1. Open the settings for `rp2000.xcodeproj`
+1. Open the settings for `RM2000.xcodeproj`
 
 2. Go to the `Signing and Capabilities` tab
 
