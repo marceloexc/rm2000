@@ -4,7 +4,8 @@ import OSLog
 struct ContentView: View {
 	@EnvironmentObject private var recordingState: TapeRecorderState
 	@State private var showingRenameSheet = false
-	@State private var newFilename: String = ""
+	@State private var newSampleFilename: String = ""
+	@State private var newSampleTags: String = ""
 
 	var body: some View {
 		ZStack {
@@ -36,7 +37,10 @@ struct ContentView: View {
 				}
 			}
 			.sheet(isPresented: $showingRenameSheet, content: {
-				RenameView(currentFilename: recordingState.currentSampleFile ?? "", newFilename: $newFilename, onRename: renameRecording)
+				RenameView(currentFilename: recordingState.currentSampleFilename ?? "", 
+						   newSampleFilename: $newSampleFilename,
+						   newSampleTags: $newSampleTags,
+						   onRename: renameRecording)
 			})
 		}
 	}
@@ -51,7 +55,7 @@ struct ContentView: View {
 	}
 	
 	private func renameRecording() {
-		recordingState.renameRecording(to: newFilename)
+		recordingState.renameRecording(to: newSampleFilename, newTags: newSampleTags)
 		showingRenameSheet = false
 	}
 }

@@ -1,16 +1,11 @@
-//
-//  RenameView.swift
-//  rm2000
-//
-//  Created by Marcelo Mendez on 10/1/24.
-//
-
 import SwiftUI
 
 struct RenameView: View {
 	
 	let currentFilename: String
-	@Binding var newFilename: String
+	@Binding var newSampleFilename: String
+	@Binding var newSampleTags: String
+	
 	var onRename: () -> Void
 	
     var body: some View {
@@ -18,13 +13,12 @@ struct RenameView: View {
 			Text("Rename Recording")
 				.font(.headline)
 			
-			TextField("New Filename", text: $newFilename)
+			TextField("New Filename", text: $newSampleFilename)
+			TextField("Enter Tags", text: $newSampleTags)
+			Text(".aac")
+				.font(.caption)
 			
 			Button("Rename", action: onRename)
 		}
     }
 }
-
-//#Preview {
-//	RenameView()
-//}

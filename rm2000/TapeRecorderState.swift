@@ -3,7 +3,7 @@ import OSLog
 
 class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	@Published var isRecording: Bool = false
-	@Published var currentSampleFile: String?
+	@Published var currentSampleFilename: String?
 	
 	let recorder = TapeRecorder()
 	
@@ -24,7 +24,7 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 			let directoryURL = appSupportURL.appendingPathComponent("com.marceloexc.rm2000")
 			try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
 			let fileURL = directoryURL.appendingPathComponent(tempFilename)
-			currentSampleFile = tempFilename
+			currentSampleFilename = tempFilename
 			
 			await recorder.startRecording(to: fileURL)
 		}
@@ -35,8 +35,8 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	}
 		
 //	TODO - does this belong in taperecorderstate?
-	func renameRecording(to newFilename: String) {
-		guard let oldFilename = currentSampleFile else {
+	func renameRecording(to newFilename: String, newTags: String) {
+		guard let oldFilename = currentSampleFilename else {
 			Logger.sharedStreamState.error("No current recording to rename!")
 			return
 		}
@@ -49,13 +49,15 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 		let newURL = baseDirectory.appendingPathComponent(newFilename)
 		
 		do {
-			
 			try fileManager.moveItem(at: oldURL, to: newURL)
-			currentSampleFile = newFilename
-			Logger.sharedStreamState.info("Renamed recording from \(oldURL) to \(newURL)")
 			
+			currentSampleFilename = newFilename
+			print(getFilenameStructure(newFilename, newTags))
+
+			Logger.sharedStreamState.info("Renamed recording from \(oldURL) to \(newURL)")
 		} catch {
-			Logger.sharedStreamState.error("Failed to rename file")
+			Logger.sharedStreamState.error("Failed to rename file: \(error.localizedDescription)")
+			
 		}
 		
 	}
