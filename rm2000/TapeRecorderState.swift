@@ -35,12 +35,20 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	}
 		
 //	TODO - does this belong in taperecorderstate?
-	func renameRecording(to newFilename: String, newTags: String) {
+	func renameRecording(to newTitle: String, newTags: String) {
 		guard let oldFilename = currentSampleFilename else {
 			Logger.sharedStreamState.error("No current recording to rename!")
 			return
 		}
 		
+		let newSampleMetadata = newSampleFilenameData(newTitle, newTags)
+	
+		Logger.sharedStreamState.info("New Sample Metadata listed as: \(newSampleMetadata.title) \(newSampleMetadata.tags) \(newSampleMetadata.identifier) \(newSampleMetadata.fileExtension)")
+		
+		let stringedTagPiece = newSampleMetadata.tags.joined(separator: "_")
+		
+		let newFilename = "\(newSampleMetadata.title)--\(stringedTagPiece)--\(newSampleMetadata.identifier).\(newSampleMetadata.fileExtension)"
+				
 		let fileManager = FileManager.default
 		let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
 		let baseDirectory = appSupportURL.appendingPathComponent("com.marceloexc.rm2000")
@@ -51,8 +59,7 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 		do {
 			try fileManager.moveItem(at: oldURL, to: newURL)
 			
-			currentSampleFilename = newFilename
-			print(getFilenameStructure(newFilename, newTags))
+			currentSampleFilename = newTitle
 
 			Logger.sharedStreamState.info("Renamed recording from \(oldURL) to \(newURL)")
 		} catch {
