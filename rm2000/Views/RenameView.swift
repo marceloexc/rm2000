@@ -3,8 +3,8 @@ import SwiftUI
 struct RenameView: View {
 	
 	let currentFilename: String
-	@Binding var newSampleFilename: String
-	@Binding var newSampleTags: String
+	@Binding var inputNewSampleFilename: String
+	@Binding var inputNewSampleTags: String
 	
 	var onRename: () -> Void
 	
@@ -13,8 +13,8 @@ struct RenameView: View {
 			Text("Rename Recording")
 				.font(.headline)
 			
-			TextField("New Filename", text: $newSampleFilename)
-			TextField("Enter Tags", text: $newSampleTags)
+			TextField("New Filename", text: $inputNewSampleFilename)
+			TextField("Enter Tags", text: $inputNewSampleTags)
 			Text(".aac")
 				.font(.caption)
 			
