@@ -3,6 +3,8 @@ import OSLog
 
 class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	@Published var isRecording: Bool = false
+	@Published var currentSampleFilename: String?
+	
 	let recorder = TapeRecorder()
 	
 	init() {
@@ -12,26 +14,19 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	func startRecording() {
 		Task {
 			await MainActor.run {
-				// Set isRecording to true immediately to update UI
 				self.isRecording = true
 			}
 			
+			let tempFilename = UUID().uuidString + ".aac"
+			
 			let fileManager = FileManager.default
 			let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-			
 			let directoryURL = appSupportURL.appendingPathComponent("com.marceloexc.rm2000")
-			
 			try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+			let fileURL = directoryURL.appendingPathComponent(tempFilename)
+			currentSampleFilename = tempFilename
 			
-			print(UUID().uuidString + ".aac")
-			
-			let fileName = UUID().uuidString + ".aac"
-			
-			print("The directory:", directoryURL.absoluteString)
-			
-			print("the filename: ", fileName)
-			
-			await recorder.startRecording(filename: fileName, directory: directoryURL)
+			await recorder.startRecording(to: fileURL)
 		}
 	}
 	
@@ -39,6 +34,41 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 		recorder.stopRecording()
 	}
 		
+//	TODO - does this belong in taperecorderstate?
+	func renameRecording(to newTitle: String, newTags: String) {
+		guard let oldFilename = currentSampleFilename else {
+			Logger.sharedStreamState.error("No current recording to rename!")
+			return
+		}
+		
+		let newSampleMetadata = newSampleFilenameData(newTitle, newTags)
+	
+		Logger.sharedStreamState.info("New Sample Metadata listed as: \(newSampleMetadata.title) \(newSampleMetadata.tags) \(newSampleMetadata.identifier) \(newSampleMetadata.fileExtension)")
+		
+		let stringedTagPiece = newSampleMetadata.tags.joined(separator: "_")
+		
+		let newFilename = "\(newSampleMetadata.title)--\(stringedTagPiece)--\(newSampleMetadata.identifier).\(newSampleMetadata.fileExtension)"
+				
+		let fileManager = FileManager.default
+		let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+		let baseDirectory = appSupportURL.appendingPathComponent("com.marceloexc.rm2000")
+		
+		let oldURL = baseDirectory.appendingPathComponent(oldFilename)
+		let newURL = baseDirectory.appendingPathComponent(newFilename)
+		
+		do {
+			try fileManager.moveItem(at: oldURL, to: newURL)
+			
+			currentSampleFilename = newTitle
+
+			Logger.sharedStreamState.info("Renamed recording from \(oldURL) to \(newURL)")
+		} catch {
+			Logger.sharedStreamState.error("Failed to rename file: \(error.localizedDescription)")
+			
+		}
+		
+	}
+	
 	func tapeRecorderDidStartRecording(_ recorder: TapeRecorder) {
 		// This might not be necessary if we set isRecording to true in startRecording
 	}

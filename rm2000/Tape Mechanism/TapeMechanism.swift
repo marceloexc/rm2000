@@ -16,18 +16,18 @@ protocol TapeRecorderDelegate: AnyObject {
 // MARK: - TapeRecorder
 
 class TapeRecorder: NSObject {
-  
-	// properties
-  
+    
 	weak var delegate: TapeRecorderDelegate?
   
 	private let streamManager: StreamManager
 	private let audioManager: AudioManager
   
 	private(set) var isRecording: Bool = false
-  
-	// initialization
-  
+	
+	private var temporaryFilename: String?
+	
+	private var temporaryDirectory: String?
+    
 	override init() {
 		self.streamManager = StreamManager()
 		self.audioManager = AudioManager()
@@ -38,15 +38,14 @@ class TapeRecorder: NSObject {
   
 	// both public functions - starting and stopping
   
-	func startRecording(filename: String, directory: URL) async {
+	func startRecording(to fileURL: URL) async {
 		guard !isRecording else {
 			Logger.tapeRecorder.warning("Recording is already in progress")
 			return
 		}
 	  
-		let fileURL = directory.appendingPathComponent(filename)
 		
-		Logger.tapeRecorder.info("Destination set as \(directory) + \(fileURL)")
+		Logger.tapeRecorder.info("Destination set as \(fileURL)")
 		
 		do {
 			try await streamManager.setupAudioStream()
@@ -70,7 +69,7 @@ class TapeRecorder: NSObject {
 	  
 		streamManager.stopCapture()
 		audioManager.stopAudioWriter()
-	  
+		
 		isRecording = false
 		delegate?.tapeRecorderDidStopRecording(self)
 		Logger.tapeRecorder.info("Stopped recording")
