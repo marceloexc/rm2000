@@ -3,13 +3,13 @@ import Foundation
 struct SampleFilenameStructure {
 	var title: String = ""
 	var tags: [String] = []
-	var identifier: UUID
+	var identifier: String
 	var fileExtension: String = "aac" //could be an enum?
 	
 	init(sampleTitle: String, sampleTags: String) {
 		self.title = sampleTitle
 		self.tags = sampleTags.components(separatedBy: ",")
-		self.identifier = UUID()
+		self.identifier = UUID().uuidString.lowercased().components(separatedBy: "-")[0]
 	}
 }
 
