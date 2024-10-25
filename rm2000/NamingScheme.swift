@@ -11,10 +11,17 @@ struct SampleFilenameStructure {
 		self.tags = sampleTags.components(separatedBy: ",")
 		self.identifier = UUID().uuidString.lowercased().components(separatedBy: "-")[0]
 	}
+	
+	func generateFilename() -> String {
+		
+		let stringedTagPiece = tags.joined(separator: "_")
+		
+		return "\(title)--\(stringedTagPiece)--\(identifier).\(fileExtension)"
+			
+	}
 }
 
 func newSampleFilenameData(_ filenameString: String, _ tagString: String) -> SampleFilenameStructure {
 	
 	return SampleFilenameStructure(sampleTitle: filenameString, sampleTags: tagString)
 }
-
