@@ -1,7 +1,7 @@
 import Foundation
 
 struct SampleFilenameStructure {
-	var title: String = ""
+	var title: String = "Untitled"
 	var tags: [String] = []
 	var identifier: String
 	var fileExtension: String = "aac" //could be an enum?
