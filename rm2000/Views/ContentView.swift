@@ -3,7 +3,6 @@ import OSLog
 
 struct ContentView: View {
 	@EnvironmentObject private var recordingState: TapeRecorderState
-	@State private var showingRenameSheet = false
 	@State private var newSampleTitle: String = ""
 	@State private var newSampleTags: String = ""
 
@@ -36,8 +35,8 @@ struct ContentView: View {
 					}.cornerRadius(3.0)
 				}
 			}
-			.sheet(isPresented: $showingRenameSheet, content: {
-				RenameView(currentFilename: recordingState.currentSampleFilename ?? "", 
+			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
+				RenameView(currentFilename: recordingState.currentSampleFilename ?? "",
 						   inputNewSampleFilename: $newSampleTitle,
 						   inputNewSampleTags: $newSampleTags,
 						   onRename: renameRecording)
@@ -51,12 +50,10 @@ struct ContentView: View {
 	
 	private func stopRecording() {
 		recordingState.stopRecording()
-		showingRenameSheet = true
 	}
 	
 	private func renameRecording() {
 		recordingState.renameRecording(to: newSampleTitle, newTags: newSampleTags)
-		showingRenameSheet = false
 	}
 }
 

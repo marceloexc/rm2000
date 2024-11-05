@@ -4,6 +4,7 @@ import OSLog
 class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	@Published var isRecording: Bool = false
 	@Published var currentSampleFilename: String?
+	@Published var showRenameDialogInMainWindow: Bool = false
 	
 	let recorder = TapeRecorder()
 	
@@ -32,6 +33,7 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	
 	func stopRecording() {
 		recorder.stopRecording()
+		showRenameDialogInMainWindow = true
 	}
 		
 //	TODO - does this belong in taperecorderstate?
@@ -66,7 +68,7 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 			Logger.sharedStreamState.error("Failed to rename file: \(error.localizedDescription)")
 			
 		}
-		
+		showRenameDialogInMainWindow = false
 	}
 	
 	func tapeRecorderDidStartRecording(_ recorder: TapeRecorder) {
