@@ -10,7 +10,7 @@ struct RenameView: View {
 	
 	private var previewFilename: String {
 		let metadata = SampleFilenameStructure(sampleTitle: inputNewSampleFilename, sampleTags: inputNewSampleTags)
-		return metadata.generateFilename()
+		return metadata.generatePreviewFilename()
 	}
 	
 	var body: some View {

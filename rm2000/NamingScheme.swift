@@ -7,12 +7,12 @@ struct SampleFilenameStructure {
 	var fileExtension: String = "aac" //could be an enum?
 	
 	init(sampleTitle: String, sampleTags: String) {
-		self.title = sampleTitle
+		self.title = sampleTitle.replacingOccurrences(of: " ", with: "")
 		self.tags = sampleTags.components(separatedBy: ",")
 		self.identifier = UUID().uuidString.lowercased().components(separatedBy: "-")[0]
 	}
 	
-	func generateFilename() -> String {
+	func generatePreviewFilename() -> String {
 		
 		let stringedTagPiece = tags.joined(separator: "_")
 		
