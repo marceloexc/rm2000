@@ -1,12 +1,20 @@
 import SwiftUI
 
+final class AppDelegate: NSObject, NSApplicationDelegate {
+	func applicationDidFinishLaunching(_ notification: Notification) {
+		NSWindow.allowsAutomaticWindowTabbing = false
+	}
+}
+
 @main
 struct rm2000: App {
+	
+	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	
 	@StateObject private var recordingState = TapeRecorderState()
 	
     var body: some Scene {
-		WindowGroup(id:	"main-window") {
+		Window("RM2000 Tape Recorder", id:	"main-window") {
 			NavigationSplitView {
 				SidebarView()
 			} detail: {
