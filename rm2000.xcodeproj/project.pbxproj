@@ -10,6 +10,8 @@
 		EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB516E3E2CB75BD100A1C1E6 /* README.md */; };
 		EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */; };
 		EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6065182C850A300017CB33 /* TapeRecorderState.swift */; };
+		EB91DD312CE3134100F1C37E /* TINY5x3-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */; };
+		EB91DD342CE315AF00F1C37E /* Tachyo-1.0.0.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */; };
 		EBAF02632C8A132800520D44 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF02622C8A132800520D44 /* Logging.swift */; };
 		EBBBFE862CA1F57300E987B1 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE852CA1F57300E987B1 /* MenuBar.swift */; };
 		EBBBFE882CA1F5A100E987B1 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE872CA1F5A100E987B1 /* SideBar.swift */; };
@@ -51,6 +53,8 @@
 		EB516E3E2CB75BD100A1C1E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamingScheme.swift; sourceTree = "<group>"; };
 		EB6065182C850A300017CB33 /* TapeRecorderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeRecorderState.swift; sourceTree = "<group>"; };
+		EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TINY5x3-100.otf"; sourceTree = "<group>"; };
+		EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tachyo-1.0.0.otf"; sourceTree = "<group>"; };
 		EBAF02622C8A132800520D44 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		EBBBFE852CA1F57300E987B1 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		EBBBFE872CA1F5A100E987B1 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
@@ -99,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB91DD322CE3135A00F1C37E /* External Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */,
+				EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */,
+			);
+			path = "External Assets";
+			sourceTree = "<group>";
+		};
 		EBBBFE842CA1F55100E987B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +160,7 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EB91DD322CE3135A00F1C37E /* External Assets */,
 				EB516E3E2CB75BD100A1C1E6 /* README.md */,
 				EBBBFE892CA2514800E987B1 /* Tape Mechanism */,
 				EBBBFE842CA1F55100E987B1 /* Views */,
@@ -291,6 +305,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB91DD312CE3134100F1C37E /* TINY5x3-100.otf in Resources */,
+				EB91DD342CE315AF00F1C37E /* Tachyo-1.0.0.otf in Resources */,
 				EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */,
 				EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */,
 				EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */,
