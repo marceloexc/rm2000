@@ -10,6 +10,8 @@
 		EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB516E3E2CB75BD100A1C1E6 /* README.md */; };
 		EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */; };
 		EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6065182C850A300017CB33 /* TapeRecorderState.swift */; };
+		EB91DD312CE3134100F1C37E /* TINY5x3-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */; };
+		EB91DD342CE315AF00F1C37E /* Tachyo-1.0.0.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */; };
 		EBAF02632C8A132800520D44 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF02622C8A132800520D44 /* Logging.swift */; };
 		EBBBFE862CA1F57300E987B1 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE852CA1F57300E987B1 /* MenuBar.swift */; };
 		EBBBFE882CA1F5A100E987B1 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE872CA1F5A100E987B1 /* SideBar.swift */; };
@@ -19,6 +21,7 @@
 		EBBBFE912CA2590100E987B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE902CA2590100E987B1 /* Extensions.swift */; };
 		EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE922CA2593900E987B1 /* Protocols.swift */; };
 		EBCA46E22CACBEE700040159 /* RenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46E12CACBEE700040159 /* RenameView.swift */; };
+		EBD22B512CD9ECDB006062CE /* FutureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD22B502CD9ECDB006062CE /* FutureView.swift */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
 		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
 		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
@@ -50,6 +53,8 @@
 		EB516E3E2CB75BD100A1C1E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamingScheme.swift; sourceTree = "<group>"; };
 		EB6065182C850A300017CB33 /* TapeRecorderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeRecorderState.swift; sourceTree = "<group>"; };
+		EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TINY5x3-100.otf"; sourceTree = "<group>"; };
+		EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tachyo-1.0.0.otf"; sourceTree = "<group>"; };
 		EBAF02622C8A132800520D44 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		EBBBFE852CA1F57300E987B1 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		EBBBFE872CA1F5A100E987B1 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
@@ -59,6 +64,7 @@
 		EBBBFE902CA2590100E987B1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EBBBFE922CA2593900E987B1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EBCA46E12CACBEE700040159 /* RenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameView.swift; sourceTree = "<group>"; };
+		EBD22B502CD9ECDB006062CE /* FutureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureView.swift; sourceTree = "<group>"; };
 		EBE4E9442C43244D00397EF2 /* RM2000 Portable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Portable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9472C43244D00397EF2 /* rm2000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000.swift; sourceTree = "<group>"; };
 		EBE4E9492C43244D00397EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB91DD322CE3135A00F1C37E /* External Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */,
+				EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */,
+			);
+			path = "External Assets";
+			sourceTree = "<group>";
+		};
 		EBBBFE842CA1F55100E987B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +119,7 @@
 				EBBBFE852CA1F57300E987B1 /* MenuBar.swift */,
 				EBBBFE872CA1F5A100E987B1 /* SideBar.swift */,
 				EBCA46E12CACBEE700040159 /* RenameView.swift */,
+				EBD22B502CD9ECDB006062CE /* FutureView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +160,7 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EB91DD322CE3135A00F1C37E /* External Assets */,
 				EB516E3E2CB75BD100A1C1E6 /* README.md */,
 				EBBBFE892CA2514800E987B1 /* Tape Mechanism */,
 				EBBBFE842CA1F55100E987B1 /* Views */,
@@ -288,6 +305,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB91DD312CE3134100F1C37E /* TINY5x3-100.otf in Resources */,
+				EB91DD342CE315AF00F1C37E /* Tachyo-1.0.0.otf in Resources */,
 				EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */,
 				EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */,
 				EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */,
@@ -326,6 +345,7 @@
 				EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */,
 				EBBBFE8F2CA2588A00E987B1 /* AudioManager.swift in Sources */,
 				EBBBFE912CA2590100E987B1 /* Extensions.swift in Sources */,
+				EBD22B512CD9ECDB006062CE /* FutureView.swift in Sources */,
 				EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */,
 				EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */,
 			);
