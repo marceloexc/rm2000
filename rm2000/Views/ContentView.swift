@@ -8,31 +8,22 @@ struct ContentView: View {
 
 	var body: some View {
 		ZStack {
-			Color(red: 0.999, green: 0.664, blue: 0.083)
-				.ignoresSafeArea()
+			Image("BodyBackgroundTemp")
+				.scaledToFill()
 			VStack {
-				Image(systemName: "waveform.circle.fill")
-					.imageScale(.large)
-					.foregroundStyle(.tint)
-				Text("rm2000")
-					.font(.title)
-
+				LCDScreenView()
 				if recordingState.isRecording {
-					Button(action: stopRecording) {
-						HStack {
-							Image(systemName: "stop.circle")
-							Text("Stop Recording")
-						}
-					}
-					.foregroundColor(.red)
-					let _ = Logger.sharedStreamState.info("Changing state in the main window")
+								Button(action: stopRecording) {
+									Image("RecordButtonActiveTemp")
+										.renderingMode(.original)
+								}
+								.buttonStyle(BorderlessButtonStyle())
+								let _ = Logger.sharedStreamState.info("Changing state in the main window")
 				} else {
 					Button(action: startRecording) {
-						HStack {
-							Image(systemName: "recordingtape")
-							Text("Start Recording!")
-						}
-					}.cornerRadius(3.0)
+						Image("RecordButtonTemp")
+					 .renderingMode(.original)
+				 }.buttonStyle(BorderlessButtonStyle())
 				}
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
@@ -54,6 +45,39 @@ struct ContentView: View {
 	
 	private func renameRecording() {
 		recordingState.renameRecording(to: newSampleTitle, newTags: newSampleTags)
+	}
+}
+
+struct LCDScreenView: View {
+	@EnvironmentObject private var recordingState: TapeRecorderState
+
+	var body: some View {
+		ZStack {
+			Image("LCDScreenEmptyTemp")
+				.resizable()
+				.scaledToFit()
+				.frame(width: 286)
+				.offset(x:0, y:0)
+
+			VStack {
+				if recordingState.isRecording {
+					Text("Recording!")
+						.font(Font.custom("TINY5x3-100", size: 24))
+						.foregroundColor(Color("LCDTextColor"))
+				}
+				Text("RM2000")
+					.font(Font.custom("TINY5x3-100", size: 24))
+					.foregroundColor(Color("LCDTextColor"))
+				
+				Text("00:00")
+					.font(Font.custom("Tachyo", size: 50))
+					.foregroundColor(Color("LCDTextColor"))
+				
+				Text("AAC Format 44.1/k")
+					.font(Font.custom("TINY5x3-100", size: 20))
+					.foregroundColor(Color("LCDTextColor"))
+			}
+		}
 	}
 }
 
