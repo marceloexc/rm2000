@@ -1,15 +1,39 @@
 import SwiftUI
 
+class WindowController: NSWindowController {
+	override func windowDidLoad() {
+		super.windowDidLoad()
+		window?.center()
+	}
+}
+
+final class AppDelegate: NSObject, NSApplicationDelegate {
+	
+	private var windowController: WindowController?
+	
+	func applicationDidFinishLaunching(_ notification: Notification) {
+		let window = SkeuromorphicWindow()
+		
+		let contentView = ContentView()
+		
+		window.contentView = NSHostingView(rootView: contentView)
+		
+		windowController = WindowController(window: window)
+		windowController?.showWindow(nil)
+	}
+}
+
 @main
 struct rm2000: App {
+	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	
 	@StateObject private var recordingState = TapeRecorderState()
 	
     var body: some Scene {
-		Window("RM2000", id:"main-window") {
-				ContentView()
-					.environmentObject(recordingState)
-        }
+//		Window("RM2000", id:"main-window") {
+//				ContentView()
+//					.environmentObject(recordingState)
+//        }
 		MenuBarExtra("RP2000 Portable", systemImage: "recordingtape") {
 			MenuBarView()
 				.environmentObject(recordingState)
