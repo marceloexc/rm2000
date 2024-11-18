@@ -18,6 +18,8 @@ struct ContentView: View {
 										.renderingMode(.original)
 								}
 								.buttonStyle(BorderlessButtonStyle())
+								.pulseEffect()
+
 								let _ = Logger.sharedStreamState.info("Changing state in the main window")
 				} else {
 					Button(action: startRecording) {
@@ -78,6 +80,31 @@ struct LCDScreenView: View {
 					.foregroundColor(Color("LCDTextColor"))
 			}
 		}
+	}
+}
+
+// https:stackoverflow.com/questions/61778108/swiftui-how-to-pulsate-image-opacity
+struct PulseEffect: ViewModifier {
+	@State private var pulseIsInMaxState: Bool = true
+	private let range: ClosedRange<Double>
+	private let duration: TimeInterval
+
+	init(range: ClosedRange<Double>, duration: TimeInterval) {
+		self.range = range
+		self.duration = duration
+	}
+
+	func body(content: Content) -> some View {
+		content
+			.opacity(pulseIsInMaxState ? range.upperBound : range.lowerBound)
+			.onAppear { pulseIsInMaxState = false }
+			.animation(.smooth(duration: duration).repeatForever(), value: pulseIsInMaxState)
+	}
+}
+
+public extension View {
+	func pulseEffect(range: ClosedRange<Double> = 0.5...1, duration: TimeInterval = 1) -> some View  {
+		modifier(PulseEffect(range: range, duration: duration))
 	}
 }
 
