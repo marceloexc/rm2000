@@ -14,7 +14,6 @@
 		EB91DD342CE315AF00F1C37E /* Tachyo-1.0.0.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */; };
 		EBAF02632C8A132800520D44 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF02622C8A132800520D44 /* Logging.swift */; };
 		EBBBFE862CA1F57300E987B1 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE852CA1F57300E987B1 /* MenuBar.swift */; };
-		EBBBFE882CA1F5A100E987B1 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE872CA1F5A100E987B1 /* SideBar.swift */; };
 		EBBBFE8B2CA2569600E987B1 /* TapeMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE8A2CA2569600E987B1 /* TapeMechanism.swift */; };
 		EBBBFE8D2CA2583800E987B1 /* StreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE8C2CA2583800E987B1 /* StreamManager.swift */; };
 		EBBBFE8F2CA2588A00E987B1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE8E2CA2588A00E987B1 /* AudioManager.swift */; };
@@ -57,7 +56,6 @@
 		EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Tachyo-1.0.0.otf"; sourceTree = "<group>"; };
 		EBAF02622C8A132800520D44 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		EBBBFE852CA1F57300E987B1 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
-		EBBBFE872CA1F5A100E987B1 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		EBBBFE8A2CA2569600E987B1 /* TapeMechanism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeMechanism.swift; sourceTree = "<group>"; };
 		EBBBFE8C2CA2583800E987B1 /* StreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamManager.swift; sourceTree = "<group>"; };
 		EBBBFE8E2CA2588A00E987B1 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			children = (
 				EBE4E9492C43244D00397EF2 /* ContentView.swift */,
 				EBBBFE852CA1F57300E987B1 /* MenuBar.swift */,
-				EBBBFE872CA1F5A100E987B1 /* SideBar.swift */,
 				EBCA46E12CACBEE700040159 /* RenameView.swift */,
 				EBD22B502CD9ECDB006062CE /* FutureView.swift */,
 			);
@@ -338,7 +335,6 @@
 				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
 				EBAF02632C8A132800520D44 /* Logging.swift in Sources */,
 				EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */,
-				EBBBFE882CA1F5A100E987B1 /* SideBar.swift in Sources */,
 				EBBBFE862CA1F57300E987B1 /* MenuBar.swift in Sources */,
 				EBCA46E22CACBEE700040159 /* RenameView.swift in Sources */,
 				EBBBFE8B2CA2569600E987B1 /* TapeMechanism.swift in Sources */,
