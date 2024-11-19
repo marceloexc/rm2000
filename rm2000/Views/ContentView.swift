@@ -12,20 +12,25 @@ struct ContentView: View {
 				.scaledToFill()
 			VStack {
 				LCDScreenView()
+				
 				if recordingState.isRecording {
-								Button(action: stopRecording) {
-									Image("RecordButtonActiveTemp")
-										.renderingMode(.original)
-								}
-								.buttonStyle(BorderlessButtonStyle())
-								.pulseEffect()
-
-								let _ = Logger.sharedStreamState.info("Changing state in the main window")
+					ZStack {
+						Image("RecordButtonTemp")
+						
+						Button(action: stopRecording) {
+							Image("RecordButtonActiveTemp")
+								.renderingMode(.original)
+						}
+						.buttonStyle(BorderlessButtonStyle())
+						.pulseEffect()
+						
+						let _ = Logger.sharedStreamState.info("Changing state in the main window")
+					}
 				} else {
 					Button(action: startRecording) {
 						Image("RecordButtonTemp")
-					 .renderingMode(.original)
-				 }.buttonStyle(BorderlessButtonStyle())
+						 .renderingMode(.original)
+					 }.buttonStyle(BorderlessButtonStyle())
 				}
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
