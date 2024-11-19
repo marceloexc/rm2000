@@ -101,14 +101,14 @@ struct PulseEffect: ViewModifier {
 
 	func body(content: Content) -> some View {
 		content
-			.opacity(pulseIsInMaxState ? range.upperBound : range.lowerBound)
+			.opacity(pulseIsInMaxState ? range.lowerBound : range.upperBound)
 			.onAppear { pulseIsInMaxState = false }
-			.animation(.smooth(duration: duration).repeatForever(), value: pulseIsInMaxState)
+			.animation(.easeInOut(duration: duration).repeatForever(), value: pulseIsInMaxState)
 	}
 }
 
 public extension View {
-	func pulseEffect(range: ClosedRange<Double> = 0.5...1, duration: TimeInterval = 1) -> some View  {
+	func pulseEffect(range: ClosedRange<Double> = 0.1...1, duration: TimeInterval = 1) -> some View  {
 		modifier(PulseEffect(range: range, duration: duration))
 	}
 }
