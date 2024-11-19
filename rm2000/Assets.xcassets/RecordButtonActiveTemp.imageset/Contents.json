@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "SelectedActive.png",
+      "filename" : "SelectedActiveTemp1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "SelectedActive_2x.png",
+      "filename" : "SelectedActiveTemp2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
