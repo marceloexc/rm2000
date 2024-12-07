@@ -12,7 +12,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 	private var windowController: WindowController?
 	
 	func applicationDidFinishLaunching(_ notification: Notification) {
-		let window = SkeuromorphicWindow()
+		// todo - look into why this works
+		let window = SkeuromorphicWindow( contentRect: NSRect(x: 100, y: 100, width: 600, height: 400),
+										  styleMask: [.titled, .closable, .miniaturizable],
+			backing: .buffered,
+			defer: false)
 		
 		let contentView = ContentView()
 		
