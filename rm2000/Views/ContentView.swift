@@ -2,6 +2,7 @@ import SwiftUI
 import OSLog
 
 struct ContentView: View {
+	@Environment(\.openWindow) var openWindow
 	@EnvironmentObject private var recordingState: TapeRecorderState
 	@State private var newSampleTitle: String = ""
 	@State private var newSampleTags: String = ""
@@ -31,6 +32,10 @@ struct ContentView: View {
 						Image("RecordButtonTemp")
 						 .renderingMode(.original)
 					 }.buttonStyle(BorderlessButtonStyle())
+				}
+				
+				Button("Open recordings window") {
+					openWindow(id: "recordings-window")
 				}
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
