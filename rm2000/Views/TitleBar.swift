@@ -17,6 +17,10 @@ class SkeuromorphicWindow: NSWindow {
 		self.toolbar = toolbar
 		self.toolbarStyle = .unified
 		
+		if let zoomButton = standardWindowButton(.zoomButton) {
+			zoomButton.isHidden = true
+		}
+		
 		drawMicrophoneGrille()
 	}
 	
@@ -24,10 +28,10 @@ class SkeuromorphicWindow: NSWindow {
 		
 		//omg skeuromorphism.
 		
-		let imageView = NSImageView(frame: NSRect(x: 0, y: -10, width: 100, height: 20))
+		let imageView = NSImageView(frame: NSRect(x: -65, y: -15, width: 140, height: 28))
 		
 		if let image = NSImage(named: "MicGrilleTemp") {
-			image.size = NSSize(width: 100, height: 20)
+			image.size = NSSize(width: 130, height: 20)
 			imageView.image = image
 			imageView.setAccessibilityElement(false)
 			imageView.setAccessibilityHidden(true)

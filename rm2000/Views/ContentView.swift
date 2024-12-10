@@ -12,26 +12,26 @@ struct ContentView: View {
 				.scaledToFill()
 			VStack {
 				LCDScreenView()
-//				if recordingState.isRecording {
-//								Button(action: stopRecording) {
-//									Image("RecordButtonActiveTemp")
-//										.renderingMode(.original)
-//								}
-//								.buttonStyle(BorderlessButtonStyle())
-//								let _ = Logger.sharedStreamState.info("Changing state in the main window")
-//				} else {
-//					Button(action: startRecording) {
-//						Image("RecordButtonTemp")
-//					 .renderingMode(.original)
-//				 }.buttonStyle(BorderlessButtonStyle())
-//				}
+				if recordingState.isRecording {
+								Button(action: stopRecording) {
+									Image("RecordButtonActiveTemp")
+										.renderingMode(.original)
+								}
+								.buttonStyle(BorderlessButtonStyle())
+								let _ = Logger.sharedStreamState.info("Changing state in the main window")
+				} else {
+					Button(action: startRecording) {
+						Image("RecordButtonTemp")
+					 .renderingMode(.original)
+				 }.buttonStyle(BorderlessButtonStyle())
+				}
 			}
-//			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
-//				RenameView(currentFilename: recordingState.currentSampleFilename ?? "",
-//						   inputNewSampleFilename: $newSampleTitle,
-//						   inputNewSampleTags: $newSampleTags,
-//						   onRename: renameRecording)
-//			})
+			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
+				RenameView(currentFilename: recordingState.currentSampleFilename ?? "",
+						   inputNewSampleFilename: $newSampleTitle,
+						   inputNewSampleTags: $newSampleTags,
+						   onRename: renameRecording)
+			})
 		}
 	}
 	
@@ -60,11 +60,11 @@ struct LCDScreenView: View {
 				.offset(x:0, y:0)
 
 			VStack {
-//				if recordingState.isRecording {
-//					Text("Recording!")
-//						.font(Font.custom("TINY5x3-100", size: 24))
-//						.foregroundColor(Color("LCDTextColor"))
-//				}
+				if recordingState.isRecording {
+					Text("Recording!")
+						.font(Font.custom("TINY5x3-100", size: 24))
+						.foregroundColor(Color("LCDTextColor"))
+				}
 				Text("RM2000")
 					.font(Font.custom("TINY5x3-100", size: 24))
 					.foregroundColor(Color("LCDTextColor"))

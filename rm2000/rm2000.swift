@@ -10,6 +10,7 @@ class WindowController: NSWindowController {
 final class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	private var windowController: WindowController?
+	private let recordingState = TapeRecorderState()
 	
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		// todo - look into why this works
@@ -19,6 +20,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 			defer: false)
 		
 		let contentView = ContentView()
+			.environmentObject(recordingState)
 		
 		window.contentView = NSHostingView(rootView: contentView)
 		
