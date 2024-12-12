@@ -27,7 +27,7 @@ struct RecordingsView: View {
 				}
 			}
 			.listStyle(SidebarListStyle())
-			.navigationTitle("Servers")
+			.navigationTitle("Recordings")
 		} detail: {
 			
 			if let selectedTag {
@@ -44,7 +44,13 @@ struct RecordingsView: View {
 				VStack {
 					Button("Get all directories") {
 						listAllRecordings()
-						indexedTags = getTagsFromSampleTitle(filename: "rescuedawn--youtube_test_pop_hypnagogic--8ae1154d.aac")
+						
+						for directory in directoryContents {
+							indexedTags += getTagsFromSampleTitle(filename: directory)
+						}
+						
+						// get only unique items
+						indexedTags = Array(Set(indexedTags))
 					}
 					
 					if finishedProcessing {
@@ -79,17 +85,13 @@ struct RecordingsView: View {
 			finishedProcessing = false
 		}
 	}
-	
-	private func makeOnlyUniqueTagList(tags: [[String]]) {
-		
-	}
 }
 	
-private func getTagsFromSampleTitle(filename: String) -> [String] {
+private func getTagsFromSampleTitle(filename: URL) -> [String] {
 	
 	let regString = /(.+)--(.+)--(.+)\.(.+)/
 	
-	if let match = try? regString.firstMatch(in: filename) {
+	if let match = try? regString.firstMatch(in: filename.lastPathComponent) {
 		let tags = String(match.2).components(separatedBy: "_")
 		return tags
 	} else {
