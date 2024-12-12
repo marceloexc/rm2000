@@ -4,40 +4,60 @@ import SwiftUI
 struct RecordingsView: View {
 	@State private var finishedProcessing: Bool = false
 	@State private var directoryContents: [URL] = []
+	@State private var indexedTags: [String] = []
+	
+	@State private var selectedTag: String?
 	
 	var body: some View {
 		NavigationSplitView {
-			List {
-				Section(header: Text("Featured Servers")) {
-//					ForEach(servers, id: \.0) { server in
-//						HStack {
-//							Image(systemName: "globe")
-//							VStack(alignment: .leading) {
-//								Text(server.0).bold()
-//								Text(server.1).font(.subheadline).foregroundColor(.secondary)
-//							}
-//						}
-//					}
+			List(selection: $selectedTag) {
+				Section(header: Text("Available tags")) {
+					if finishedProcessing {
+						ForEach(indexedTags, id:\.self) { tag in
+							NavigationLink(value: tag) {
+								HStack{
+									Image(systemName:"waveform.path")
+									VStack(alignment: .leading, content: {
+										Text(tag)
+									})
+								}
+							}
+						}
+					}
 				}
 			}
 			.listStyle(SidebarListStyle())
 			.navigationTitle("Servers")
 		} detail: {
-			VStack {
-				Button("Get all directories") {
-					listAllRecordings()
-				}
-				
-				if finishedProcessing {
-					List(directoryContents, id: \.self) { directory in
+			
+			if let selectedTag {
+				List(directoryContents, id: \.self) { directory in
+					if directory.lastPathComponent.contains(selectedTag) {
+						Text(directory.lastPathComponent)
+							.foregroundStyle(.green)
 						
-						if passesRegex(directory.lastPathComponent){
-							Text(directory.lastPathComponent)
-								.foregroundStyle(.green)
-						}
-						else {
-							Text(directory.lastPathComponent)
-								.foregroundStyle(.red)
+						//ugly but for testing purposes only
+					}
+				}
+					
+			} else {
+				VStack {
+					Button("Get all directories") {
+						listAllRecordings()
+						indexedTags = getTagsFromSampleTitle(filename: "rescuedawn--youtube_test_pop_hypnagogic--8ae1154d.aac")
+					}
+					
+					if finishedProcessing {
+						List(directoryContents, id: \.self) { directory in
+							
+							if passesRegex(directory.lastPathComponent){
+								Text(directory.lastPathComponent)
+									.foregroundStyle(.green)
+							}
+							else {
+								Text(directory.lastPathComponent)
+									.foregroundStyle(.red)
+							}
 						}
 					}
 				}
@@ -60,15 +80,31 @@ struct RecordingsView: View {
 		}
 	}
 	
-	func passesRegex(_ pathName: String) -> Bool {
-		let regString = /^([A-Za-z0-9]+)--([A-Za-z0-9_]+)--([a-f0-9]{8})\.([a-z0-9]+)$/
+	private func makeOnlyUniqueTagList(tags: [[String]]) {
 		
-		if let result = try? regString.wholeMatch(in: pathName) {
-			return true
-		}
-		else {
-			return false
-		}
+	}
+}
+	
+private func getTagsFromSampleTitle(filename: String) -> [String] {
+	
+	let regString = /(.+)--(.+)--(.+)\.(.+)/
+	
+	if let match = try? regString.firstMatch(in: filename) {
+		let tags = String(match.2).components(separatedBy: "_")
+		return tags
+	} else {
+		return []
+	}
+}
+	
+private func passesRegex(_ pathName: String) -> Bool {
+	let regString = /^([A-Za-z0-9]+)--([A-Za-z0-9_]+)--([a-f0-9]{8})\.([a-z0-9]+)$/
+	
+	if (try? regString.wholeMatch(in: pathName)) != nil {
+		return true
+	}
+	else {
+		return false
 	}
 }
 
