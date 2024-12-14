@@ -1,7 +1,22 @@
 import Foundation
 import SwiftUI
 
+struct WorkingDirectory {
+	let appIdentifier = "com.marceloexc.rm2000"
+	
+	static func applicationSupportPath() -> URL {
+		let documentURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+		
+		let path = documentURL.appendingPathComponent("com.marceloexc.rm2000")
+		
+		return path
+	}
+}
+
 struct RecordingsView: View {
+	
+	@Environment(\.openURL) private var openURL
+	
 	@State private var finishedProcessing: Bool = false
 	@State private var directoryContents: [URL] = []
 	@State private var indexedTags: [String] = []
@@ -64,17 +79,19 @@ struct RecordingsView: View {
 								Text(directory.lastPathComponent)
 									.foregroundStyle(.red)
 							}
-						}
-					}
+		.toolbar {
+			ToolbarItemGroup(placement: .automatic) {
+				Button(action: {
+					NSWorkspace.shared.open(WorkingDirectory.applicationSupportPath())
+				}) {
+					Image(systemName: "folder")
 				}
 			}
 		}
 	}
 	
 	func listAllRecordings() {
-		let documentURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-		
-		let path = documentURL.appendingPathComponent("com.marceloexc.rm2000")
+		let path = WorkingDirectory.applicationSupportPath()
 		
 		do {
 			directoryContents = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
@@ -83,6 +100,15 @@ struct RecordingsView: View {
 		catch {
 			print("Error listing directory contents: \(error.localizedDescription)")
 			finishedProcessing = false
+		}
+		.toolbar {
+			ToolbarItemGroup(placement: .automatic) {
+				Button(action: {
+					NSWorkspace.shared.open(WorkingDirectory.applicationSupportPath())
+				}) {
+					Image(systemName: "folder")
+				}
+			}
 		}
 	}
 }
