@@ -46,22 +46,18 @@ struct RecordingsView: View {
 		} detail: {
 			
 			if let selectedTag {
-				List(directoryContents, id: \.self) { directory in
-					if directory.lastPathComponent.contains(selectedTag) {
-						Text(directory.lastPathComponent)
-							.foregroundStyle(.green)
-						
-						//ugly but for testing purposes only
+				List(directoryContents, id: \.self) { sampleFileURL in
+					if sampleFileURL.lastPathComponent.contains(selectedTag) {
+						SampleRepresentedAsList(sampleFileURL: sampleFileURL)
 					}
 				}
-					
 			} else {
 				VStack {
 					Button("Get all directories") {
 						listAllRecordings()
 						
-						for directory in directoryContents {
-							indexedTags += getTagsFromSampleTitle(filename: directory)
+						for sampleFileURL in directoryContents {
+							indexedTags += getTagsFromSampleTitle(filename: sampleFileURL)
 						}
 						
 						// get only unique items
@@ -69,16 +65,18 @@ struct RecordingsView: View {
 					}
 					
 					if finishedProcessing {
-						List(directoryContents, id: \.self) { directory in
+						List(directoryContents, id: \.self) { sampleFileURL in
 							
-							if passesRegex(directory.lastPathComponent){
-								Text(directory.lastPathComponent)
-									.foregroundStyle(.green)
+							if passesRegex(sampleFileURL.lastPathComponent) {
+								SampleRepresentedAsList(sampleFileURL: sampleFileURL)
+							} else {
+								let _ = print("\(sampleFileURL) did not pass RegEx")
 							}
-							else {
-								Text(directory.lastPathComponent)
-									.foregroundStyle(.red)
-							}
+						}
+					}
+				}
+			}
+		}
 		.toolbar {
 			ToolbarItemGroup(placement: .automatic) {
 				Button(action: {
@@ -101,15 +99,21 @@ struct RecordingsView: View {
 			print("Error listing directory contents: \(error.localizedDescription)")
 			finishedProcessing = false
 		}
-		.toolbar {
-			ToolbarItemGroup(placement: .automatic) {
-				Button(action: {
-					NSWorkspace.shared.open(WorkingDirectory.applicationSupportPath())
-				}) {
-					Image(systemName: "folder")
+	}
+}
+
+struct SampleRepresentedAsList: View {
+	
+	var sampleFileURL: URL
+	
+	var body: some View {
+		Text(sampleFileURL.lastPathComponent)
+			.foregroundStyle(.green)
+			.contextMenu {
+				Button("Open File") {
+					NSWorkspace.shared.open(sampleFileURL)
 				}
 			}
-		}
 	}
 }
 	
