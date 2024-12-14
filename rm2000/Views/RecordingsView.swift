@@ -2,12 +2,12 @@ import Foundation
 import SwiftUI
 
 struct WorkingDirectory {
-	let appIdentifier = "com.marceloexc.rm2000"
+	static let appIdentifier = "com.marceloexc.rm2000"
 	
 	static func applicationSupportPath() -> URL {
 		let documentURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
 		
-		let path = documentURL.appendingPathComponent("com.marceloexc.rm2000")
+		let path = documentURL.appendingPathComponent(appIdentifier)
 		
 		return path
 	}
