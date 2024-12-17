@@ -2,37 +2,40 @@ import SwiftUI
 import OSLog
 
 struct ContentView: View {
+	@Environment(\.openWindow) var openWindow
 	@EnvironmentObject private var recordingState: TapeRecorderState
 	@State private var newSampleTitle: String = ""
 	@State private var newSampleTags: String = ""
 
 	var body: some View {
 		ZStack {
-			Color(red: 0.999, green: 0.664, blue: 0.083)
-				.ignoresSafeArea()
+			Image("BodyBackgroundTemp")
+				.scaledToFill()
 			VStack {
-				Image(systemName: "waveform.circle.fill")
-					.imageScale(.large)
-					.foregroundStyle(.tint)
-				Text("rm2000")
-					.font(.title)
-
+				LCDScreenView()
+				
 				if recordingState.isRecording {
-					Button(action: stopRecording) {
-						HStack {
-							Image(systemName: "stop.circle")
-							Text("Stop Recording")
+					ZStack {
+						Image("RecordButtonTemp")
+						
+						Button(action: stopRecording) {
+							Image("RecordButtonActiveTemp")
+								.renderingMode(.original)
 						}
+						.buttonStyle(BorderlessButtonStyle())
+						.pulseEffect()
+						
+						let _ = Logger.sharedStreamState.info("Changing state in the main window")
 					}
-					.foregroundColor(.red)
-					let _ = Logger.sharedStreamState.info("Changing state in the main window")
 				} else {
 					Button(action: startRecording) {
-						HStack {
-							Image(systemName: "recordingtape")
-							Text("Start Recording!")
-						}
-					}.cornerRadius(3.0)
+						Image("RecordButtonTemp")
+						 .renderingMode(.original)
+					 }.buttonStyle(BorderlessButtonStyle())
+				}
+				
+				Button("Open recordings window") {
+					openWindow(id: "recordings-window")
 				}
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
@@ -54,6 +57,64 @@ struct ContentView: View {
 	
 	private func renameRecording() {
 		recordingState.renameRecording(to: newSampleTitle, newTags: newSampleTags)
+	}
+}
+
+struct LCDScreenView: View {
+	@EnvironmentObject private var recordingState: TapeRecorderState
+
+	var body: some View {
+		ZStack {
+			Image("LCDScreenEmptyTemp")
+				.resizable()
+				.scaledToFit()
+				.frame(width: 286)
+				.offset(x:0, y:0)
+
+			VStack {
+				if recordingState.isRecording {
+					Text("Recording!")
+						.font(Font.custom("TINY5x3-100", size: 24))
+						.foregroundColor(Color("LCDTextColor"))
+				}
+				Text("RM2000")
+					.font(Font.custom("TINY5x3-100", size: 24))
+					.foregroundColor(Color("LCDTextColor"))
+				
+				Text("00:00")
+					.font(Font.custom("Tachyo", size: 50))
+					.foregroundColor(Color("LCDTextColor"))
+				
+				Text("AAC Format 44.1/k")
+					.font(Font.custom("TINY5x3-100", size: 20))
+					.foregroundColor(Color("LCDTextColor"))
+			}
+		}
+	}
+}
+
+// https:stackoverflow.com/questions/61778108/swiftui-how-to-pulsate-image-opacity
+struct PulseEffect: ViewModifier {
+	@State private var pulseIsInMaxState: Bool = true
+	private let range: ClosedRange<Double>
+	private let duration: TimeInterval
+
+	init(range: ClosedRange<Double>, duration: TimeInterval) {
+		self.range = range
+		self.duration = duration
+	}
+
+	func body(content: Content) -> some View {
+		content
+			.opacity(pulseIsInMaxState ? range.lowerBound : range.upperBound)
+			.onAppear { pulseIsInMaxState = false }
+			.animation(.easeInOut(duration: duration).repeatForever(), value: pulseIsInMaxState)
+	}
+}
+
+public extension View {
+	func pulseEffect(range: ClosedRange<Double> = 0.1...1, duration: TimeInterval = 1) -> some View  {
+		modifier(PulseEffect(range: range, duration: duration))
 	}
 }
 

@@ -1,30 +1,22 @@
 import SwiftUI
 
-final class AppDelegate: NSObject, NSApplicationDelegate {
-	func applicationDidFinishLaunching(_ notification: Notification) {
-		NSWindow.allowsAutomaticWindowTabbing = false
-	}
-}
-
 @main
 struct rm2000: App {
-	
-	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	
 	@StateObject private var recordingState = TapeRecorderState()
 	
     var body: some Scene {
-		Window("RM2000 Tape Recorder", id:	"main-window") {
-			NavigationSplitView {
-				SidebarView()
-			} detail: {
+		Window("RM2000", id:"main-window") {
 				ContentView()
 					.environmentObject(recordingState)
-			}
         }
 		MenuBarExtra("RP2000 Portable", systemImage: "recordingtape") {
 			MenuBarView()
 				.environmentObject(recordingState)
+		}
+		
+		Window("Recordings", id: "recordings-window") {
+			RecordingsView()
 		}
     }
 }
