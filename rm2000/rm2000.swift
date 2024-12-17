@@ -14,5 +14,9 @@ struct rm2000: App {
 			MenuBarView()
 				.environmentObject(recordingState)
 		}
+		
+		Window("Recordings", id: "recordings-window") {
+			RecordingsView()
+		}
     }
 }
