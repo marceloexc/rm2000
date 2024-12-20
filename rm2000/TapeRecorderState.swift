@@ -45,11 +45,11 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 		
 		let newSampleMetadata = newSampleFilenameData(newTitle, newTags)
 	
-		Logger.sharedStreamState.info("New Sample Metadata listed as: \(newSampleMetadata.title) \(newSampleMetadata.tags) \(newSampleMetadata.identifier) \(newSampleMetadata.fileExtension)")
+		Logger.sharedStreamState.info("New Sample Metadata listed as: \(newSampleMetadata.title) \(newSampleMetadata.tags) \(newSampleMetadata.fileExtension)")
 		
 		let stringedTagPiece = newSampleMetadata.tags.joined(separator: "_")
 		
-		let newFilename = "\(newSampleMetadata.title)--\(stringedTagPiece)--\(newSampleMetadata.identifier).\(newSampleMetadata.fileExtension)"
+		let newFilename = "\(newSampleMetadata.title)--\(stringedTagPiece).\(newSampleMetadata.fileExtension)"
 				
 		let fileManager = FileManager.default
 		let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
