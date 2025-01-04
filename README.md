@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://upload.wikimedia.org/wikipedia/en/6/6c/Replica_%28Front_Cover%29.png" align="right" width="128" height="128" style="margin: 0 10px">
+<img src="https://upload.wikimedia.org/wikipedia/en/6/6c/Replica_%28Front_Cover%29.png" width="148" height="148" style="margin: 0 10px">
 <h1><b>RM2000 Tape Recorder</b></h1>
 <p>record audio samples from your desktop</p>
 </div>
@@ -12,7 +12,7 @@ RM2000 Tape Recorder is a lightweight audio sampling tool for macOS. quickly rec
 
 ## power of persuasion
 
-![RM2000 Screenshot](https://github.com/marceloexc/rm2000/blob/master/Images/MainWindow@2x.png?raw=true)
+<img src="https://github.com/marceloexc/rm2000/blob/master/Images/MainWindow@2x.png?raw=true" height="540" width="332">
 
 RM2000 features a beautiful skeuomorphic interface to mimic the look and feel of a bygone era of Mac Apps
 
