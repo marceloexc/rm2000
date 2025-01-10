@@ -1,6 +1,20 @@
 import Foundation
 import SwiftUI
 
+let regString = /(.+)--(.+)\.(.+)/
+
+struct WorkingDirectory {
+	static let appIdentifier = "com.marceloexc.rm2000"
+	
+	static func applicationSupportPath() -> URL {
+		let documentURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+		
+		let path = documentURL.appendingPathComponent(appIdentifier)
+		
+		return path
+	}
+}
+
 struct RecordingsView: View {
 	
 	@Environment(\.openURL) private var openURL
@@ -106,9 +120,6 @@ struct SampleRepresentedAsList: View {
 }
 	
 private func getTagsFromSampleTitle(filename: URL) -> [String] {
-	
-	let regString = /(.+)--(.+)--(.+)\.(.+)/
-	
 	if let match = try? regString.firstMatch(in: filename.lastPathComponent) {
 		let tags = String(match.2).components(separatedBy: "_")
 		return tags
@@ -118,8 +129,6 @@ private func getTagsFromSampleTitle(filename: URL) -> [String] {
 }
 	
 private func passesRegex(_ pathName: String) -> Bool {
-	let regString = /^([A-Za-z0-9]+)--([A-Za-z0-9_]+)--([a-f0-9]{8})\.([a-z0-9]+)$/
-	
 	if (try? regString.wholeMatch(in: pathName)) != nil {
 		return true
 	}
