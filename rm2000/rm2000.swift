@@ -18,5 +18,9 @@ struct rm2000: App {
 		Window("Recordings", id: "recordings-window") {
 			RecordingsView()
 		}
+		
+		Settings {
+			SettingsView()
+		}
     }
 }
