@@ -19,6 +19,11 @@ struct rm2000: App {
 			RecordingsView()
 		}
 		
+		Window("Welcome", id: "onboarding") {
+			OnboardingView(viewModel: OnboardingViewModel())
+			.frame(maxWidth: 400)
+		}.windowResizability(.contentSize)
+		
 		Settings {
 			SettingsView()
 		}

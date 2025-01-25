@@ -37,6 +37,10 @@ struct ContentView: View {
 				Button("Open recordings window") {
 					openWindow(id: "recordings-window")
 				}
+				
+				Button("Open test onboarding window") {
+					openWindow(id: "onboarding")
+				}
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
 				RenameView(currentFilename: recordingState.currentSampleFilename ?? "",
