@@ -1,4 +1,5 @@
 import SwiftUI
+import OSLog
 
 enum OnboardingStep {
 	case welcome
@@ -9,6 +10,8 @@ enum OnboardingStep {
 class OnboardingViewModel: ObservableObject {
 	@Published var currentStep: OnboardingStep = .welcome
 	@AppStorage("completedOnboarding") private var completedOnboarding: Bool = false
+	
+	@AppStorage("sample_directory") var userDefaultsDirectoryPath: URL = WorkingDirectory.applicationSupportPath()
 	
 	func finishOnboarding() {
 		completedOnboarding = true
@@ -40,9 +43,29 @@ struct SettingsStepView: View {
 	
 	@ObservedObject var viewModel: OnboardingViewModel
 	
+	@State private var showFileChooser: Bool = false
+	
 	var body: some View {
 		Text("settings")
-		
+		HStack {
+			TextField("Set RM2000 Sample Directory", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+			Button("Print userDefaultsDirectoryPath") {
+				print(viewModel.userDefaultsDirectoryPath)
+			}
+			Button("Browse") {
+				showFileChooser = true
+			}
+			.fileImporter(isPresented: $showFileChooser, allowedContentTypes: [.directory]) {
+				result in
+				switch result {
+				case .success(let directory):
+					viewModel.userDefaultsDirectoryPath = directory
+					Logger.viewModels.info("Set new userDefaultsDirectoryPath as \(directory)")
+				case .failure(let error):
+					Logger.viewModels.error("Could not set userDefaultsDirectoryPath: \(error)")
+				}
+			}
+		}
 		HStack {
 			Button("Back") {
 				viewModel.currentStep = .welcome
@@ -50,6 +73,7 @@ struct SettingsStepView: View {
 			
 			Button("Next") {
 				viewModel.currentStep = .complete
+				print(viewModel.userDefaultsDirectoryPath)
 			}
 			.buttonStyle(.borderedProminent)
 		}
@@ -63,12 +87,6 @@ struct WelcomeView:View {
 		Text("Welcome to RM2000")
 			.font(.title)
 		Text("Before you continue, you will have to:\n\nenable system permissions\n\nset a directory\n\nset preferred audio format (mp3 default)")
-		HStack {
-			TextField("Set RM2000 Sample Directory", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-			Button("Browse") {
-				// change me
-			}
-		}
 		HStack {
 			Button("Next") {
 				viewModel.currentStep = .settings
@@ -96,6 +114,7 @@ struct OnboardingView: View {
 		}
 		.frame(minWidth: 200)
 		.padding()
+		
     }
 	
 }
