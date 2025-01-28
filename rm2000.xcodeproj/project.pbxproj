@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB13CF402D31A36400E2EC4B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */; };
 		EB4467CC2D07C52F000DDE5A /* RecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4467CB2D07C52F000DDE5A /* RecordingsView.swift */; };
 		EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB516E3E2CB75BD100A1C1E6 /* README.md */; };
 		EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EB4467CB2D07C52F000DDE5A /* RecordingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsView.swift; sourceTree = "<group>"; };
 		EB516E3D2CB75BC300A1C1E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB516E3E2CB75BD100A1C1E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -122,6 +124,7 @@
 				EBCA46E12CACBEE700040159 /* RenameView.swift */,
 				EB4467CB2D07C52F000DDE5A /* RecordingsView.swift */,
 				EB64CD112D14FC5200F2B65E /* SettingsView.swift */,
+				EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */,
 				EBBBFE8F2CA2588A00E987B1 /* AudioManager.swift in Sources */,
 				EBBBFE912CA2590100E987B1 /* Extensions.swift in Sources */,
+				EB13CF402D31A36400E2EC4B /* OnboardingView.swift in Sources */,
 				EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */,
 				EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */,
 			);
