@@ -1,5 +1,7 @@
 import SwiftUI
+import UserNotifications
 import OSLog
+
 
 enum OnboardingStep {
 	case welcome
@@ -20,9 +22,9 @@ class OnboardingViewModel: ObservableObject {
 
 struct FinalOnboardingCompleteView: View {
 	
-	@ObservedObject var viewModel: OnboardingViewModel
-	@Environment(\.dismiss) private var dismiss
+	@Environment(\.dismiss) var dismiss
 	
+	@ObservedObject var viewModel: OnboardingViewModel
 	
 	var body: some View {
 		Text("Complete!")
@@ -40,6 +42,8 @@ struct FinalOnboardingCompleteView: View {
 }
 
 struct SettingsStepView: View {
+	
+	private let streamManager = StreamManager()
 	
 	@ObservedObject var viewModel: OnboardingViewModel
 	
@@ -67,6 +71,13 @@ struct SettingsStepView: View {
 			}
 		}
 		HStack {
+			Button("Request Permissions") {
+				Task {
+					await invokeRecordingPermission()
+				}
+			}
+		}
+		HStack {
 			Button("Back") {
 				viewModel.currentStep = .welcome
 			}
@@ -77,6 +88,33 @@ struct SettingsStepView: View {
 			}
 			.buttonStyle(.borderedProminent)
 		}
+	}
+	
+	private func invokeRecordingPermission() async {
+		do {
+			try await streamManager.setupAudioStream()
+		}
+		catch {
+			Logger.viewModels.error("Recording permission declined")
+			
+			// https://stackoverflow.com/a/78740238
+			// i seriously have to use NSAlert for this?
+			
+			let alert = showPermissionAlert()
+			if alert.runModal() == . alertFirstButtonReturn {
+			NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture")!)
+			}
+		}
+	}
+	
+	private func showPermissionAlert() -> NSAlert {
+		let alert = NSAlert()
+		alert.messageText = "Permission Request"
+		alert.alertStyle = .informational
+		alert.informativeText = "RM2000 requires permission to record the screen in order to grab system audio."
+		alert.addButton(withTitle: "Open System Settings")
+		alert.addButton(withTitle: "Quit")
+		return alert
 	}
 }
 
@@ -97,7 +135,7 @@ struct WelcomeView:View {
 }
 
 struct OnboardingView: View {
-	
+		
 	@ObservedObject var viewModel: OnboardingViewModel
 	
 	var body: some View {

@@ -21,7 +21,7 @@ struct rm2000: App {
 		
 		Window("Welcome", id: "onboarding") {
 			OnboardingView(viewModel: OnboardingViewModel())
-			.frame(maxWidth: 400)
+			.frame(maxWidth: 600, minHeight: 600)
 			
 		}
 		.windowResizability(.contentSize)
