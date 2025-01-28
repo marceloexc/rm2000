@@ -10,7 +10,7 @@ struct rm2000: App {
 				ContentView()
 					.environmentObject(recordingState)
         }
-		MenuBarExtra("RP2000 Portable", systemImage: "recordingtape") {
+		MenuBarExtra("RM2000 Portable", systemImage: "recordingtape") {
 			MenuBarView()
 				.environmentObject(recordingState)
 		}
