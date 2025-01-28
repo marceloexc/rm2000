@@ -69,7 +69,7 @@
 		EBBBFE902CA2590100E987B1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EBBBFE922CA2593900E987B1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EBCA46E12CACBEE700040159 /* RenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameView.swift; sourceTree = "<group>"; };
-		EBE4E9442C43244D00397EF2 /* RM2000 Portable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Portable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Tape Recorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9472C43244D00397EF2 /* rm2000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000.swift; sourceTree = "<group>"; };
 		EBE4E9492C43244D00397EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EBE4E94B2C43244F00397EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		EBE4E9452C43244D00397EF2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBE4E9442C43244D00397EF2 /* RM2000 Portable.app */,
+				EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */,
 				EBE4E9552C43245000397EF2 /* rm2000Tests.xctest */,
 				EBE4E95F2C43245000397EF2 /* rm2000UITests.xctest */,
 			);
@@ -224,7 +224,7 @@
 			);
 			name = rm2000;
 			productName = replica;
-			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Portable.app */;
+			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EBE4E9542C43245000397EF2 /* rm2000Tests */ = {
@@ -514,7 +514,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = rm2000/rm2000.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -525,7 +527,7 @@
 				DEVELOPMENT_TEAM = 5L5B87F6FJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Portable";
+				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Tape Recorder";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -535,7 +537,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = "0.1 Alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.rm2000;
-				PRODUCT_NAME = "RM2000 Portable";
+				PRODUCT_NAME = "RM2000 Tape Recorder";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -546,7 +548,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = rm2000/rm2000.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -557,7 +561,7 @@
 				DEVELOPMENT_TEAM = 5L5B87F6FJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Portable";
+				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Tape Recorder";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -567,7 +571,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = "0.1 Alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.rm2000;
-				PRODUCT_NAME = "RM2000 Portable";
+				PRODUCT_NAME = "RM2000 Tape Recorder";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
