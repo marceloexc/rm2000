@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "Body Background1x.png",
+      "filename" : "Microphone1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Body Background2x.png",
+      "filename" : "Microphone2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

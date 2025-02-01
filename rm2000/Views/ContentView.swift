@@ -11,6 +11,7 @@ struct ContentView: View {
 		ZStack {
 			Image("BodyBackgroundTemp")
 				.scaledToFill()
+				.ignoresSafeArea(.all) // extend under the titlebar
 			VStack {
 				LCDScreenView()
 				
