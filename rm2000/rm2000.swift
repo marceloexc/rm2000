@@ -46,7 +46,7 @@ struct rm2000: App {
 		}
 		
 		Window("Recordings", id: "recordings-window") {
-			RecordingsView()
+			SampleBrowserView()
 		}
 		
 		Window("Welcome", id: "onboarding") {
