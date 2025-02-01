@@ -44,5 +44,21 @@ struct rm2000: App {
 			MenuBarView()
 				.environmentObject(recordingState)
 		}
+		
+		Window("Recordings", id: "recordings-window") {
+			RecordingsView()
+		}
+		
+		Window("Welcome", id: "onboarding") {
+			OnboardingView(viewModel: OnboardingViewModel())
+			.frame(maxWidth: 600, minHeight: 600)
+			
+		}
+		.windowResizability(.contentSize)
+		.windowStyle(.hiddenTitleBar)
+		
+		Settings {
+			SettingsView()
+		}
     }
 }

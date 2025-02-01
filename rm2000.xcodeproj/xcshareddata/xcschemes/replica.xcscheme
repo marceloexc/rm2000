@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EBE4E9432C43244D00397EF2"
-               BuildableName = "RM2000 Portable.app"
+               BuildableName = "RM2000 Tape Recorder.app"
                BlueprintName = "rm2000"
                ReferencedContainer = "container:rm2000.xcodeproj">
             </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBE4E9432C43244D00397EF2"
-            BuildableName = "RM2000 Portable.app"
+            BuildableName = "RM2000 Tape Recorder.app"
             BlueprintName = "rm2000"
             ReferencedContainer = "container:rm2000.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBE4E9432C43244D00397EF2"
-            BuildableName = "RM2000 Portable.app"
+            BuildableName = "RM2000 Tape Recorder.app"
             BlueprintName = "rm2000"
             ReferencedContainer = "container:rm2000.xcodeproj">
          </BuildableReference>

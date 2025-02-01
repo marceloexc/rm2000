@@ -2,6 +2,7 @@ import SwiftUI
 import OSLog
 
 struct ContentView: View {
+	@Environment(\.openWindow) var openWindow
 	@EnvironmentObject private var recordingState: TapeRecorderState
 	@State private var newSampleTitle: String = ""
 	@State private var newSampleTags: String = ""
@@ -12,18 +13,33 @@ struct ContentView: View {
 				.scaledToFill()
 			VStack {
 				LCDScreenView()
+				
 				if recordingState.isRecording {
-								Button(action: stopRecording) {
-									Image("RecordButtonActiveTemp")
-										.renderingMode(.original)
-								}
-								.buttonStyle(BorderlessButtonStyle())
-								let _ = Logger.sharedStreamState.info("Changing state in the main window")
+					ZStack {
+						Image("RecordButtonTemp")
+						
+						Button(action: stopRecording) {
+							Image("RecordButtonActiveTemp")
+								.renderingMode(.original)
+						}
+						.buttonStyle(BorderlessButtonStyle())
+						.pulseEffect()
+						
+						let _ = Logger.sharedStreamState.info("Changing state in the main window")
+					}
 				} else {
 					Button(action: startRecording) {
 						Image("RecordButtonTemp")
-					 .renderingMode(.original)
-				 }.buttonStyle(BorderlessButtonStyle())
+						 .renderingMode(.original)
+					 }.buttonStyle(BorderlessButtonStyle())
+				}
+				
+				Button("Open recordings window") {
+					openWindow(id: "recordings-window")
+				}
+				
+				Button("Open test onboarding window") {
+					openWindow(id: "onboarding")
 				}
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
@@ -78,6 +94,31 @@ struct LCDScreenView: View {
 					.foregroundColor(Color("LCDTextColor"))
 			}
 		}
+	}
+}
+
+// https:stackoverflow.com/questions/61778108/swiftui-how-to-pulsate-image-opacity
+struct PulseEffect: ViewModifier {
+	@State private var pulseIsInMaxState: Bool = true
+	private let range: ClosedRange<Double>
+	private let duration: TimeInterval
+
+	init(range: ClosedRange<Double>, duration: TimeInterval) {
+		self.range = range
+		self.duration = duration
+	}
+
+	func body(content: Content) -> some View {
+		content
+			.opacity(pulseIsInMaxState ? range.lowerBound : range.upperBound)
+			.onAppear { pulseIsInMaxState = false }
+			.animation(.easeInOut(duration: duration).repeatForever(), value: pulseIsInMaxState)
+	}
+}
+
+public extension View {
+	func pulseEffect(range: ClosedRange<Double> = 0.1...1, duration: TimeInterval = 1) -> some View  {
+		modifier(PulseEffect(range: range, duration: duration))
 	}
 }
 
