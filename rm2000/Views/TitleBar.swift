@@ -7,15 +7,16 @@ class SkeuromorphicWindow: NSWindow {
 		super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
 		
 		// basic window customizations
-		self.titlebarAppearsTransparent = false
+		self.titlebarAppearsTransparent = true
 		self.titleVisibility = .visible
-		self.styleMask.insert(.fullSizeContentView)
+
 		self.backgroundColor = .windowBackgroundColor
 		self.isMovableByWindowBackground = true
 		
 		let toolbar = NSToolbar(identifier: "MainToolbar")
 		self.toolbar = toolbar
 		self.toolbarStyle = .unified
+		self.toolbar?.showsBaselineSeparator = false
 		
 		if let zoomButton = standardWindowButton(.zoomButton) {
 			zoomButton.isHidden = true
@@ -28,10 +29,10 @@ class SkeuromorphicWindow: NSWindow {
 		
 		//omg skeuromorphism.
 		
-		let imageView = NSImageView(frame: NSRect(x: -65, y: -15, width: 140, height: 28))
+		let imageView = NSImageView(frame: NSRect(x: -66, y: -14, width: 140, height: 28))
 		
 		if let image = NSImage(named: "MicGrilleTemp") {
-			image.size = NSSize(width: 130, height: 20)
+			image.size = NSSize(width: 130, height: 19)
 			imageView.image = image
 			imageView.setAccessibilityElement(false)
 			imageView.setAccessibilityHidden(true)

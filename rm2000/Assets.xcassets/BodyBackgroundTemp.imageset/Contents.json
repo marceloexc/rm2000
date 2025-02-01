@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "Body Background_1x.png",
+      "filename" : "Body Background1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Body Background_2x.png",
+      "filename" : "Body Background2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
