@@ -19,9 +19,9 @@ private struct TaggedRecordingsView: View {
 	let selectedTag: String
 	
 	var body: some View {
-		List(viewModel.directoryContents, id: \.self) { sampleFileURL in
-			if sampleFileURL.lastPathComponent.contains(selectedTag) {
-				SampleIndividualListItem(sampleFileURL: sampleFileURL)
+		List(viewModel.sampleArray) { sample in
+			if sample.filename.contains(selectedTag) {
+				SampleIndividualListItem(sampleItem: sample)
 			}
 		}
 	}
@@ -33,10 +33,8 @@ private struct AllRecordingsView: View {
 	var body: some View {
 		Group {
 			if viewModel.finishedProcessing {
-				List(viewModel.directoryContents, id: \.self) { sampleFileURL in
-					if viewModel.passesRegex(sampleFileURL.lastPathComponent) {
-						SampleIndividualListItem(sampleFileURL: sampleFileURL)
-					}
+				List(viewModel.sampleArray) { sample in
+					SampleIndividualListItem(sampleItem: sample)
 				}
 			} else {
 				ProgressView("Loading recordings...")
@@ -46,14 +44,14 @@ private struct AllRecordingsView: View {
 }
 
 struct SampleIndividualListItem: View {
-	var sampleFileURL: URL
+	var sampleItem: Sample
 	
 	var body: some View {
 		
-		Text(sampleFileURL.lastPathComponent)
+		Text(sampleItem.filename)
 			.contextMenu {
 				Button("Open File") {
-					NSWorkspace.shared.open(sampleFileURL)
+					NSWorkspace.shared.open(sampleItem.url)
 				}
 			}
 	}
@@ -62,10 +60,10 @@ struct SampleIndividualListItem: View {
 
 #Preview("Detail View") {
 	let vm = SampleBrowserViewModel()
-	vm.directoryContents = [
-		URL(string: "file:///sample1--drums_bass.wav")!,
-		URL(string: "file:///sample2--vocals_synth.mp3")!
-	]
+//	vm.directoryContents = [
+//		URL(string: "file:///sample1--drums_bass.wav")!,
+//		URL(string: "file:///sample2--vocals_synth.mp3")!
+//	]
 	vm.finishedProcessing = true
 	return DetailView(viewModel: vm)
 }

@@ -34,7 +34,8 @@ struct SampleBrowserView: View {
 
 class SampleBrowserViewModel: ObservableObject {
 	@Published var finishedProcessing: Bool = false
-	@Published var directoryContents: [URL] = []
+	
+	@Published var sampleArray: [Sample] = []
 	@Published var indexedTags: [String] = []
 	@Published var selectedTag: String?
 	
@@ -44,25 +45,21 @@ class SampleBrowserViewModel: ObservableObject {
 		let path = WorkingDirectory.applicationSupportPath()
 		
 		do {
-			directoryContents = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+			let directoryContents = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
 			
-			for sampleFileURL in directoryContents {
-				indexedTags += getTagsFromSampleTitle(filename: sampleFileURL)
+			for fileURL in directoryContents {
+				if let sample = Sample(fileURL: fileURL) {
+					sampleArray.append(sample)
+				}
 			}
 			
+			indexedTags = sampleArray.flatMap{$0.tags}
 			indexedTags = Array(Set(indexedTags)).sorted()
 			finishedProcessing = true
 		} catch {
 			print("Error listing directory contents: \(error.localizedDescription)")
 			finishedProcessing = false
 		}
-	}
-	
-	func getTagsFromSampleTitle(filename: URL) -> [String] {
-		if let match = try? regString.firstMatch(in: filename.lastPathComponent) {
-			return String(match.2).components(separatedBy: "_")
-		}
-		return []
 	}
 	
 	func passesRegex(_ pathName: String) -> Bool {
