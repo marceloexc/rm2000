@@ -26,9 +26,10 @@ struct SampleBrowserView: View {
 				}
 			}
 		}
-		.onAppear {
+		.task {
 			viewModel.listAllRecordings()
 		}
+		.searchable(text: .constant(""), placement: .sidebar)
 	}
 }
 

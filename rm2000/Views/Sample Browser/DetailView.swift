@@ -46,11 +46,9 @@ struct AllRecordingsView: View {
 
 struct SampleIndividualListItem: View {
 	@Environment(\.openWindow) var openWindow
-	
 	var sampleItem: Sample
 	
 	var body: some View {
-		
 		HStack {
 			VStack(alignment: .leading, spacing: 4) {
 				Text(sampleItem.title)
@@ -62,9 +60,9 @@ struct SampleIndividualListItem: View {
 							.padding(2)
 							.background(Color.gray.opacity(0.2))
 							.cornerRadius(3)
-						}
 					}
 				}
+			}
 			
 			Spacer()
 			
@@ -77,16 +75,18 @@ struct SampleIndividualListItem: View {
 				.buttonStyle(.automatic)
 				.controlSize(.small)
 			}
-			
-			.contextMenu {
-				Button("Open File") {
-					NSWorkspace.shared.open(sampleItem.url)
-				}
+		}
+		.contentShape(Rectangle())
+		.onTapGesture(count: 2) {
+			NSWorkspace.shared.open(sampleItem.url)
+		}
+		.contextMenu {
+			Button("Open File") {
+				NSWorkspace.shared.open(sampleItem.url)
 			}
 		}
 	}
 }
-
 
 #Preview("Detail View") {
 	let vm = SampleBrowserViewModel()
