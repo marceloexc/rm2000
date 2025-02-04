@@ -27,7 +27,7 @@ private struct TaggedRecordingsView: View {
 	}
 }
 
-private struct AllRecordingsView: View {
+struct AllRecordingsView: View {
 	@ObservedObject var viewModel: SampleBrowserViewModel
 	
 	var body: some View {

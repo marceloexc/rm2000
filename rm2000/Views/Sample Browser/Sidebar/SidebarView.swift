@@ -5,6 +5,11 @@ struct SidebarView: View {
 	
 	var body: some View {
 		List(selection: $viewModel.selectedTag) {
+			NavigationLink {
+				AllRecordingsView(viewModel: viewModel)
+			} label: {
+				Label("All Recordings", systemImage: "waveform.path")
+			}
 			Section(header: Text("Available tags")) {
 				ForEach(viewModel.indexedTags, id: \.self) { tagName in
 					NavigationLink(value: tagName) {
