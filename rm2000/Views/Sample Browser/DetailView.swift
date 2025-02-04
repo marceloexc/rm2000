@@ -36,6 +36,7 @@ struct AllRecordingsView: View {
 				List(viewModel.sampleArray) { sample in
 					SampleIndividualListItem(sampleItem: sample)
 				}
+				.listStyle(.plain)
 			} else {
 				ProgressView("Loading recordings...")
 			}
@@ -44,16 +45,45 @@ struct AllRecordingsView: View {
 }
 
 struct SampleIndividualListItem: View {
+	@Environment(\.openWindow) var openWindow
+	
 	var sampleItem: Sample
 	
 	var body: some View {
 		
-		Text(sampleItem.filename)
+		HStack {
+			VStack(alignment: .leading, spacing: 4) {
+				Text(sampleItem.title)
+					.font(.title3)
+				HStack(spacing: 8) {
+					ForEach(sampleItem.tags, id:\.self) { tagName in
+						Text("#"+tagName)
+							.font(.caption)
+							.padding(2)
+							.background(Color.gray.opacity(0.2))
+							.cornerRadius(3)
+						}
+					}
+				}
+			
+			Spacer()
+			
+			HStack {
+				Button {
+					openWindow(id: "inspector")
+				} label: {
+					Image(systemName: "info.circle.fill")
+				}
+				.buttonStyle(.automatic)
+				.controlSize(.small)
+			}
+			
 			.contextMenu {
 				Button("Open File") {
 					NSWorkspace.shared.open(sampleItem.url)
 				}
 			}
+		}
 	}
 }
 
@@ -68,3 +98,15 @@ struct SampleIndividualListItem: View {
 	return DetailView(viewModel: vm)
 }
 
+#Preview("Sample Browser") {
+	let vm = SampleBrowserViewModel()
+//	uncomment this if you need data
+//	vm.directoryContents = [
+//		URL(string: "file:///sample1--drums_bass.wav")!,
+//		URL(string: "file:///sample2--vocals_synth.mp3")!,
+//		URL(string: "file:///sample3--drums_effects.aiff")!
+//	]
+//	vm.indexedTags = ["drums", "bass", "vocals", "synth", "effects"]
+	vm.finishedProcessing = true
+	return SampleBrowserView(viewModel: vm)
+}

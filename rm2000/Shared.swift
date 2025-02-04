@@ -12,6 +12,7 @@ struct Sample: Identifiable {
 	let tags: [String]
 	let url: URL
 	let filename: String
+	let description: String?
 	let duration: TimeInterval?
 	
 	
@@ -27,12 +28,13 @@ struct Sample: Identifiable {
 		self.tags = Sample.getTags(fileURL: fileURL)
 		self.url = fileURL
 		self.filename = fileURL.lastPathComponent
+		self.description = ""
 		self.duration = Sample.getDuration(fileURL: fileURL)
 	}
 	
 	private static func getTitle(fileURL: URL) -> String {
 		if let match = try? regString.firstMatch(in: fileURL.lastPathComponent) {
-			return String(match.0)
+			return String(match.1)
 		}
 		return ""
 	}
