@@ -251,6 +251,8 @@
 			dependencies = (
 			);
 			name = rm2000;
+			packageProductDependencies = (
+			);
 			productName = replica;
 			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */;
 			productType = "com.apple.product-type.application";
@@ -323,6 +325,9 @@
 				Base,
 			);
 			mainGroup = EBE4E93B2C43244D00397EF2;
+			packageReferences = (
+				EBBF220A2D55664200B6ABDB /* XCRemoteSwiftPackageReference "FZMetadata" */,
+			);
 			productRefGroup = EBE4E9452C43244D00397EF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -718,6 +723,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBBF220A2D55664200B6ABDB /* XCRemoteSwiftPackageReference "FZMetadata" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/flocked/FZMetadata.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = EBE4E93C2C43244D00397EF2 /* Project object */;
 }
