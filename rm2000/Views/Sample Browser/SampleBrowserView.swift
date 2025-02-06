@@ -18,11 +18,16 @@ struct SampleBrowserView: View {
 			DetailView(viewModel: viewModel)
 		}
 		.toolbar {
-			ToolbarItemGroup(placement: .automatic) {
-				Button(action: {
-					NSWorkspace.shared.open(WorkingDirectory.applicationSupportPath())
-				}) {
-					Image(systemName: "folder")
+			ToolbarItemGroup(placement: .status) {
+				NewRecordingButton()
+				ShareButton()
+				NewCollectionButton()
+			}
+			
+			ToolbarItem(placement: .automatic) {
+				HStack {
+					Spacer(minLength: 40)
+					OpenInFinderButton()
 				}
 			}
 		}
@@ -30,6 +35,69 @@ struct SampleBrowserView: View {
 			viewModel.listAllRecordings()
 		}
 		.searchable(text: .constant(""), placement: .sidebar)
+	}
+}
+
+struct OpenInFinderButton: View {
+	var body: some View {
+		Button(action: {
+			NSWorkspace.shared.open(WorkingDirectory.applicationSupportPath())
+		}) {
+			Image(systemName: "folder.fill")
+				.font(.system(size: 16, weight: .black))
+				.foregroundColor(.blue)
+				.padding(8)
+				.contentShape(Rectangle())		}
+		.buttonStyle(PlainButtonStyle())
+		.help("Open in Finder")
+	}
+}
+
+struct NewRecordingButton: View {
+	var body: some View {
+		Button(action: {
+			let _ = print("new recording")
+		}) {
+			Image(systemName: "waveform.badge.plus")
+				.font(.system(size: 16, weight: .black))
+				.foregroundColor(.green)
+				.padding(8)
+				.contentShape(Rectangle())
+		}
+		.buttonStyle(PlainButtonStyle())
+		.help("New Recording")
+	}
+}
+
+struct ShareButton : View {
+	var body: some View {
+		Button(action: {
+			let _ = print("share button")
+		}) {
+			Image(systemName: "square.and.arrow.up")
+				.font(.system(size: 16, weight: .black))
+				.foregroundColor(.orange)
+				.padding(8)
+				.contentShape(Rectangle())
+		}
+		.buttonStyle(PlainButtonStyle())
+		.help("New Recording")
+	}
+}
+
+struct NewCollectionButton: View {
+	var body: some View {
+		Button(action: {
+			let _ = print("share button")
+		}) {
+			Image(systemName: "rectangle.stack.fill.badge.plus")
+				.font(.system(size: 16, weight: .black))
+				.foregroundColor(.purple)
+				.padding(8)
+				.contentShape(Rectangle())
+		}
+		.buttonStyle(PlainButtonStyle())
+		.help("New Recording")
 	}
 }
 
