@@ -45,8 +45,8 @@ struct ContentView: View {
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
 				RenameView(currentFilename: recordingState.currentSampleFilename ?? "",
-						   inputNewSampleFilename: $newSampleTitle,
-						   inputNewSampleTags: $newSampleTags,
+						   newTitle: $newSampleTitle,
+						   newTags: $newSampleTags,
 						   onRename: renameRecording)
 			})
 		}

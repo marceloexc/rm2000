@@ -3,18 +3,19 @@ import SwiftUI
 struct RenameView: View {
 	
 	let currentFilename: String
-	@Binding var inputNewSampleFilename: String
-	@Binding var inputNewSampleTags: String
-	var inputNewSampleDescription: String?
+	@Binding var newTitle: String
+	@Binding var newTags: String
+	var newDescription: String?
 	var onRename: () -> Void
 	
 	
 	private var previewFilename: String {
-		let metadata = SampleFilenameStructure(sampleTitle: inputNewSampleFilename, sampleTags: inputNewSampleTags)
+		let metadata = SampleFilenameStructure(sampleTitle: newTitle, sampleTags: newTags)
 		return metadata.generatePreviewFilename()
 	}
 	
 	var body: some View {
+		ScrollView {
 			VStack(alignment: .leading, spacing: 12) {
 				Text("Rename Recording")
 					.font(.headline)
@@ -23,7 +24,7 @@ struct RenameView: View {
 					Text("Title")
 						.font(.caption)
 						.foregroundColor(.secondary)
-					TextField("New Filename", text: $inputNewSampleFilename)
+					TextField("New Filename", text: $newTitle)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
 				}
 				
@@ -31,20 +32,42 @@ struct RenameView: View {
 					Text("Tags (comma-separated)")
 						.font(.caption)
 						.foregroundColor(.secondary)
-					TextField("Enter Tags", text: $inputNewSampleTags)
+					TextField("Enter Tags", text: $newTags)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
 				}
-				
-				VStack(alignment: .leading, spacing: 4) {
-					Text("Description (optional)")
-						.font(.caption)
-						.foregroundColor(.secondary)
-					TextEditor(text: .constant("Placeholder"))
-						.font(.system(size: 14, weight: .medium, design: .rounded)) // Uses a rounded, medium-weight system font
-						.lineSpacing(10) // Sets the line spacing to 10 points
-						.border(Color.gray, width: 1)
+				DisclosureGroup("Additional Settings") {
+					VStack(alignment: .leading, spacing: 4) {
+						Text("Description (optional)")
+							.font(.caption)
+							.foregroundColor(.secondary)
+						TextEditor(text: .constant("Placeholder"))
+							.font(.system(size: 14, weight: .medium, design: .rounded)) // Uses a rounded, medium-weight system font
+							.lineSpacing(10) // Sets the line spacing to 10 points
+							.border(Color.gray, width: 1)
+						
+						Text("Convert Format")
+							.font(.caption)
+							.foregroundColor(.secondary)
+						Menu {
+							Button {
+								// do something
+							} label: {
+								Text("Linear")
+								Image(systemName: "arrow.down.right.circle")
+							}
+							Button {
+								// do something
+							} label: {
+								Text("Radial")
+								Image(systemName: "arrow.up.and.down.circle")
+							}
+						} label: {
+							Text("Style")
+							Image(systemName: "tag.circle")
+						}
+						
+					}.padding(.top, 8)
 				}
-				
 				VStack(alignment: .leading, spacing: 4) {
 					Text("Preview:")
 						.font(.caption)
@@ -66,15 +89,18 @@ struct RenameView: View {
 				.padding(.top, 8)
 			}
 			.padding()
-			.frame(maxWidth: 400)
+			.frame(minWidth: 350, maxWidth: 400, minHeight: 400)
 		}
+	}
 }
+
+
 
 #Preview {
 	RenameView(
 		currentFilename: "SampleFile.wav",
-		inputNewSampleFilename: .constant("NewSample"),
-		inputNewSampleTags: .constant("tag1, tag2"), inputNewSampleDescription: "",
+		newTitle: .constant("NewSample"),
+		newTags: .constant("tag1, tag2"), newDescription: "",
 		onRename: {}
 	)
 }
