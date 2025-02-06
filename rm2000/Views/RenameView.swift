@@ -5,6 +5,7 @@ struct RenameView: View {
 	let currentFilename: String
 	@Binding var inputNewSampleFilename: String
 	@Binding var inputNewSampleTags: String
+	var inputNewSampleDescription: String?
 	var onRename: () -> Void
 	
 	
@@ -35,6 +36,16 @@ struct RenameView: View {
 				}
 				
 				VStack(alignment: .leading, spacing: 4) {
+					Text("Description (optional)")
+						.font(.caption)
+						.foregroundColor(.secondary)
+					TextEditor(text: .constant("Placeholder"))
+						.font(.system(size: 14, weight: .medium, design: .rounded)) // Uses a rounded, medium-weight system font
+						.lineSpacing(10) // Sets the line spacing to 10 points
+						.border(Color.gray, width: 1)
+				}
+				
+				VStack(alignment: .leading, spacing: 4) {
 					Text("Preview:")
 						.font(.caption)
 						.foregroundColor(.secondary)
@@ -55,11 +66,15 @@ struct RenameView: View {
 				.padding(.top, 8)
 			}
 			.padding()
-			.frame(minWidth: 400)
+			.frame(maxWidth: 400)
 		}
 }
 
 #Preview {
-	ContentView()
-		.environmentObject(TapeRecorderState())
+	RenameView(
+		currentFilename: "SampleFile.wav",
+		inputNewSampleFilename: .constant("NewSample"),
+		inputNewSampleTags: .constant("tag1, tag2"), inputNewSampleDescription: "",
+		onRename: {}
+	)
 }
