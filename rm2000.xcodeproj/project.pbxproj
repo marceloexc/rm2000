@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB13CF402D31A36400E2EC4B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */; };
 		EB15650F2D55879D00A3D339 /* FZMetadata in Frameworks */ = {isa = PBXBuildFile; productRef = EB15650E2D55879D00A3D339 /* FZMetadata */; };
+		EB1565122D558F2100A3D339 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1565112D558F1F00A3D339 /* Sample.swift */; };
 		EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4467CB2D07C52F000DDE5A /* SampleBrowserView.swift */; };
 		EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB516E3E2CB75BD100A1C1E6 /* README.md */; };
 		EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		EB1565112D558F1F00A3D339 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		EB4467CB2D07C52F000DDE5A /* SampleBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBrowserView.swift; sourceTree = "<group>"; };
 		EB516E3D2CB75BC300A1C1E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB516E3E2CB75BD100A1C1E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -81,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB1565102D558F0700A3D339 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EB1565112D558F1F00A3D339 /* Sample.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		EB8313EF2D4DCCD200B343FF /* Sample Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EB1565102D558F0700A3D339 /* Models */,
 				EB91DD322CE3135A00F1C37E /* External Assets */,
 				EB516E3E2CB75BD100A1C1E6 /* README.md */,
 				EBBBFE892CA2514800E987B1 /* Tape Mechanism */,
@@ -297,6 +308,7 @@
 				EB13CF402D31A36400E2EC4B /* OnboardingView.swift in Sources */,
 				EB8313F42D4DF59700B343FF /* DetailView.swift in Sources */,
 				EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */,
+				EB1565122D558F2100A3D339 /* Sample.swift in Sources */,
 				EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
