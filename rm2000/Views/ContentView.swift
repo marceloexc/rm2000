@@ -4,6 +4,7 @@ import OSLog
 struct ContentView: View {
 	@Environment(\.openWindow) var openWindow
 	@EnvironmentObject private var recordingState: TapeRecorderState
+//	@State private var sampleSavedAs: Sample
 	@State private var newSampleTitle: String = ""
 	@State private var newSampleTags: String = ""
 
@@ -44,10 +45,10 @@ struct ContentView: View {
 				}
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
-				RenameView(currentFilename: recordingState.currentSampleFilename ?? "",
+				EditSampleView(currentFilename: recordingState.currentSampleFilename ?? "",
 						   newTitle: $newSampleTitle,
 						   newTags: $newSampleTags,
-						   onRename: renameRecording)
+						   onEdit: renameRecording)
 			})
 		}
 	}

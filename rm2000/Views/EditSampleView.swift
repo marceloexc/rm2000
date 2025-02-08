@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct RenameView: View {
+struct EditSampleView: View {
 	
 	let currentFilename: String
 	@Binding var newTitle: String
 	@Binding var newTags: String
 	var newDescription: String?
-	var onRename: () -> Void
+	var onEdit: () -> Void
 	
 	
 	private var previewFilename: String {
@@ -80,7 +80,7 @@ struct RenameView: View {
 				}
 				.padding(.top, 8)
 				
-				Button(action: onRename) {
+				Button(action: onEdit) {
 					Text("Rename")
 						.frame(maxWidth: .infinity)
 						.padding(.vertical, 8)
@@ -89,7 +89,7 @@ struct RenameView: View {
 				.padding(.top, 8)
 			}
 			.padding()
-			.frame(minWidth: 350, maxWidth: 400, minHeight: 400)
+			.frame(minWidth: 350, maxWidth: 400, minHeight: 300)
 		}
 	}
 }
@@ -97,10 +97,10 @@ struct RenameView: View {
 
 
 #Preview {
-	RenameView(
+	EditSampleView(
 		currentFilename: "SampleFile.wav",
 		newTitle: .constant("NewSample"),
 		newTags: .constant("tag1, tag2"), newDescription: "",
-		onRename: {}
+		onEdit: {}
 	)
 }
