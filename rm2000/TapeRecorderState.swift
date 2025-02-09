@@ -18,16 +18,10 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 				self.isRecording = true
 			}
 			
-			let tempFilename = UUID().uuidString + ".aac"
+			let recording = StagedSample()
+			currentSampleFilename = recording.getFilepath().lastPathComponent
 			
-			let fileManager = FileManager.default
-			let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-			let directoryURL = appSupportURL.appendingPathComponent("com.marceloexc.rm2000")
-			try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
-			let fileURL = directoryURL.appendingPathComponent(tempFilename)
-			currentSampleFilename = tempFilename
-			
-			await recorder.startRecording(to: fileURL)
+			await recorder.startRecording(to: recording.getFilepath())
 		}
 	}
 	
@@ -37,7 +31,8 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	}
 		
 //	TODO - does this belong in taperecorderstate?
-	func renameRecording(to newTitle: String, newTags: String) {
+//	TODO - change the args for this (from StagedSample to NewSample)
+	func applySampleEdits(to newTitle: String, newTags: String) {
 		guard let oldFilename = currentSampleFilename else {
 			Logger.sharedStreamState.error("No current recording to rename!")
 			return

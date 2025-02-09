@@ -62,7 +62,7 @@ struct ContentView: View {
 	}
 	
 	private func renameRecording() {
-		recordingState.renameRecording(to: newSampleTitle, newTags: newSampleTags)
+		recordingState.applySampleEdits(to: newSampleTitle, newTags: newSampleTags)
 	}
 }
 
