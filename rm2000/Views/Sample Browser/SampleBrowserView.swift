@@ -130,10 +130,6 @@ class SampleBrowserViewModel: ObservableObject {
 			finishedProcessing = false
 		}
 	}
-	
-	func passesRegex(_ pathName: String) -> Bool {
-		(try? regString.wholeMatch(in: pathName)) != nil
-	}
 }
 
 

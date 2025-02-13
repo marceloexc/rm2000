@@ -2,16 +2,23 @@ import SwiftUI
 
 struct EditSampleView: View {
 	
-	let currentFilename: String
-	@Binding var newTitle: String
-	@Binding var newTags: String
-	var newDescription: String?
-	var onEdit: () -> Void
+	@State private var title: String
+	@State private var tags: String
+	@State private var description: String
+
+	private let newRecording: NewRecording
+	private let onComplete: (StagedSample) -> Void
 	
+	init(newRecording: NewRecording, onComplete: @escaping (StagedSample) -> Void) {
+		self.newRecording = newRecording
+		self.onComplete = onComplete
+		_title = State(initialValue: "")
+		_tags = State(initialValue: "")
+		_description = State(initialValue: "")
+	}
 	
 	private var previewFilename: String {
-		let metadata = SampleFilenameStructure(sampleTitle: newTitle, sampleTags: newTags)
-		return metadata.generatePreviewFilename()
+		return "fuck you"
 	}
 	
 	var body: some View {
@@ -24,7 +31,7 @@ struct EditSampleView: View {
 					Text("Title")
 						.font(.caption)
 						.foregroundColor(.secondary)
-					TextField("New Filename", text: $newTitle)
+					TextField("New Filename", text: $title)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
 				}
 				
@@ -32,7 +39,7 @@ struct EditSampleView: View {
 					Text("Tags (comma-separated)")
 						.font(.caption)
 						.foregroundColor(.secondary)
-					TextField("Enter Tags", text: $newTags)
+					TextField("Enter Tags", text: $tags)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
 				}
 				DisclosureGroup("Additional Settings") {
@@ -80,11 +87,16 @@ struct EditSampleView: View {
 				}
 				.padding(.top, 8)
 				
-				Button(action: onEdit) {
-					Text("Rename")
-						.frame(maxWidth: .infinity)
-						.padding(.vertical, 8)
+				Button("Save Sample") {
+					let staged = StagedSample(newRecording: newRecording, title: title, tags: tags, description: description)
+					onComplete(staged)
 				}
+				
+//				Button(action: onEdit) {
+//					Text("Rename")
+//						.frame(maxWidth: .infinity)
+//						.padding(.vertical, 8)
+//				}
 				.buttonStyle(.borderedProminent)
 				.padding(.top, 8)
 			}
@@ -92,15 +104,19 @@ struct EditSampleView: View {
 			.frame(minWidth: 350, maxWidth: 400, minHeight: 300)
 		}
 	}
+	
+//	private func constructSampleFromDataProvided(_ title: String, tags: [String], description: String) -> Sample {
+//		return Sample(fileURL: <#URL#>, title: title, tags: [String], description: tags)
+//	}
 }
 
 
 
-#Preview {
-	EditSampleView(
-		currentFilename: "SampleFile.wav",
-		newTitle: .constant("NewSample"),
-		newTags: .constant("tag1, tag2"), newDescription: "",
-		onEdit: {}
-	)
-}
+//#Preview {
+//	EditSampleView(
+//		currentFilename: "SampleFile.wav",
+//		newTitle: .constant("NewSample"),
+//		newTags: .constant("tag1, tag2"), newDescription: "",
+//		onEdit: {}
+//	)
+//}

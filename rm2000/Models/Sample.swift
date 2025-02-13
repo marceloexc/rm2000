@@ -12,6 +12,9 @@ struct Sample: Identifiable {
 	let url: URL
 	let filename: String
 
+	// optionals, dont process them right away on Sample(:_) initialization until they are called
+	// because these are a bit slow
+	// and its faster to get the durations of an array of Sample's with FZMetadata
 	var description: String? {
 		Sample.getDescription(fileURL: url)
 	}

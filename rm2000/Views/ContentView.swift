@@ -4,9 +4,6 @@ import OSLog
 struct ContentView: View {
 	@Environment(\.openWindow) var openWindow
 	@EnvironmentObject private var recordingState: TapeRecorderState
-//	@State private var sampleSavedAs: Sample
-	@State private var newSampleTitle: String = ""
-	@State private var newSampleTags: String = ""
 
 	var body: some View {
 		ZStack {
@@ -32,8 +29,8 @@ struct ContentView: View {
 				} else {
 					Button(action: startRecording) {
 						Image("RecordButtonTemp")
-						 .renderingMode(.original)
-					 }.buttonStyle(BorderlessButtonStyle())
+							.renderingMode(.original)
+					}.buttonStyle(BorderlessButtonStyle())
 				}
 				
 				Button("Open recordings window") {
@@ -44,12 +41,18 @@ struct ContentView: View {
 					openWindow(id: "onboarding")
 				}
 			}
-			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
-				EditSampleView(currentFilename: recordingState.currentSampleFilename ?? "",
-						   newTitle: $newSampleTitle,
-						   newTags: $newSampleTags,
-						   onEdit: renameRecording)
-			})
+			
+//			TODO this variable does not belong in recordingState but instead in this cv
+			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow) {
+				if let newRecording = recordingState.activeRecording {
+					EditSampleView(newRecording: newRecording) { stagedSample in
+						// Handle the completion of editing
+						recordingState.stagedSample = stagedSample
+						recordingState.applySampleEdits(from: recordingState.stagedSample!)
+//						$recordingState.showRenameDialogInMainWindow = false // Dismiss the sheet
+					}
+				}
+			}
 		}
 	}
 	
@@ -61,9 +64,6 @@ struct ContentView: View {
 		recordingState.stopRecording()
 	}
 	
-	private func renameRecording() {
-		recordingState.applySampleEdits(to: newSampleTitle, newTags: newSampleTags)
-	}
 }
 
 struct LCDScreenView: View {
