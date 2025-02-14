@@ -12,8 +12,14 @@ struct ContentView: View {
 			Image("BodyBackgroundTemp")
 				.scaledToFill()
 				.ignoresSafeArea(.all) // extend under the titlebar
-			VStack {
+			VStack(spacing:10) {
 				LCDScreenView()
+					.padding(.top, -45)
+				
+				HStack(spacing: 5) {
+					UtilityButtons()
+				}
+				.padding(.top, -5)
 				
 				if recordingState.isRecording {
 					ZStack {
@@ -23,7 +29,7 @@ struct ContentView: View {
 							Image("RecordButtonActiveTemp")
 								.renderingMode(.original)
 						}
-						.buttonStyle(BorderlessButtonStyle())
+						.buttonStyle(AnimatedButtonStyle())
 						.pulseEffect()
 						
 						let _ = Logger.sharedStreamState.info("Changing state in the main window")
@@ -32,16 +38,9 @@ struct ContentView: View {
 					Button(action: startRecording) {
 						Image("RecordButtonTemp")
 						 .renderingMode(.original)
-					 }.buttonStyle(BorderlessButtonStyle())
+					}.buttonStyle(AnimatedButtonStyle())
 				}
-				
-				Button("Open recordings window") {
-					openWindow(id: "recordings-window")
-				}
-				
-				Button("Open test onboarding window") {
-					openWindow(id: "onboarding")
-				}
+
 			}
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
 				RenameView(currentFilename: recordingState.currentSampleFilename ?? "",
@@ -73,7 +72,7 @@ struct LCDScreenView: View {
 			Image("LCDScreenEmptyTemp")
 				.resizable()
 				.scaledToFit()
-				.frame(width: 286)
+				.frame(width: 300)
 				.offset(x:0, y:0)
 
 			VStack {
@@ -95,6 +94,41 @@ struct LCDScreenView: View {
 					.foregroundColor(Color("LCDTextColor"))
 			}
 		}
+	}
+}
+
+struct UtilityButtons: View {
+	@Environment(\.openWindow) var openWindow
+	@State private var isPressed = false
+
+	var body: some View {
+		Button(action: {
+			print("Settings Button pressed")
+		}) {
+			Image("SettingsButton")
+		}
+		.buttonStyle(AnimatedButtonStyle())
+		
+		Button(action: { openWindow(id: "recordings-window") }) {
+			Image("FolderButton")
+				.renderingMode(.original)
+		}									.buttonStyle(AnimatedButtonStyle())
+
+		Button(action: {
+			print("Source Button pressed")
+		}) {
+			Image("SourceButton")
+		}
+		.buttonStyle(AnimatedButtonStyle())
+	}
+}
+
+struct AnimatedButtonStyle: ButtonStyle {
+	func makeBody(configuration: Configuration) -> some View {
+		configuration.label
+			.background(.clear)
+			.scaleEffect(configuration.isPressed ? 0.94 : 1.0)
+			.animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
 	}
 }
 
