@@ -99,12 +99,11 @@ struct LCDScreenView: View {
 
 struct UtilityButtons: View {
 	@Environment(\.openWindow) var openWindow
+	@Environment(\.openSettingsLegacy) private var openSettingsLegacy
 	@State private var isPressed = false
 
 	var body: some View {
-		Button(action: {
-			print("Settings Button pressed")
-		}) {
+		Button(action: { try? openSettingsLegacy() }) {
 			Image("SettingsButton")
 		}
 		.buttonStyle(AnimatedButtonStyle())
@@ -114,9 +113,7 @@ struct UtilityButtons: View {
 				.renderingMode(.original)
 		}									.buttonStyle(AnimatedButtonStyle())
 
-		Button(action: {
-			print("Source Button pressed")
-		}) {
+		Button(action: { print("Source Button pressed")}) {
 			Image("SourceButton")
 		}
 		.buttonStyle(AnimatedButtonStyle())

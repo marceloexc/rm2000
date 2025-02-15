@@ -1,4 +1,5 @@
 import SwiftUI
+import SettingsAccess
 
 class WindowController: NSWindowController {
 	override func windowDidLoad() {
@@ -21,6 +22,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		let contentView = ContentView()
 			.environmentObject(recordingState)
+			.openSettingsAccess()
 		
 		window.contentView = NSHostingView(rootView: contentView)
 		
