@@ -14,6 +14,7 @@ struct ContentView: View {
 				.ignoresSafeArea(.all) // extend under the titlebar
 			VStack(spacing:10) {
 				LCDScreenView()
+					.frame(height: 225)
 					.padding(.top, -45)
 				
 				HStack(spacing: 5) {
@@ -74,6 +75,9 @@ struct LCDScreenView: View {
 				.scaledToFit()
 				.frame(width: 300)
 				.offset(x:0, y:0)
+			Image("LCDOuterGlow")
+				.resizable()
+				.frame(width: 330)
 
 			VStack {
 				if recordingState.isRecording {
