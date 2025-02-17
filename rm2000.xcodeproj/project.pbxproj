@@ -31,6 +31,7 @@
 		EBCF5FEC2CEAD8950047405A /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF5FEB2CEAD8950047405A /* TitleBar.swift */; };
 		EBDBE35B2D58275A004E807F /* StagedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35A2D58273F004E807F /* StagedSample.swift */; };
 		EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35C2D583606004E807F /* NewRecording.swift */; };
+		EBDBF5EF2D63E037004E807F /* SettingsAccess in Frameworks */ = {isa = PBXBuildFile; productRef = EBDBF5EE2D63E037004E807F /* SettingsAccess */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
 		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
 		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB15650F2D55879D00A3D339 /* FZMetadata in Frameworks */,
+				EBDBF5EF2D63E037004E807F /* SettingsAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +233,7 @@
 			name = rm2000;
 			packageProductDependencies = (
 				EB15650E2D55879D00A3D339 /* FZMetadata */,
+				EBDBF5EE2D63E037004E807F /* SettingsAccess */,
 			);
 			productName = replica;
 			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */;
@@ -262,6 +265,7 @@
 			mainGroup = EBE4E93B2C43244D00397EF2;
 			packageReferences = (
 				EB15650D2D55879D00A3D339 /* XCLocalSwiftPackageReference "../../../Downloads/FZMetadata-main" */,
+				EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */,
 			);
 			productRefGroup = EBE4E9452C43244D00397EF2 /* Products */;
 			projectDirPath = "";
@@ -542,10 +546,26 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/orchetect/SettingsAccess";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		EB15650E2D55879D00A3D339 /* FZMetadata */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FZMetadata;
+		};
+		EBDBF5EE2D63E037004E807F /* SettingsAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */;
+			productName = SettingsAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
