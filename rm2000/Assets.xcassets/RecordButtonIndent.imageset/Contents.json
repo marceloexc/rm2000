@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "RecordButtonActive_1x.png",
+      "filename" : "RecordButtonIndent_1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "RecordButtonActive_2x.png",
+      "filename" : "RecordButtonIndent_2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

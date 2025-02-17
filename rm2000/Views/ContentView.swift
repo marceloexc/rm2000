@@ -23,23 +23,9 @@ struct ContentView: View {
 				.padding(.top, -5)
 				
 				if recordingState.isRecording {
-					ZStack {
-						Image("RecordButtonTemp")
-						
-						Button(action: stopRecording) {
-							Image("RecordButtonActiveTemp")
-								.renderingMode(.original)
-						}
-						.buttonStyle(AnimatedButtonStyle())
-						.pulseEffect()
-						
-						let _ = Logger.sharedStreamState.info("Changing state in the main window")
-					}
+					ActiveRecordButton(onPress: stopRecording)
 				} else {
-					Button(action: startRecording) {
-						Image("RecordButtonTemp")
-						 .renderingMode(.original)
-					}.buttonStyle(AnimatedButtonStyle())
+					StandbyRecordButton(onPress: startRecording)
 				}
 
 			}
@@ -130,6 +116,55 @@ struct AnimatedButtonStyle: ButtonStyle {
 			.background(.clear)
 			.scaleEffect(configuration.isPressed ? 0.94 : 1.0)
 			.animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
+	}
+}
+
+struct StandbyRecordButton: View {
+	var onPress: () -> Void
+	
+	var body: some View {
+		ZStack {
+			Image("RecordButtonIndent")
+			Image("RecordButtonTemp")
+			Image("RecordButtonGlow")
+			
+			Button(action: onPress) {
+				Rectangle()
+				// stupid fucking hack below
+				// i cant have opactiy(0) on a button, because then that disables it completely
+				// it needs to be transparent becuase the images _are_ the buttons.
+				
+				// i still think having assets in lieu of skeuemorphic elements are really cheap
+				// (hinders actual reactivity and im at the mercy of exporting everything from sketch),
+				// but i still havent learned core animation / CALayers yet, so this will do...
+					.fill(Color.white.opacity(0.001))
+					.frame(width: 70, height: 70)
+			}
+			.buttonStyle(AnimatedButtonStyle())
+		}
+		.frame(height:80)
+	}
+}
+
+struct ActiveRecordButton: View {
+	var onPress: () -> Void
+
+	var body: some View {
+		ZStack {
+			Image("RecordButtonIndent")
+			Image("RecordButtonTemp")
+			Image("RecordButtonActiveTemp")
+				.pulseEffect()
+			Image("RecordButtonGlow")
+			
+			Button(action: onPress) {
+				Rectangle()
+					.fill(Color.white.opacity(0.001)) //stupid hack again
+					.frame(width: 70, height: 70)
+			}
+			.buttonStyle(AnimatedButtonStyle())
+		}
+		.frame(height:80)
 	}
 }
 
