@@ -48,13 +48,17 @@ struct rm2000: App {
 		}
 		
 		Window("Recordings", id: "recordings-window") {
-			RecordingsView()
-		}
-		
-		Window("Welcome", id: "onboarding") {
+			SampleBrowserView()
+		}.windowToolbarStyle(.unifiedCompact)
+
+		WindowGroup("Welcome", id: "onboarding") {
 			OnboardingView(viewModel: OnboardingViewModel())
 			.frame(maxWidth: 600, minHeight: 600)
 			
+		}
+		
+		WindowGroup("Inspector", id: "inspector") {
+			InspectorView()
 		}
 		.windowResizability(.contentSize)
 		.windowStyle(.hiddenTitleBar)
