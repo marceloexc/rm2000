@@ -49,8 +49,8 @@ struct rm2000: App {
 		
 		Window("Recordings", id: "recordings-window") {
 			SampleBrowserView()
-		}
-		
+		}.windowToolbarStyle(.unifiedCompact)
+
 		WindowGroup("Welcome", id: "onboarding") {
 			OnboardingView(viewModel: OnboardingViewModel())
 			.frame(maxWidth: 600, minHeight: 600)

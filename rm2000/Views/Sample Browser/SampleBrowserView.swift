@@ -5,6 +5,8 @@ struct SampleBrowserView: View {
 	@StateObject private var viewModel: SampleBrowserViewModel
 	@Environment(\.openURL) private var openURL
 	
+	@State private var totalSamples: Int = 0
+	
 	init(viewModel: SampleBrowserViewModel = SampleBrowserViewModel()) {
 		_viewModel = StateObject(wrappedValue: viewModel)
 	}
@@ -13,26 +15,22 @@ struct SampleBrowserView: View {
 		NavigationSplitView {
 			SidebarView(viewModel: viewModel)
 				.listStyle(SidebarListStyle())
-				.navigationTitle("Recordings")
 		} detail: {
 			DetailView(viewModel: viewModel)
 		}
+		.navigationTitle("Sample Browser")
+		.navigationSubtitle(String(totalSamples))
 		.toolbar {
 			ToolbarItemGroup(placement: .status) {
 				NewRecordingButton()
-				ShareButton()
 				NewCollectionButton()
-			}
-			
-			ToolbarItem(placement: .automatic) {
-				HStack {
-					Spacer(minLength: 40)
-					OpenInFinderButton()
-				}
+				ShareButton()
+				OpenInFinderButton()
 			}
 		}
 		.task {
 			viewModel.listAllRecordings()
+			totalSamples = viewModel.sampleArray.count
 		}
 		.searchable(text: .constant(""), placement: .sidebar)
 	}
