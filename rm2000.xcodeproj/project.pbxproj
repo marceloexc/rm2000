@@ -28,31 +28,12 @@
 		EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE922CA2593900E987B1 /* Protocols.swift */; };
 		EBCA46E22CACBEE700040159 /* RenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46E12CACBEE700040159 /* RenameView.swift */; };
 		EBCF5FEC2CEAD8950047405A /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF5FEB2CEAD8950047405A /* TitleBar.swift */; };
+		EBDBF5EC2D613151004E807F /* SettingsAccess in Frameworks */ = {isa = PBXBuildFile; productRef = EBDBF5EB2D613151004E807F /* SettingsAccess */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
 		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
 		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
 		EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94E2C43244F00397EF2 /* Preview Assets.xcassets */; };
-		EBE4E95A2C43245000397EF2 /* rm2000Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9592C43245000397EF2 /* rm2000Tests.swift */; };
-		EBE4E9642C43245000397EF2 /* rm2000UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9632C43245000397EF2 /* rm2000UITests.swift */; };
-		EBE4E9662C43245000397EF2 /* rm2000UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9652C43245000397EF2 /* rm2000UITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		EBE4E9562C43245000397EF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EBE4E93C2C43244D00397EF2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EBE4E9432C43244D00397EF2;
-			remoteInfo = replica;
-		};
-		EBE4E9602C43245000397EF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EBE4E93C2C43244D00397EF2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EBE4E9432C43244D00397EF2;
-			remoteInfo = replica;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -83,9 +64,7 @@
 		EBE4E94B2C43244F00397EF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBE4E94E2C43244F00397EF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EBE4E9502C43244F00397EF2 /* rm2000.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = rm2000.entitlements; sourceTree = "<group>"; };
-		EBE4E9552C43245000397EF2 /* rm2000Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rm2000Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9592C43245000397EF2 /* rm2000Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000Tests.swift; sourceTree = "<group>"; };
-		EBE4E95F2C43245000397EF2 /* rm2000UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rm2000UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9632C43245000397EF2 /* rm2000UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000UITests.swift; sourceTree = "<group>"; };
 		EBE4E9652C43245000397EF2 /* rm2000UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000UITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,20 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBE4E9522C43245000397EF2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBE4E95C2C43245000397EF2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				EBDBF5EC2D613151004E807F /* SettingsAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,8 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */,
-				EBE4E9552C43245000397EF2 /* rm2000Tests.xctest */,
-				EBE4E95F2C43245000397EF2 /* rm2000UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,42 +219,6 @@
 			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EBE4E9542C43245000397EF2 /* rm2000Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EBE4E96C2C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000Tests" */;
-			buildPhases = (
-				EBE4E9512C43245000397EF2 /* Sources */,
-				EBE4E9522C43245000397EF2 /* Frameworks */,
-				EBE4E9532C43245000397EF2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EBE4E9572C43245000397EF2 /* PBXTargetDependency */,
-			);
-			name = rm2000Tests;
-			productName = replicaTests;
-			productReference = EBE4E9552C43245000397EF2 /* rm2000Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EBE4E95E2C43245000397EF2 /* rm2000UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EBE4E96F2C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000UITests" */;
-			buildPhases = (
-				EBE4E95B2C43245000397EF2 /* Sources */,
-				EBE4E95C2C43245000397EF2 /* Frameworks */,
-				EBE4E95D2C43245000397EF2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EBE4E9612C43245000397EF2 /* PBXTargetDependency */,
-			);
-			name = rm2000UITests;
-			productName = replicaUITests;
-			productReference = EBE4E95F2C43245000397EF2 /* rm2000UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -304,14 +232,6 @@
 					EBE4E9432C43244D00397EF2 = {
 						CreatedOnToolsVersion = 15.2;
 					};
-					EBE4E9542C43245000397EF2 = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = EBE4E9432C43244D00397EF2;
-					};
-					EBE4E95E2C43245000397EF2 = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = EBE4E9432C43244D00397EF2;
-					};
 				};
 			};
 			buildConfigurationList = EBE4E93F2C43244D00397EF2 /* Build configuration list for PBXProject "rm2000" */;
@@ -323,13 +243,14 @@
 				Base,
 			);
 			mainGroup = EBE4E93B2C43244D00397EF2;
+			packageReferences = (
+				EBDBF5EA2D613151004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */,
+			);
 			productRefGroup = EBE4E9452C43244D00397EF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				EBE4E9432C43244D00397EF2 /* rm2000 */,
-				EBE4E9542C43245000397EF2 /* rm2000Tests */,
-				EBE4E95E2C43245000397EF2 /* rm2000UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -344,20 +265,6 @@
 				EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */,
 				EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */,
 				EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBE4E9532C43245000397EF2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBE4E95D2C43245000397EF2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,37 +298,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBE4E9512C43245000397EF2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EBE4E95A2C43245000397EF2 /* rm2000Tests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBE4E95B2C43245000397EF2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EBE4E9642C43245000397EF2 /* rm2000UITests.swift in Sources */,
-				EBE4E9662C43245000397EF2 /* rm2000UITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EBE4E9572C43245000397EF2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EBE4E9432C43244D00397EF2 /* rm2000 */;
-			targetProxy = EBE4E9562C43245000397EF2 /* PBXContainerItemProxy */;
-		};
-		EBE4E9612C43245000397EF2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EBE4E9432C43244D00397EF2 /* rm2000 */;
-			targetProxy = EBE4E9602C43245000397EF2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EBE4E9672C43245000397EF2 /* Debug */ = {
@@ -610,74 +487,6 @@
 			};
 			name = Release;
 		};
-		EBE4E96D2C43245000397EF2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replicaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rm2000.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/rm2000";
-			};
-			name = Debug;
-		};
-		EBE4E96E2C43245000397EF2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replicaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rm2000.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/rm2000";
-			};
-			name = Release;
-		};
-		EBE4E9702C43245000397EF2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replicaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = replica;
-			};
-			name = Debug;
-		};
-		EBE4E9712C43245000397EF2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.replicaUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = replica;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -699,25 +508,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBE4E96C2C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EBE4E96D2C43245000397EF2 /* Debug */,
-				EBE4E96E2C43245000397EF2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EBE4E96F2C43245000397EF2 /* Build configuration list for PBXNativeTarget "rm2000UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EBE4E9702C43245000397EF2 /* Debug */,
-				EBE4E9712C43245000397EF2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBDBF5EA2D613151004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/orchetect/SettingsAccess";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EBDBF5EB2D613151004E807F /* SettingsAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBDBF5EA2D613151004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */;
+			productName = SettingsAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EBE4E93C2C43244D00397EF2 /* Project object */;
 }
