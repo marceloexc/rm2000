@@ -26,6 +26,7 @@ struct EditSampleView: View {
 			VStack(alignment: .leading, spacing: 12) {
 				Text("Rename Recording")
 					.font(.headline)
+				TrimmablePlayerView(recording: newRecording)
 				
 				VStack(alignment: .leading, spacing: 4) {
 					Text("Title")
