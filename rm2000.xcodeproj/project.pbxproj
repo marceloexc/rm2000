@@ -11,7 +11,6 @@
 		EB15650F2D55879D00A3D339 /* FZMetadata in Frameworks */ = {isa = PBXBuildFile; productRef = EB15650E2D55879D00A3D339 /* FZMetadata */; };
 		EB1565122D558F2100A3D339 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1565112D558F1F00A3D339 /* Sample.swift */; };
 		EB296DF32D65355C008427DF /* TrimmablePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB296DF22D653556008427DF /* TrimmablePlayerView.swift */; };
-		EB296DF52D6555CE008427DF /* CustomAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB296DF42D6555CA008427DF /* CustomAVPlayer.swift */; };
 		EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4467CB2D07C52F000DDE5A /* SampleBrowserView.swift */; };
 		EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB516E3E2CB75BD100A1C1E6 /* README.md */; };
 		EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6065182C850A300017CB33 /* TapeRecorderState.swift */; };
@@ -44,7 +43,6 @@
 		EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EB1565112D558F1F00A3D339 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		EB296DF22D653556008427DF /* TrimmablePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmablePlayerView.swift; sourceTree = "<group>"; };
-		EB296DF42D6555CA008427DF /* CustomAVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAVPlayer.swift; sourceTree = "<group>"; };
 		EB4467CB2D07C52F000DDE5A /* SampleBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBrowserView.swift; sourceTree = "<group>"; };
 		EB516E3D2CB75BC300A1C1E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB516E3E2CB75BD100A1C1E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -104,7 +102,6 @@
 		EB296DE52D653468008427DF /* Edit Sample */ = {
 			isa = PBXGroup;
 			children = (
-				EB296DF42D6555CA008427DF /* CustomAVPlayer.swift */,
 				EB296DF22D653556008427DF /* TrimmablePlayerView.swift */,
 				EBCA46E12CACBEE700040159 /* EditSampleView.swift */,
 			);
@@ -316,7 +313,6 @@
 				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
 				EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */,
 				EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */,
-				EB296DF52D6555CE008427DF /* CustomAVPlayer.swift in Sources */,
 				EBAF02632C8A132800520D44 /* Logging.swift in Sources */,
 				EB8313F22D4DCDD600B343FF /* SidebarView.swift in Sources */,
 				EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */,

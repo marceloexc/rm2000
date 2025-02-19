@@ -62,12 +62,6 @@ struct TrimmablePlayerView: View {
 			if let playerView = viewModel.playerView {
 				AudioPlayerView(playerView: playerView)
 					.frame(height: 60)
-					.onAppear {
-						// slight delay, or else i get some sort of exception
-						DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-							viewModel.beginTrimming()
-						}
-					}
 			} else {
 				Text("Player not available")
 					.foregroundColor(.secondary)
@@ -80,6 +74,14 @@ struct AudioPlayerView: NSViewRepresentable {
 	let playerView: AVPlayerView
 	
 	func makeNSView(context: Context) -> AVPlayerView {
+		Task {
+			do {
+				try await playerView.activateTrimming()
+				playerView.hideTrimButtons()
+			} catch {
+				print("Failed to activate trimming: \(error)")
+			}
+		}
 		return playerView
 	}
 	
