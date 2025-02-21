@@ -4,8 +4,6 @@ import OSLog
 struct ContentView: View {
 	@Environment(\.openWindow) var openWindow
 	@EnvironmentObject private var recordingState: TapeRecorderState
-	@State private var newSampleTitle: String = ""
-	@State private var newSampleTags: String = ""
 
 	var body: some View {
 		ZStack {
@@ -29,12 +27,16 @@ struct ContentView: View {
 				}
 
 			}
-			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow, content: {
-				RenameView(currentFilename: recordingState.currentSampleFilename ?? "",
-						   inputNewSampleFilename: $newSampleTitle,
-						   inputNewSampleTags: $newSampleTags,
-						   onRename: renameRecording)
-			})
+			
+//			TODO this variable does not belong in recordingState but instead in this cv
+			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow) {
+				if let newRecording = recordingState.activeRecording {
+					EditSampleView(newRecording: newRecording) { stagedSample in
+						recordingState.stagedSample = stagedSample
+						recordingState.applySampleEdits(from: recordingState.stagedSample!)
+					}
+				}
+			}
 		}
 	}
 	
@@ -46,9 +48,6 @@ struct ContentView: View {
 		recordingState.stopRecording()
 	}
 	
-	private func renameRecording() {
-		recordingState.renameRecording(to: newSampleTitle, newTags: newSampleTags)
-	}
 }
 
 struct LCDScreenView: View {

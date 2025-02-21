@@ -5,6 +5,8 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	@Published var isRecording: Bool = false
 	@Published var currentSampleFilename: String?
 	@Published var showRenameDialogInMainWindow: Bool = false
+	@Published var stagedSample: StagedSample?
+	@Published var activeRecording: NewRecording?
 	
 	let recorder = TapeRecorder()
 	
@@ -18,56 +20,52 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 				self.isRecording = true
 			}
 			
-			let tempFilename = UUID().uuidString + ".aac"
+			let newRecording = NewRecording()
+			currentSampleFilename = newRecording.url.lastPathComponent
+			self.activeRecording = newRecording 
 			
-			let fileManager = FileManager.default
-			let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-			let directoryURL = appSupportURL.appendingPathComponent("com.marceloexc.rm2000")
-			try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
-			let fileURL = directoryURL.appendingPathComponent(tempFilename)
-			currentSampleFilename = tempFilename
-			
-			await recorder.startRecording(to: fileURL)
+			await recorder.startRecording(to: newRecording.url)
 		}
 	}
 	
 	func stopRecording() {
 		recorder.stopRecording()
 		showRenameDialogInMainWindow = true
+		Logger.sharedStreamState.info("showing edit sample sheet")
+	}
+	
+	func constructSampleFilename(from stagedSample: StagedSample) -> String {
+		let title = stagedSample.title ?? "Untitled"
+		let tags = stagedSample.tags ?? ""
+
+		let formattedTags = tags.replacingOccurrences(of: " ", with: "_")
+
+		// Construct the filename in the format "title--tag1_tag2_tag3.aac"
+		let filename = "\(title)--\(formattedTags).aac"
+		return filename
 	}
 		
 //	TODO - does this belong in taperecorderstate?
-	func renameRecording(to newTitle: String, newTags: String) {
+//	TODO - change the args for this (from StagedSample to NewSample)
+	func applySampleEdits(from stagedSample: StagedSample) {
 		guard let oldFilename = currentSampleFilename else {
 			Logger.sharedStreamState.error("No current recording to rename!")
 			return
 		}
-		
-		let newSampleMetadata = newSampleFilenameData(newTitle, newTags)
 	
-		Logger.sharedStreamState.info("New Sample Metadata listed as: \(newSampleMetadata.title) \(newSampleMetadata.tags) \(newSampleMetadata.fileExtension)")
-		
-		let stringedTagPiece = newSampleMetadata.tags.joined(separator: "_")
-		
-		let newFilename = "\(newSampleMetadata.title)--\(stringedTagPiece).\(newSampleMetadata.fileExtension)"
-				
-		let fileManager = FileManager.default
-		let appSupportURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
-		let baseDirectory = appSupportURL.appendingPathComponent("com.marceloexc.rm2000")
-		
-		let oldURL = baseDirectory.appendingPathComponent(oldFilename)
-		let newURL = baseDirectory.appendingPathComponent(newFilename)
-		
-		do {
-			try fileManager.moveItem(at: oldURL, to: newURL)
-			
-			currentSampleFilename = newTitle
+		let newFilename = constructSampleFilename(from: stagedSample)
+		let newURL = stagedSample.fileURL.deletingLastPathComponent().appendingPathComponent(newFilename)
 
-			Logger.sharedStreamState.info("Renamed recording from \(oldURL) to \(newURL)")
+		// Move the file to the new location
+		
+		let fileManager = FileManager.default
+		do {
+			try fileManager.moveItem(at: stagedSample.fileURL, to: newURL)
+			Logger.sharedStreamState.info("Renamed recording from \(stagedSample.fileURL) to \(newURL)")
 		} catch {
 			Logger.sharedStreamState.error("Failed to rename file: \(error.localizedDescription)")
-			
 		}
+		
 		showRenameDialogInMainWindow = false
 	}
 	

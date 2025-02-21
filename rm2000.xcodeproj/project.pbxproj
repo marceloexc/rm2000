@@ -3,14 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		EB13CF402D31A36400E2EC4B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */; };
+		EB15650F2D55879D00A3D339 /* FZMetadata in Frameworks */ = {isa = PBXBuildFile; productRef = EB15650E2D55879D00A3D339 /* FZMetadata */; };
+		EB1565122D558F2100A3D339 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1565112D558F1F00A3D339 /* Sample.swift */; };
 		EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4467CB2D07C52F000DDE5A /* SampleBrowserView.swift */; };
 		EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB516E3E2CB75BD100A1C1E6 /* README.md */; };
-		EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */; };
 		EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6065182C850A300017CB33 /* TapeRecorderState.swift */; };
 		EB64CD122D14FC5200F2B65E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64CD112D14FC5200F2B65E /* SettingsView.swift */; };
 		EB64CD142D1A0E1500F2B65E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64CD132D1A0E1500F2B65E /* Shared.swift */; };
@@ -26,9 +27,11 @@
 		EBBBFE8F2CA2588A00E987B1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE8E2CA2588A00E987B1 /* AudioManager.swift */; };
 		EBBBFE912CA2590100E987B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE902CA2590100E987B1 /* Extensions.swift */; };
 		EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE922CA2593900E987B1 /* Protocols.swift */; };
-		EBCA46E22CACBEE700040159 /* RenameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46E12CACBEE700040159 /* RenameView.swift */; };
+		EBCA46E22CACBEE700040159 /* EditSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46E12CACBEE700040159 /* EditSampleView.swift */; };
 		EBCF5FEC2CEAD8950047405A /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF5FEB2CEAD8950047405A /* TitleBar.swift */; };
-		EBDBF5EC2D613151004E807F /* SettingsAccess in Frameworks */ = {isa = PBXBuildFile; productRef = EBDBF5EB2D613151004E807F /* SettingsAccess */; };
+		EBDBE35B2D58275A004E807F /* StagedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35A2D58273F004E807F /* StagedSample.swift */; };
+		EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35C2D583606004E807F /* NewRecording.swift */; };
+		EBDBF5EF2D63E037004E807F /* SettingsAccess in Frameworks */ = {isa = PBXBuildFile; productRef = EBDBF5EE2D63E037004E807F /* SettingsAccess */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
 		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
 		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
@@ -37,10 +40,10 @@
 
 /* Begin PBXFileReference section */
 		EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		EB1565112D558F1F00A3D339 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		EB4467CB2D07C52F000DDE5A /* SampleBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBrowserView.swift; sourceTree = "<group>"; };
 		EB516E3D2CB75BC300A1C1E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB516E3E2CB75BD100A1C1E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamingScheme.swift; sourceTree = "<group>"; };
 		EB6065182C850A300017CB33 /* TapeRecorderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeRecorderState.swift; sourceTree = "<group>"; };
 		EB64CD112D14FC5200F2B65E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB64CD132D1A0E1500F2B65E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
@@ -56,8 +59,10 @@
 		EBBBFE8E2CA2588A00E987B1 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		EBBBFE902CA2590100E987B1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EBBBFE922CA2593900E987B1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		EBCA46E12CACBEE700040159 /* RenameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameView.swift; sourceTree = "<group>"; };
+		EBCA46E12CACBEE700040159 /* EditSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSampleView.swift; sourceTree = "<group>"; };
 		EBCF5FEB2CEAD8950047405A /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
+		EBDBE35A2D58273F004E807F /* StagedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedSample.swift; sourceTree = "<group>"; };
+		EBDBE35C2D583606004E807F /* NewRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecording.swift; sourceTree = "<group>"; };
 		EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Tape Recorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9472C43244D00397EF2 /* rm2000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000.swift; sourceTree = "<group>"; };
 		EBE4E9492C43244D00397EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,13 +79,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBDBF5EC2D613151004E807F /* SettingsAccess in Frameworks */,
+				EB15650F2D55879D00A3D339 /* FZMetadata in Frameworks */,
+				EBDBF5EF2D63E037004E807F /* SettingsAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB1565102D558F0700A3D339 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBDBE35C2D583606004E807F /* NewRecording.swift */,
+				EBDBE35A2D58273F004E807F /* StagedSample.swift */,
+				EB1565112D558F1F00A3D339 /* Sample.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		EB8313EF2D4DCCD200B343FF /* Sample Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +129,7 @@
 			children = (
 				EBE4E9492C43244D00397EF2 /* ContentView.swift */,
 				EBBBFE852CA1F57300E987B1 /* MenuBar.swift */,
-				EBCA46E12CACBEE700040159 /* RenameView.swift */,
+				EBCA46E12CACBEE700040159 /* EditSampleView.swift */,
 				EBCF5FEB2CEAD8950047405A /* TitleBar.swift */,
 				EB8313EF2D4DCCD200B343FF /* Sample Browser */,
 				EB64CD112D14FC5200F2B65E /* SettingsView.swift */,
@@ -157,6 +173,7 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EB1565102D558F0700A3D339 /* Models */,
 				EB91DD322CE3135A00F1C37E /* External Assets */,
 				EB516E3E2CB75BD100A1C1E6 /* README.md */,
 				EBBBFE892CA2514800E987B1 /* Tape Mechanism */,
@@ -167,7 +184,6 @@
 				EBE4E94D2C43244F00397EF2 /* Preview Content */,
 				EB6065182C850A300017CB33 /* TapeRecorderState.swift */,
 				EBAF02622C8A132800520D44 /* Logging.swift */,
-				EB516E402CB75D2500A1C1E6 /* NamingScheme.swift */,
 				EB64CD132D1A0E1500F2B65E /* Shared.swift */,
 			);
 			path = rm2000;
@@ -215,6 +231,10 @@
 			dependencies = (
 			);
 			name = rm2000;
+			packageProductDependencies = (
+				EB15650E2D55879D00A3D339 /* FZMetadata */,
+				EBDBF5EE2D63E037004E807F /* SettingsAccess */,
+			);
 			productName = replica;
 			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */;
 			productType = "com.apple.product-type.application";
@@ -227,7 +247,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					EBE4E9432C43244D00397EF2 = {
 						CreatedOnToolsVersion = 15.2;
@@ -244,7 +264,8 @@
 			);
 			mainGroup = EBE4E93B2C43244D00397EF2;
 			packageReferences = (
-				EBDBF5EA2D613151004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */,
+				EB15650D2D55879D00A3D339 /* XCLocalSwiftPackageReference "../../../Downloads/FZMetadata-main" */,
+				EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */,
 			);
 			productRefGroup = EBE4E9452C43244D00397EF2 /* Products */;
 			projectDirPath = "";
@@ -276,8 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB64CD142D1A0E1500F2B65E /* Shared.swift in Sources */,
+				EBDBE35B2D58275A004E807F /* StagedSample.swift in Sources */,
 				EBBBFE8D2CA2583800E987B1 /* StreamManager.swift in Sources */,
 				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
+				EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */,
 				EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */,
 				EBAF02632C8A132800520D44 /* Logging.swift in Sources */,
 				EB8313F22D4DCDD600B343FF /* SidebarView.swift in Sources */,
@@ -285,7 +308,7 @@
 				EBBBFE862CA1F57300E987B1 /* MenuBar.swift in Sources */,
 				EB8313F62D51C14C00B343FF /* InspectorView.swift in Sources */,
 				EBCF5FEC2CEAD8950047405A /* TitleBar.swift in Sources */,
-				EBCA46E22CACBEE700040159 /* RenameView.swift in Sources */,
+				EBCA46E22CACBEE700040159 /* EditSampleView.swift in Sources */,
 				EB64CD122D14FC5200F2B65E /* SettingsView.swift in Sources */,
 				EBBBFE8B2CA2569600E987B1 /* TapeMechanism.swift in Sources */,
 				EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */,
@@ -293,7 +316,7 @@
 				EBBBFE912CA2590100E987B1 /* Extensions.swift in Sources */,
 				EB13CF402D31A36400E2EC4B /* OnboardingView.swift in Sources */,
 				EB8313F42D4DF59700B343FF /* DetailView.swift in Sources */,
-				EB516E412CB75D2500A1C1E6 /* NamingScheme.swift in Sources */,
+				EB1565122D558F2100A3D339 /* Sample.swift in Sources */,
 				EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +358,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -398,6 +422,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -432,8 +457,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"rm2000/Preview Content\"";
 				DEVELOPMENT_TEAM = 5L5B87F6FJ;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Tape Recorder";
@@ -466,8 +493,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"rm2000/Preview Content\"";
 				DEVELOPMENT_TEAM = 5L5B87F6FJ;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Tape Recorder";
@@ -510,8 +539,15 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		EB15650D2D55879D00A3D339 /* XCLocalSwiftPackageReference "../../../Downloads/FZMetadata-main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../Downloads/FZMetadata-main";
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
-		EBDBF5EA2D613151004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */ = {
+		EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/orchetect/SettingsAccess";
 			requirement = {
@@ -522,9 +558,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EBDBF5EB2D613151004E807F /* SettingsAccess */ = {
+		EB15650E2D55879D00A3D339 /* FZMetadata */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EBDBF5EA2D613151004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */;
+			productName = FZMetadata;
+		};
+		EBDBF5EE2D63E037004E807F /* SettingsAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */;
 			productName = SettingsAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
