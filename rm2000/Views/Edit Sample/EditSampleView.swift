@@ -1,10 +1,13 @@
 import SwiftUI
+import CoreMedia
 
 struct EditSampleView: View {
 	
 	@State private var title: String
 	@State private var tags: String
 	@State private var description: String
+	@State private var forwardEndTime: CMTime? = nil
+	@State private var reverseEndTime: CMTime? = nil
 
 	private let newRecording: NewRecording
 	private let onComplete: (StagedSample) -> Void
@@ -26,7 +29,10 @@ struct EditSampleView: View {
 			VStack(alignment: .leading, spacing: 12) {
 				Text("Rename Recording")
 					.font(.headline)
-				TrimmablePlayerView(recording: newRecording)
+				TrimmablePlayerView(
+					recording: newRecording,
+					forwardEndTime: $forwardEndTime,
+					reverseEndTime: $reverseEndTime)
 				
 				VStack(alignment: .leading, spacing: 4) {
 					Text("Title")

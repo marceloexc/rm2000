@@ -2,12 +2,20 @@
 import SwiftUI
 import AVKit
 import AVFoundation
+import Combine
+import CoreMedia
 
 class PlayerViewModel: ObservableObject {
 	@Published var playerView: AVPlayerView?
-	@Published var playerItem: AVPlayerItem?
+	@Published var playerItem: AVPlayerItem? {
+		didSet {
+			setupAVPlayerObservations()
+		}
+	}
 	var player: AVPlayer?
 	var activeRecording: NewRecording
+	
+	private var cancellables = Set<AnyCancellable>()
 	
 	init(activeRecording: NewRecording) {
 		self.activeRecording = activeRecording
@@ -34,6 +42,32 @@ class PlayerViewModel: ObservableObject {
 		playerView = view
 	}
 	
+	private func setupAVPlayerObservations() {
+		guard let playerItem = playerItem else { return }
+		
+		playerItem.publisher(for: \.status)
+			.sink { [weak self] status in
+				
+				// .readytoplay in the AVPlayerItem.status enum
+				if status == .readyToPlay {
+					self?.objectWillChange.send()
+				}
+			}
+			.store(in: &cancellables)
+		
+		playerItem.publisher(for: \.forwardPlaybackEndTime)
+			.sink { [weak self] _ in
+				self?.objectWillChange.send()
+			}
+			.store(in: &cancellables)
+		
+		playerItem.publisher(for: \.reversePlaybackEndTime)
+			.sink { [weak self] _ in
+				self?.objectWillChange.send()
+			}
+			.store(in: &cancellables)
+	}
+	
 	func beginTrimming() {
 		guard let playerView = playerView else { return }
 		
@@ -54,9 +88,14 @@ class PlayerViewModel: ObservableObject {
 
 struct TrimmablePlayerView: View {
 	@StateObject private var viewModel: PlayerViewModel
+	// optional's as the CMTime's can be of NaN
+	@Binding var forwardEndTime: CMTime?
+	@Binding var reverseEndTime: CMTime?
 	
-	init(recording: NewRecording) {
+	init(recording: NewRecording, forwardEndTime: Binding<CMTime?>, reverseEndTime: Binding<CMTime?>) {
 		_viewModel = StateObject(wrappedValue: PlayerViewModel(activeRecording: recording))
+		_forwardEndTime = forwardEndTime
+		_reverseEndTime = reverseEndTime
 	}
 	
 	var body: some View {
@@ -67,6 +106,10 @@ struct TrimmablePlayerView: View {
 			} else {
 				Text("Player not available")
 					.foregroundColor(.secondary)
+			}
+			if let playerItem = viewModel.playerItem {
+				Text("forward time: \(playerItem.forwardPlaybackEndTime.seconds)")
+				Text("reverse time: \(playerItem.reversePlaybackEndTime.seconds)")
 			}
 		}
 	}
