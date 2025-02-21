@@ -5,6 +5,7 @@ import AVFoundation
 
 class PlayerViewModel: ObservableObject {
 	@Published var playerView: AVPlayerView?
+	@Published var playerItem: AVPlayerItem?
 	var player: AVPlayer?
 	var activeRecording: NewRecording
 	
@@ -17,7 +18,8 @@ class PlayerViewModel: ObservableObject {
 		let fileURL = activeRecording.url
 		
 		let asset = AVAsset(url: fileURL)
-		let playerItem = AVPlayerItem(asset: asset)
+		let item = AVPlayerItem(asset: asset)
+		self.playerItem = item
 		
 		player = AVPlayer(playerItem: playerItem)
 		
