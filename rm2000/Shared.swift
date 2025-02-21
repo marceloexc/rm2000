@@ -13,3 +13,10 @@ struct WorkingDirectory {
 		return path
 	}
 }
+
+protocol FileRepresentable {
+	var url: URL { get }
+}
+
+extension NewRecording: FileRepresentable { }
+extension Sample: FileRepresentable { }
