@@ -11,7 +11,7 @@ class WindowController: NSWindowController {
 final class AppDelegate: NSObject, NSApplicationDelegate {
 	
 	private var windowController: WindowController?
-	private let recordingState = TapeRecorderState()
+	let recordingState = TapeRecorderState()
 	
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		// todo - look into why this works
@@ -44,7 +44,7 @@ struct rm2000: App {
 //        }
 		MenuBarExtra("RP2000 Portable", systemImage: "recordingtape") {
 			MenuBarView()
-				.environmentObject(recordingState)
+				.environmentObject(appDelegate.recordingState)
 		}
 		
 		Window("Recordings", id: "recordings-window") {
