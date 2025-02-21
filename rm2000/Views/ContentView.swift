@@ -32,10 +32,8 @@ struct ContentView: View {
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow) {
 				if let newRecording = recordingState.activeRecording {
 					EditSampleView(newRecording: newRecording) { stagedSample in
-						// Handle the completion of editing
 						recordingState.stagedSample = stagedSample
 						recordingState.applySampleEdits(from: recordingState.stagedSample!)
-//						$recordingState.showRenameDialogInMainWindow = false // Dismiss the sheet
 					}
 				}
 			}

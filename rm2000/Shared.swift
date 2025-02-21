@@ -16,6 +16,12 @@ struct WorkingDirectory {
 	}
 }
 
+protocol FileRepresentable {
+	var url: URL { get }
+}
+
+extension NewRecording: FileRepresentable { }
+extension Sample: FileRepresentable { }
 
 // i borrowed a lot of this from https://github.com/sindresorhus/Gifski/blob/main/Gifski/Utilities.swift
 extension NSView {

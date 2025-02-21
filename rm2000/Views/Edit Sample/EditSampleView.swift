@@ -20,10 +20,6 @@ struct EditSampleView: View {
 		_description = State(initialValue: "")
 	}
 	
-	private var previewFilename: String {
-		return "fuck you"
-	}
-	
 	var body: some View {
 		ScrollView {
 			VStack(alignment: .leading, spacing: 12) {
@@ -86,11 +82,7 @@ struct EditSampleView: View {
 					Text("Preview:")
 						.font(.caption)
 						.foregroundColor(.secondary)
-					Text(previewFilename)
-						.font(.system(.callout, design: .monospaced))
-						.foregroundColor(.blue)
-						.lineLimit(1)
-						.truncationMode(.middle)
+					PreviewFilenameView(title: $title, tags: $tags)
 				}
 				.padding(.top, 8)
 				
@@ -98,12 +90,6 @@ struct EditSampleView: View {
 					let staged = StagedSample(newRecording: newRecording, title: title, tags: tags, description: description)
 					onComplete(staged)
 				}
-				
-//				Button(action: onEdit) {
-//					Text("Rename")
-//						.frame(maxWidth: .infinity)
-//						.padding(.vertical, 8)
-//				}
 				.buttonStyle(.borderedProminent)
 				.padding(.top, 8)
 			}
@@ -117,13 +103,22 @@ struct EditSampleView: View {
 //	}
 }
 
-
-
-//#Preview {
-//	EditSampleView(
-//		currentFilename: "SampleFile.wav",
-//		newTitle: .constant("NewSample"),
-//		newTags: .constant("tag1, tag2"), newDescription: "",
-//		onEdit: {}
-//	)
-//}
+struct PreviewFilenameView: View {
+	@State var previewFilename: String = ""
+	@Binding var title: String
+	@Binding var tags: String
+	
+	var body: some View {
+		Text(generatePreviewFilename())
+			.font(.system(size: 12, weight: .regular, design: .monospaced))
+			.foregroundColor(Color(red: 1, green: 0.6, blue: 0)) // Warmer orange
+			.shadow(color: .orange.opacity(0.4), radius: 1, x: 0, y: 0) // Glow effect
+			.padding(4)
+			.frame(maxWidth: .infinity)
+			.background(Color.black)
+	}
+	
+	private func generatePreviewFilename() -> String {
+		return ("\(title)__\(tags).aac")
+	}
+}
