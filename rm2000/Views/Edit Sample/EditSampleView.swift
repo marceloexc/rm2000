@@ -1,23 +1,22 @@
 import SwiftUI
 import CoreMedia
 
-struct EditSampleView: View {
+struct EditSampleView<Model: FileRepresentable>: View {
 	
+	let model: Model
 	@State private var title: String
 	@State private var tags: String
 	@State private var description: String
 	@State private var forwardEndTime: CMTime? = nil
 	@State private var reverseEndTime: CMTime? = nil
-
-	private let newRecording: NewRecording
-	private let onComplete: (StagedSample) -> Void
+	private let onComplete: (FileRepresentable) -> Void
 	
-	init(newRecording: NewRecording, onComplete: @escaping (StagedSample) -> Void) {
-		self.newRecording = newRecording
+	init(recording: Model, onComplete: @escaping (FileRepresentable) -> Void) {
 		self.onComplete = onComplete
 		_title = State(initialValue: "")
 		_tags = State(initialValue: "")
 		_description = State(initialValue: "")
+		self.model = recording
 	}
 	
 	var body: some View {
@@ -26,7 +25,7 @@ struct EditSampleView: View {
 				Text("Rename Recording")
 					.font(.headline)
 				TrimmablePlayerView(
-					recording: newRecording,
+					recording: model,
 					forwardEndTime: $forwardEndTime,
 					reverseEndTime: $reverseEndTime)
 				
@@ -87,7 +86,7 @@ struct EditSampleView: View {
 				.padding(.top, 8)
 				
 				Button("Save Sample") {
-					let staged = StagedSample(newRecording: newRecording, title: title, tags: tags, description: description)
+					let staged = Sample(newRecording: model as! NewRecording, title: title, tags: tags, description: description)
 					onComplete(staged)
 				}
 				.buttonStyle(.borderedProminent)
@@ -98,9 +97,27 @@ struct EditSampleView: View {
 		}
 	}
 	
-//	private func constructSampleFromDataProvided(_ title: String, tags: [String], description: String) -> Sample {
-//		return Sample(fileURL: <#URL#>, title: title, tags: [String], description: tags)
-//	}
+	private func applySampleEdits() {
+//		guard let oldFilename = currentSampleFilename else {
+//			Logger.sharedStreamState.error("No current recording to rename!")
+//			return
+//		}
+//	
+//		let newFilename = constructSampleFilename(from: stagedSample)
+//		let newURL = stagedSample.fileURL.deletingLastPathComponent().appendingPathComponent(newFilename)
+//
+//		// Move the file to the new location
+//		
+//		let fileManager = FileManager.default
+//		do {
+//			try fileManager.moveItem(at: stagedSample.fileURL, to: newURL)
+//			Logger.sharedStreamState.info("Renamed recording from \(stagedSample.fileURL) to \(newURL)")
+//		} catch {
+//			Logger.sharedStreamState.error("Failed to rename file: \(error.localizedDescription)")
+//		}
+//		
+//		showRenameDialogInMainWindow = false
+	}
 }
 
 struct PreviewFilenameView: View {

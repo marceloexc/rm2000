@@ -20,7 +20,7 @@ private struct TaggedRecordingsView: View {
 	
 	var body: some View {
 		List(viewModel.sampleArray) { sample in
-			if sample.filename.contains(selectedTag) {
+			if sample.tags.contains(selectedTag) {
 				SampleIndividualListItem(sampleItem: sample)
 			}
 		}
@@ -78,11 +78,11 @@ struct SampleIndividualListItem: View {
 		}
 		.contentShape(Rectangle())
 		.onTapGesture(count: 2) {
-			NSWorkspace.shared.open(sampleItem.url)
+			NSWorkspace.shared.open(sampleItem.fileURL)
 		}
 		.contextMenu {
 			Button("Open File") {
-				NSWorkspace.shared.open(sampleItem.url)
+				NSWorkspace.shared.open(sampleItem.fileURL)
 			}
 		}
 	}

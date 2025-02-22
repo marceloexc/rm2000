@@ -30,7 +30,6 @@
 		EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE922CA2593900E987B1 /* Protocols.swift */; };
 		EBCA46E22CACBEE700040159 /* EditSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46E12CACBEE700040159 /* EditSampleView.swift */; };
 		EBCF5FEC2CEAD8950047405A /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF5FEB2CEAD8950047405A /* TitleBar.swift */; };
-		EBDBE35B2D58275A004E807F /* StagedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35A2D58273F004E807F /* StagedSample.swift */; };
 		EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35C2D583606004E807F /* NewRecording.swift */; };
 		EBDBF5EF2D63E037004E807F /* SettingsAccess in Frameworks */ = {isa = PBXBuildFile; productRef = EBDBF5EE2D63E037004E807F /* SettingsAccess */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
@@ -63,7 +62,6 @@
 		EBBBFE922CA2593900E987B1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EBCA46E12CACBEE700040159 /* EditSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSampleView.swift; sourceTree = "<group>"; };
 		EBCF5FEB2CEAD8950047405A /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
-		EBDBE35A2D58273F004E807F /* StagedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedSample.swift; sourceTree = "<group>"; };
 		EBDBE35C2D583606004E807F /* NewRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecording.swift; sourceTree = "<group>"; };
 		EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Tape Recorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9472C43244D00397EF2 /* rm2000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				EBDBE35C2D583606004E807F /* NewRecording.swift */,
-				EBDBE35A2D58273F004E807F /* StagedSample.swift */,
 				EB1565112D558F1F00A3D339 /* Sample.swift */,
 			);
 			path = Models;
@@ -308,7 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB64CD142D1A0E1500F2B65E /* Shared.swift in Sources */,
-				EBDBE35B2D58275A004E807F /* StagedSample.swift in Sources */,
 				EBBBFE8D2CA2583800E987B1 /* StreamManager.swift in Sources */,
 				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
 				EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */,

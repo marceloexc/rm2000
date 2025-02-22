@@ -2,11 +2,11 @@ import Foundation
 
 struct NewRecording {
 	var id: UUID
-	var url: URL
+	var fileURL: URL
 	
 	init() {
 		self.id = UUID()
-		self.url = WorkingDirectory.applicationSupportPath()
+		self.fileURL = WorkingDirectory.applicationSupportPath()
 			.appendingPathComponent("\(id.uuidString).aac")
 	}
 }

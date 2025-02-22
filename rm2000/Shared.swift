@@ -17,7 +17,7 @@ struct WorkingDirectory {
 }
 
 protocol FileRepresentable {
-	var url: URL { get }
+	var fileURL: URL { get }
 }
 
 extension NewRecording: FileRepresentable { }
