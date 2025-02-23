@@ -26,14 +26,13 @@ struct FinalOnboardingCompleteView: View {
 			}
 
 			Button("Finish") {
-					   appState.hasCompletedOnboarding = true
-				
+				appState.hasCompletedOnboarding = true
 						/*
 						 this has to be appkit compatible as the mainwindow uses
 						 an appkit based lifetime
 						 */
-					   NSApp.windows.first { $0.identifier?.rawValue == "onboarding" }?.close()
-					   (NSApp.delegate as? AppDelegate)?.showMainWindow()
+				print("closing")
+				exit(0)
 				   }
 			.buttonStyle(.borderedProminent)
 		}

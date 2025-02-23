@@ -38,7 +38,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		mainWindowController?.showWindow(nil)
 	}
 	
-	private func showOnboardingWindow() {
+	@MainActor private func showOnboardingWindow() {
 		let hostingController = NSHostingController(
 			rootView: OnboardingView(viewModel: OnboardingViewModel())
 				.environmentObject(AppState.shared)
@@ -59,10 +59,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
 @main
 struct rm2000: App {
+	@StateObject var appState = AppState.shared
 	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	
 	@StateObject private var recordingState = TapeRecorderState()
-	@StateObject private var appState = AppState.shared
 	
     var body: some Scene {
 		MenuBarExtra("RP2000 Portable", systemImage: "recordingtape") {

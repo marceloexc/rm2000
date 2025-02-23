@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 
-// AppState.swift
 @MainActor final class AppState: ObservableObject {
 	static let shared = AppState()
 	
@@ -12,17 +11,30 @@ import SwiftUI
 			}
 		}
 	}
-	@Published var sampleDirectory: URL?
+	
+	@AppStorage("sample_directory") var sampleDirectoryPath: String = ""
+	@Published var sampleDirectory: URL? {
+		didSet {
+			sampleDirectoryPath = sampleDirectory?.path ?? ""
+		}
+	}
 	private var openWindowAction: OpenWindowAction?
 	
-	private func setOpenWindowAction(_ action: OpenWindowAction) {
+	init() {
+		
+		if !sampleDirectoryPath.isEmpty {
+			sampleDirectory = URL(fileURLWithPath: sampleDirectoryPath)
+		}
+	}
+	
+	func setOpenWindowAction(_ action: OpenWindowAction) {
 		self.openWindowAction = action
 		if !hasCompletedOnboarding {
 			openOnboardingWindow()
 		}
 	}
 	
-	private func openOnboardingWindow() {
+	func openOnboardingWindow() {
 		openWindowAction?(id: "onboarding")
 	}
 }
