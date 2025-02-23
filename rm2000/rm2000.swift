@@ -76,7 +76,6 @@ struct rm2000: App {
 
 		WindowGroup("Welcome", id: "onboarding") {
 			OnboardingView(viewModel: OnboardingViewModel())
-			.frame(maxWidth: 600, minHeight: 600)
 			.environmentObject(appState)
 		}
 		WindowGroup("Inspector", id: "inspector") {

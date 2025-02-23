@@ -148,7 +148,7 @@ struct OnboardingView: View {
 				FinalOnboardingCompleteView(viewModel: viewModel)
 			}
 		}
-		.frame(minWidth: 200)
+		.frame(minWidth: 500, minHeight: 500)
 		.padding()
 		
     }

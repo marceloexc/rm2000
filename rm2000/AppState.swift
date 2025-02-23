@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import OSLog
 
 @MainActor final class AppState: ObservableObject {
 	static let shared = AppState()
@@ -25,6 +26,7 @@ import SwiftUI
 		if !sampleDirectoryPath.isEmpty {
 			sampleDirectory = URL(fileURLWithPath: sampleDirectoryPath)
 		}
+		Logger.appState.info("\(String(describing: sampleDirectory)) as the user directory")
 	}
 	
 	func setOpenWindowAction(_ action: OpenWindowAction) {
