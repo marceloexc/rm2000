@@ -133,6 +133,7 @@
 			children = (
 				EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */,
 				EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */,
+				EB63A3082D6ACE5D00E35AE6 /* TASAExplorer-SemiBold.otf */,
 			);
 			path = "External Assets";
 			sourceTree = "<group>";
@@ -303,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB63A3092D6ACE5D00E35AE6 /* TASAExplorer-SemiBold.otf in Resources */,
 				EB91DD312CE3134100F1C37E /* TINY5x3-100.otf in Resources */,
 				EB91DD342CE315AF00F1C37E /* Tachyo-1.0.0.otf in Resources */,
 				EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */,
@@ -404,6 +406,8 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_ENABLE_INDEX_STORE = YES;
+				MTL_ENABLE_MODULES = STDLIB;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -462,6 +466,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_INDEX_STORE = YES;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
