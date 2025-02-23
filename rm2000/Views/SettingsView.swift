@@ -7,6 +7,8 @@ enum AudioFormat: String {
 }
 
 struct SettingsView: View {
+	
+	@EnvironmentObject private var appState: AppState
 	@State private var selectedFileType = AudioFormat.aac
 	@State private var workingDirectory = WorkingDirectory.applicationSupportPath().description
 	@State private var autostartAtLogin = false

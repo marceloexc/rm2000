@@ -14,6 +14,9 @@
 		EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4467CB2D07C52F000DDE5A /* SampleBrowserView.swift */; };
 		EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB516E3E2CB75BD100A1C1E6 /* README.md */; };
 		EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6065182C850A300017CB33 /* TapeRecorderState.swift */; };
+		EB63A3022D6A88AB00E35AE6 /* SampleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63A3012D6A88A700E35AE6 /* SampleStorage.swift */; };
+		EB63A3042D6A8E2A00E35AE6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63A3032D6A8E2800E35AE6 /* AppState.swift */; };
+		EB63A3072D6A925000E35AE6 /* DSFDockTile in Frameworks */ = {isa = PBXBuildFile; productRef = EB63A3062D6A925000E35AE6 /* DSFDockTile */; };
 		EB64CD122D14FC5200F2B65E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64CD112D14FC5200F2B65E /* SettingsView.swift */; };
 		EB64CD142D1A0E1500F2B65E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64CD132D1A0E1500F2B65E /* Shared.swift */; };
 		EB8313F22D4DCDD600B343FF /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8313F12D4DCDD600B343FF /* SidebarView.swift */; };
@@ -46,6 +49,8 @@
 		EB516E3D2CB75BC300A1C1E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB516E3E2CB75BD100A1C1E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB6065182C850A300017CB33 /* TapeRecorderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeRecorderState.swift; sourceTree = "<group>"; };
+		EB63A3012D6A88A700E35AE6 /* SampleStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStorage.swift; sourceTree = "<group>"; };
+		EB63A3032D6A8E2800E35AE6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		EB64CD112D14FC5200F2B65E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB64CD132D1A0E1500F2B65E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		EB8313F12D4DCDD600B343FF /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -79,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB63A3072D6A925000E35AE6 /* DSFDockTile in Frameworks */,
 				EB15650F2D55879D00A3D339 /* FZMetadata in Frameworks */,
 				EBDBF5EF2D63E037004E807F /* SettingsAccess in Frameworks */,
 			);
@@ -90,6 +96,7 @@
 		EB1565102D558F0700A3D339 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EB63A3012D6A88A700E35AE6 /* SampleStorage.swift */,
 				EBDBE35C2D583606004E807F /* NewRecording.swift */,
 				EB1565112D558F1F00A3D339 /* Sample.swift */,
 			);
@@ -181,6 +188,7 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EB63A3032D6A8E2800E35AE6 /* AppState.swift */,
 				EB1565102D558F0700A3D339 /* Models */,
 				EB91DD322CE3135A00F1C37E /* External Assets */,
 				EB516E3E2CB75BD100A1C1E6 /* README.md */,
@@ -242,6 +250,7 @@
 			packageProductDependencies = (
 				EB15650E2D55879D00A3D339 /* FZMetadata */,
 				EBDBF5EE2D63E037004E807F /* SettingsAccess */,
+				EB63A3062D6A925000E35AE6 /* DSFDockTile */,
 			);
 			productName = replica;
 			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */;
@@ -274,6 +283,7 @@
 			packageReferences = (
 				EB15650D2D55879D00A3D339 /* XCLocalSwiftPackageReference "../../../Downloads/FZMetadata-main" */,
 				EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */,
+				EB63A3052D6A925000E35AE6 /* XCRemoteSwiftPackageReference "DSFDockTile" */,
 			);
 			productRefGroup = EBE4E9452C43244D00397EF2 /* Products */;
 			projectDirPath = "";
@@ -306,6 +316,8 @@
 			files = (
 				EB64CD142D1A0E1500F2B65E /* Shared.swift in Sources */,
 				EBBBFE8D2CA2583800E987B1 /* StreamManager.swift in Sources */,
+				EB63A3022D6A88AB00E35AE6 /* SampleStorage.swift in Sources */,
+				EB63A3042D6A8E2A00E35AE6 /* AppState.swift in Sources */,
 				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
 				EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */,
 				EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */,
@@ -555,6 +567,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB63A3052D6A925000E35AE6 /* XCRemoteSwiftPackageReference "DSFDockTile" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dagronf/DSFDockTile";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/orchetect/SettingsAccess";
@@ -569,6 +589,11 @@
 		EB15650E2D55879D00A3D339 /* FZMetadata */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FZMetadata;
+		};
+		EB63A3062D6A925000E35AE6 /* DSFDockTile */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB63A3052D6A925000E35AE6 /* XCRemoteSwiftPackageReference "DSFDockTile" */;
+			productName = DSFDockTile;
 		};
 		EBDBF5EE2D63E037004E807F /* SettingsAccess */ = {
 			isa = XCSwiftPackageProductDependency;

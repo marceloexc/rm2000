@@ -11,69 +11,67 @@ enum OnboardingStep {
 
 class OnboardingViewModel: ObservableObject {
 	@Published var currentStep: OnboardingStep = .welcome
-	@AppStorage("completedOnboarding") private var completedOnboarding: Bool = false
-	
-	@AppStorage("sample_directory") var userDefaultsDirectoryPath: URL = WorkingDirectory.applicationSupportPath()
-	
-	func finishOnboarding() {
-		completedOnboarding = true
-	}
 }
 
 struct FinalOnboardingCompleteView: View {
-	
 	@Environment(\.dismiss) var dismiss
-	
 	@ObservedObject var viewModel: OnboardingViewModel
-	
+	@EnvironmentObject var appState: AppState
+
 	var body: some View {
 		Text("Complete!")
 		HStack {
 			Button("Back") {
 				viewModel.currentStep = .settings
 			}
-			
+
 			Button("Finish") {
-				dismiss()
-			}
+					   appState.hasCompletedOnboarding = true
+				
+						/*
+						 this has to be appkit compatible as the mainwindow uses
+						 an appkit based lifetime
+						 */
+					   NSApp.windows.first { $0.identifier?.rawValue == "onboarding" }?.close()
+					   (NSApp.delegate as? AppDelegate)?.showMainWindow()
+				   }
 			.buttonStyle(.borderedProminent)
 		}
 	}
 }
 
+
 struct SettingsStepView: View {
 	
 	private let streamManager = StreamManager()
-	
+
 	@ObservedObject var viewModel: OnboardingViewModel
-	
+	@EnvironmentObject var appState: AppState
+
 	@State private var showFileChooser: Bool = false
-	
+
 	var body: some View {
-		Text("settings")
+		Text("Settings")
 		HStack {
-			TextField("Set RM2000 Sample Directory", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-			Button("Print userDefaultsDirectoryPath") {
-				print(viewModel.userDefaultsDirectoryPath)
+			TextField("Set RM2000 Sample Directory", text: Binding(
+				get: { appState.sampleDirectory?.path ?? "" },
+				set: { appState.sampleDirectory = URL(fileURLWithPath: $0) }
+			))
+
+			Button("Print Directory") {
+				print(appState.sampleDirectory?.path ?? "No directory set")
 			}
+
 			Button("Browse") {
 				showFileChooser = true
 			}
-			.fileImporter(isPresented: $showFileChooser, allowedContentTypes: [.directory]) {
-				result in
+			.fileImporter(isPresented: $showFileChooser, allowedContentTypes: [.directory]) { result in
 				switch result {
 				case .success(let directory):
-					viewModel.userDefaultsDirectoryPath = directory
-					Logger.viewModels.info("Set new userDefaultsDirectoryPath as \(directory)")
+					appState.sampleDirectory = directory
+					Logger.viewModels.info("Set new sampleDirectory as \(directory)")
 				case .failure(let error):
-					Logger.viewModels.error("Could not set userDefaultsDirectoryPath: \(error)")
-				}
-			}
-		}
-		HStack {
-			Button("Request Permissions") {
-				Task {
-					await invokeRecordingPermission()
+					Logger.viewModels.error("Could not set sampleDirectory: \(error)")
 				}
 			}
 		}
@@ -84,7 +82,7 @@ struct SettingsStepView: View {
 			
 			Button("Next") {
 				viewModel.currentStep = .complete
-				print(viewModel.userDefaultsDirectoryPath)
+				print(appState.sampleDirectory?.path ?? "No directory set")
 			}
 			.buttonStyle(.borderedProminent)
 		}
@@ -136,6 +134,7 @@ struct WelcomeView:View {
 
 struct OnboardingView: View {
 		
+	@EnvironmentObject var appState: AppState
 	@ObservedObject var viewModel: OnboardingViewModel
 	
 	var body: some View {
@@ -154,9 +153,9 @@ struct OnboardingView: View {
 		.padding()
 		
     }
-	
 }
 
 #Preview {
 	OnboardingView(viewModel: OnboardingViewModel())
+		.environmentObject(AppState.shared) // Ensure AppState is injected
 }
