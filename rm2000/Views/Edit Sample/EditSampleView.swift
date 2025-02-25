@@ -6,7 +6,7 @@ struct EditSampleView<Model: FileRepresentable>: View {
 	let model: Model
 	@State private var title: String
 	@State private var tags: String
-	@State private var description: String
+	@State private var description: String?
 	@State private var forwardEndTime: CMTime? = nil
 	@State private var reverseEndTime: CMTime? = nil
 	private let onComplete: (FileRepresentable) -> Void
