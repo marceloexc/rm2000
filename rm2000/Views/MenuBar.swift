@@ -4,6 +4,7 @@ import OSLog
 
 struct MenuBarView: View {
 	@EnvironmentObject private var recordingState: TapeRecorderState
+	@EnvironmentObject private var sampleStorage: SampleStorage
 	@Environment(\.openWindow) private var openWindow
 	
 	var body: some View {
@@ -19,6 +20,9 @@ struct MenuBarView: View {
 			} else {
 				recordingState.startRecording()
 			}
+		}
+		Button("Print Debug information to console") {
+			_ = print("\(sampleStorage.UserDirectory.files)")
 		}
 		Divider()
 		Button("Quit RM2000") {

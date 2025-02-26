@@ -51,6 +51,8 @@ class SampleDirectory: ObservableObject {
 				if let fileMetadata = MetadataItem(url: fileURL) {
 					files.append(fileMetadata)
 				}
+				
+				Logger.appState.info("Added \(fileURL) to files as FZMetadata")
 			}
 		} catch {
 			//			Logging.appState.error("Error initial listing of directory contents: \(error.localizedDescription)")

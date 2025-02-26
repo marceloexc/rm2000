@@ -60,6 +60,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 @main
 struct rm2000: App {
 	@StateObject var appState = AppState.shared
+	@StateObject var sampleStorage = SampleStorage.shared
 	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	
 	@StateObject private var recordingState = TapeRecorderState()
@@ -68,6 +69,7 @@ struct rm2000: App {
 		MenuBarExtra("RP2000 Portable", systemImage: "recordingtape") {
 			MenuBarView()
 				.environmentObject(appDelegate.recordingState)
+				.environmentObject(sampleStorage)
 		}
 		
 		Window("Recordings", id: "recordings-window") {
