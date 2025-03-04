@@ -1,4 +1,5 @@
 import Combine
+import UniformTypeIdentifiers
 import FZMetadata
 import Foundation
 import OSLog
@@ -39,7 +40,7 @@ class SampleDirectory: ObservableObject {
 	init(directory: URL) {
 		self.directory = directory
 		startInitialFileScan()
-
+		setupDirectoryWatching()
 	}
 
 	private func startInitialFileScan() {
@@ -51,9 +52,9 @@ class SampleDirectory: ObservableObject {
 				if let fileMetadata = MetadataItem(url: fileURL) {
 					files.append(fileMetadata)
 				}
-				
-				Logger.appState.info("Added \(fileURL) to files as FZMetadata")
 			}
+			Logger.appState.info("Added \(directoryContents.count) files as FZMetadata to \(self.directory.description)")
+
 		} catch {
 			//			Logging.appState.error("Error initial listing of directory contents: \(error.localizedDescription)")
 		}
@@ -105,4 +106,39 @@ class SampleDirectory: ObservableObject {
 			}
 		}
 	}
+	
+	private func setupDirectoryWatching() {
+		query.searchLocations = [self.directory]
+		
+		/*
+		 UTType doesnt have a specific type for aac audio so this is whats needed
+		 
+		 Stupid...
+		 
+		 or...maybe im stupid...maybe these shouldnt be .aac files at all, and should be .m4a
+		 
+		 https://en.wikipedia.org/wiki/Advanced_Audio_Coding
+		 */
+		query.predicate = { $0.contentType == [.mp3, .wav, UTType("public.aac-audio")] }
+
+		query.monitorResults = true
+		
+		query.resultsHandler = { [weak self] items, difference in
+			DispatchQueue.main.async {
+				for new in difference.added {
+					Logger.appState.info("New content detected: \(String(describing: new.url))")
+					self?.files.append(new)
+				}
+				
+				for removed in difference.removed {
+					self?.files.remove(removed)
+					Logger.appState.info("Content removed:: \(String(describing: removed.url))")
+				}
+				
+				// TODO - add something for .changed difference
+			}
+		}
+		query.start()
+	}
+
 }
