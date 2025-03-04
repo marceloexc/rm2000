@@ -100,6 +100,9 @@ struct NewCollectionButton: View {
 }
 
 class SampleBrowserViewModel: ObservableObject {
+	
+	@Published private var sampleStorage: SampleStorage
+
 	@Published var finishedProcessing: Bool = false
 	
 	@Published var sampleArray: [Sample] = []
@@ -107,6 +110,10 @@ class SampleBrowserViewModel: ObservableObject {
 	@Published var selectedTag: String?
 	
 	private let regString = /(.+)--(.+)\.(.+)/
+	
+	init(sampleStorage: SampleStorage = SampleStorage.shared) {
+		self.sampleStorage = sampleStorage
+	}
 	
 	func listAllRecordings() {
 		let path = WorkingDirectory.applicationSupportPath()

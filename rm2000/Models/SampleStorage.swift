@@ -24,16 +24,8 @@ final class SampleStorage: ObservableObject {
 
 class SampleDirectory: ObservableObject {
 
-	/*
-	 todo when i come back -
-
-	 this needs to index all of the files in the folder...
-
-	 so that i can then add them via (applySampleEdits)
-
-	 */
-
 	@Published var files: [MetadataItem] = []
+	@Published var indexedTags: [String] = []
 	private var directory: URL
 	private var query = MetadataQuery()
 

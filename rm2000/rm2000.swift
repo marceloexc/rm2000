@@ -74,6 +74,7 @@ struct rm2000: App {
 		
 		Window("Recordings", id: "recordings-window") {
 			SampleBrowserView()
+				.environmentObject(sampleStorage)
 		}.windowToolbarStyle(.unifiedCompact)
 
 		WindowGroup("Welcome", id: "onboarding") {
