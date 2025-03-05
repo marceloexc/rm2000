@@ -1,41 +1,74 @@
-import SwiftUI
 import Foundation
 import OSLog
+import SwiftUI
 
 enum AudioFormat: String {
 	case aac, mp3, alac, opus
 }
 
 struct SettingsView: View {
+
+	@EnvironmentObject private var appState: AppState
 	@State private var selectedFileType = AudioFormat.aac
-	@State private var workingDirectory = WorkingDirectory.applicationSupportPath().description
+	@State private var workingDirectory: URL? = nil
 	@State private var autostartAtLogin = false
 	@State private var minimizeToToolbar = false
 	@State private var selectedTab = "General"
-		
+	@State private var showFileChooser: Bool = false
+
 	var body: some View {
 		TabView(selection: $selectedTab) {
 			Form {
-				Section {
+				GroupBox(
+					label:
+						Label("Recording", systemImage: "recordingtape")
+				) {
 					Picker("Sample File Type", selection: $selectedFileType) {
 						Text("AAC").tag(AudioFormat.aac)
-						Text("MP3").tag(AudioFormat.mp3)
-						Text("ALAC").tag(AudioFormat.alac)
-						Text("OPUS").tag(AudioFormat.opus)
+						Text("Lol thats about it").tag(AudioFormat.mp3).disabled(true)
+						Text("Sorry about that").tag(AudioFormat.alac).disabled(true)
+						Text("Ill try to get at least MP3 support by next week").tag(AudioFormat.opus).disabled(true)
 
 					}
+					.pickerStyle(MenuPickerStyle())
 					.onChange(of: selectedFileType) { newValue in
-						selectedFileType = newValue}
+						selectedFileType = newValue
+					}
 					.pickerStyle(.menu)
-					
+				}
+
+				GroupBox(
+					label:
+						Label("Saved Directory", systemImage: "books.vertical")
+				) {
 					HStack {
-						TextField("Working Directory", text: $workingDirectory)
+						Text(
+							"Currently set to \"\(workingDirectory?.lastPathComponent ?? "nil")\""
+						)
+						.font(.caption)
+
 						Button("Browse") {
-							// Directory picker logic would go here
+							showFileChooser = true
+						}
+						.fileImporter(
+							isPresented: $showFileChooser,
+							allowedContentTypes: [.directory]
+						) { result in
+							switch result {
+							case .success(let directory):
+								appState.sampleDirectory = directory
+								workingDirectory = directory
+								Logger.appState.info(
+									"Settings set new sample directory to \(directory)"
+								)
+							case .failure(let error):
+								Logger.appState.error(
+									"Could not set new sampleDirectory from settings view: \(error)"
+								)
+							}
 						}
 					}
 				}
-				
 				Section {
 					Toggle("Start at Login", isOn: $autostartAtLogin)
 						.onChange(of: autostartAtLogin) { newValue in
@@ -44,7 +77,7 @@ struct SettingsView: View {
 					Toggle("Minimize to Toolbar", isOn: $minimizeToToolbar)
 						.disabled(!autostartAtLogin)
 				}
-				
+
 				Section {
 					Toggle("Show File Extensions", isOn: .constant(true))
 					Toggle("Keep unsaved samples", isOn: .constant(true))
@@ -57,8 +90,11 @@ struct SettingsView: View {
 			}
 			.tag("General")
 		}
+		.onAppear {
+			workingDirectory = appState.sampleDirectory
+		}
 	}
-	
+
 	private func autoStartAtLogin() {
 		Logger.viewModels.warning("Not implemented yet")
 	}
@@ -66,4 +102,5 @@ struct SettingsView: View {
 
 #Preview {
 	SettingsView()
+		.environmentObject(AppState.shared)
 }

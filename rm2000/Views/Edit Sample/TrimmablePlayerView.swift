@@ -13,17 +13,17 @@ class PlayerViewModel: ObservableObject {
 		}
 	}
 	var player: AVPlayer?
-	var activeRecording: NewRecording
+	var activeRecording: FileRepresentable
 	
 	private var cancellables = Set<AnyCancellable>()
 	
-	init(activeRecording: NewRecording) {
+	init(activeRecording: FileRepresentable) {
 		self.activeRecording = activeRecording
 		setupPlayer()
 	}
 	
 	fileprivate func setupPlayer() {
-		let fileURL = activeRecording.url
+		let fileURL = activeRecording.fileURL
 		
 		let asset = AVAsset(url: fileURL)
 		let item = AVPlayerItem(asset: asset)
@@ -86,16 +86,19 @@ class PlayerViewModel: ObservableObject {
 	}
 }
 
-struct TrimmablePlayerView: View {
+struct TrimmablePlayerView<Model: FileRepresentable>: View {
 	@StateObject private var viewModel: PlayerViewModel
 	// optional's as the CMTime's can be of NaN
 	@Binding var forwardEndTime: CMTime?
 	@Binding var reverseEndTime: CMTime?
 	
-	init(recording: NewRecording, forwardEndTime: Binding<CMTime?>, reverseEndTime: Binding<CMTime?>) {
+	let model: Model
+	
+	init(recording: Model, forwardEndTime: Binding<CMTime?>, reverseEndTime: Binding<CMTime?>) {
 		_viewModel = StateObject(wrappedValue: PlayerViewModel(activeRecording: recording))
 		_forwardEndTime = forwardEndTime
 		_reverseEndTime = reverseEndTime
+		self.model = recording
 	}
 	
 	var body: some View {

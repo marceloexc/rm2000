@@ -20,7 +20,7 @@ private struct TaggedRecordingsView: View {
 	
 	var body: some View {
 		List(viewModel.sampleArray) { sample in
-			if sample.filename.contains(selectedTag) {
+			if sample.tags.contains(selectedTag) {
 				SampleIndividualListItem(sampleItem: sample)
 			}
 		}
@@ -78,35 +78,24 @@ struct SampleIndividualListItem: View {
 		}
 		.contentShape(Rectangle())
 		.onTapGesture(count: 2) {
-			NSWorkspace.shared.open(sampleItem.url)
+			NSWorkspace.shared.open(sampleItem.fileURL)
 		}
 		.contextMenu {
 			Button("Open File") {
-				NSWorkspace.shared.open(sampleItem.url)
+				NSWorkspace.shared.open(sampleItem.fileURL)
 			}
 		}
 	}
 }
 
-#Preview("Detail View") {
-	let vm = SampleBrowserViewModel()
-//	vm.directoryContents = [
-//		URL(string: "file:///sample1--drums_bass.wav")!,
-//		URL(string: "file:///sample2--vocals_synth.mp3")!
-//	]
-	vm.finishedProcessing = true
-	return DetailView(viewModel: vm)
-}
+//#Preview("Detail View") {
+//	let vm = SampleBrowserViewModel()
+////	vm.directoryContents = [
+////		URL(string: "file:///sample1--drums_bass.wav")!,
+////		URL(string: "file:///sample2--vocals_synth.mp3")!
+////	]
+//	vm.finishedProcessing = true
+//	return DetailView(viewModel: vm)
+//}
+//
 
-#Preview("Sample Browser") {
-	let vm = SampleBrowserViewModel()
-//	uncomment this if you need data
-//	vm.directoryContents = [
-//		URL(string: "file:///sample1--drums_bass.wav")!,
-//		URL(string: "file:///sample2--vocals_synth.mp3")!,
-//		URL(string: "file:///sample3--drums_effects.aiff")!
-//	]
-//	vm.indexedTags = ["drums", "bass", "vocals", "synth", "effects"]
-	vm.finishedProcessing = true
-	return SampleBrowserView(viewModel: vm)
-}

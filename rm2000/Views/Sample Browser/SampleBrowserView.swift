@@ -1,14 +1,16 @@
 import Foundation
+import Combine
 import SwiftUI
 
+@MainActor
 struct SampleBrowserView: View {
 	@StateObject private var viewModel: SampleBrowserViewModel
 	@Environment(\.openURL) private var openURL
 	
 	@State private var totalSamples: Int = 0
 	
-	init(viewModel: SampleBrowserViewModel = SampleBrowserViewModel()) {
-		_viewModel = StateObject(wrappedValue: viewModel)
+	init() {
+			_viewModel = StateObject(wrappedValue: SampleBrowserViewModel())
 	}
 	
 	var body: some View {
@@ -29,7 +31,6 @@ struct SampleBrowserView: View {
 			}
 		}
 		.task {
-			viewModel.listAllRecordings()
 			totalSamples = viewModel.sampleArray.count
 		}
 		.searchable(text: .constant(""), placement: .sidebar)
@@ -99,49 +100,37 @@ struct NewCollectionButton: View {
 	}
 }
 
+@MainActor
 class SampleBrowserViewModel: ObservableObject {
-	@Published var finishedProcessing: Bool = false
-	
 	@Published var sampleArray: [Sample] = []
 	@Published var indexedTags: [String] = []
+	@Published var finishedProcessing: Bool = false
 	@Published var selectedTag: String?
 	
-	private let regString = /(.+)--(.+)\.(.+)/
+	private var sampleStorage: SampleStorage
+	private var cancellables = Set<AnyCancellable>()
 	
-	func listAllRecordings() {
-		let path = WorkingDirectory.applicationSupportPath()
+	@MainActor
+	init(sampleStorage: SampleStorage = SampleStorage.shared) {
+		self.sampleStorage = sampleStorage
 		
-		do {
-			let directoryContents = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-			
-			for fileURL in directoryContents {
-				if let sample = Sample(fileURL: fileURL) {
-					sampleArray.append(sample)
-				}
+		sampleStorage.UserDirectory.$files
+			.receive(on: DispatchQueue.main)
+			.sink { [weak self] newFiles in
+				self?.sampleArray = newFiles
+				self?.finishedProcessing = true
 			}
-			
-			indexedTags = sampleArray.flatMap{$0.tags}
-			indexedTags = Array(Set(indexedTags)).sorted()
-			finishedProcessing = true
-		} catch {
-			print("Error listing directory contents: \(error.localizedDescription)")
-			finishedProcessing = false
-		}
+			.store(in: &cancellables)
+		
+		sampleStorage.UserDirectory.$indexedTags
+			.receive(on: DispatchQueue.main)
+			.sink { [weak self] newTags in
+				self?.indexedTags = Array(newTags).sorted()
+			}
+			.store(in: &cancellables)
+	}
+	
+	func refresh() {
+		// Force refresh logic
 	}
 }
-
-
-
-#Preview("Sample Browser") {
-	let vm = SampleBrowserViewModel()
-//	uncomment this if you need data
-//	vm.directoryContents = [
-//		URL(string: "file:///sample1--drums_bass.wav")!,
-//		URL(string: "file:///sample2--vocals_synth.mp3")!,
-//		URL(string: "file:///sample3--drums_effects.aiff")!
-//	]
-//	vm.indexedTags = ["drums", "bass", "vocals", "synth", "effects"]
-	vm.finishedProcessing = true
-	return SampleBrowserView(viewModel: vm)
-}
-

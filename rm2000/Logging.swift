@@ -10,4 +10,6 @@ extension Logger {
 	static let sharedStreamState = Logger(subsystem: subsystem, category: "sharedstreamstate")
 	
 	static let viewModels = Logger(subsystem: subsystem, category: "viewmodels")
+	
+	static let appState = Logger(subsystem: subsystem, category: "appState")
 }

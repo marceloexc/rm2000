@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		EB13CF402D31A36400E2EC4B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */; };
-		EB15650F2D55879D00A3D339 /* FZMetadata in Frameworks */ = {isa = PBXBuildFile; productRef = EB15650E2D55879D00A3D339 /* FZMetadata */; };
 		EB1565122D558F2100A3D339 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1565112D558F1F00A3D339 /* Sample.swift */; };
 		EB296DF32D65355C008427DF /* TrimmablePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB296DF22D653556008427DF /* TrimmablePlayerView.swift */; };
 		EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4467CB2D07C52F000DDE5A /* SampleBrowserView.swift */; };
 		EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB516E3E2CB75BD100A1C1E6 /* README.md */; };
 		EB6065192C850A300017CB33 /* TapeRecorderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6065182C850A300017CB33 /* TapeRecorderState.swift */; };
+		EB63A3022D6A88AB00E35AE6 /* SampleStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63A3012D6A88A700E35AE6 /* SampleStorage.swift */; };
+		EB63A3042D6A8E2A00E35AE6 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63A3032D6A8E2800E35AE6 /* AppState.swift */; };
 		EB64CD122D14FC5200F2B65E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64CD112D14FC5200F2B65E /* SettingsView.swift */; };
 		EB64CD142D1A0E1500F2B65E /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB64CD132D1A0E1500F2B65E /* Shared.swift */; };
 		EB8313F22D4DCDD600B343FF /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8313F12D4DCDD600B343FF /* SidebarView.swift */; };
@@ -30,13 +31,13 @@
 		EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE922CA2593900E987B1 /* Protocols.swift */; };
 		EBCA46E22CACBEE700040159 /* EditSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46E12CACBEE700040159 /* EditSampleView.swift */; };
 		EBCF5FEC2CEAD8950047405A /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF5FEB2CEAD8950047405A /* TitleBar.swift */; };
-		EBDBE35B2D58275A004E807F /* StagedSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35A2D58273F004E807F /* StagedSample.swift */; };
 		EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35C2D583606004E807F /* NewRecording.swift */; };
-		EBDBF5EF2D63E037004E807F /* SettingsAccess in Frameworks */ = {isa = PBXBuildFile; productRef = EBDBF5EE2D63E037004E807F /* SettingsAccess */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
 		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
 		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
 		EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94E2C43244F00397EF2 /* Preview Assets.xcassets */; };
+		EBFCB1102D77987800A9A226 /* FZMetadata in Frameworks */ = {isa = PBXBuildFile; productRef = EBFCB10F2D77987800A9A226 /* FZMetadata */; };
+		EBFCB1132D77988600A9A226 /* SettingsAccess in Frameworks */ = {isa = PBXBuildFile; productRef = EBFCB1122D77988600A9A226 /* SettingsAccess */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		EB516E3D2CB75BC300A1C1E6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB516E3E2CB75BD100A1C1E6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		EB6065182C850A300017CB33 /* TapeRecorderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeRecorderState.swift; sourceTree = "<group>"; };
+		EB63A3012D6A88A700E35AE6 /* SampleStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleStorage.swift; sourceTree = "<group>"; };
+		EB63A3032D6A8E2800E35AE6 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		EB64CD112D14FC5200F2B65E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EB64CD132D1A0E1500F2B65E /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		EB8313F12D4DCDD600B343FF /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -63,7 +66,6 @@
 		EBBBFE922CA2593900E987B1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EBCA46E12CACBEE700040159 /* EditSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSampleView.swift; sourceTree = "<group>"; };
 		EBCF5FEB2CEAD8950047405A /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
-		EBDBE35A2D58273F004E807F /* StagedSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagedSample.swift; sourceTree = "<group>"; };
 		EBDBE35C2D583606004E807F /* NewRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecording.swift; sourceTree = "<group>"; };
 		EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Tape Recorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9472C43244D00397EF2 /* rm2000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000.swift; sourceTree = "<group>"; };
@@ -81,8 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB15650F2D55879D00A3D339 /* FZMetadata in Frameworks */,
-				EBDBF5EF2D63E037004E807F /* SettingsAccess in Frameworks */,
+				EBFCB1102D77987800A9A226 /* FZMetadata in Frameworks */,
+				EBFCB1132D77988600A9A226 /* SettingsAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +94,8 @@
 		EB1565102D558F0700A3D339 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EB63A3012D6A88A700E35AE6 /* SampleStorage.swift */,
 				EBDBE35C2D583606004E807F /* NewRecording.swift */,
-				EBDBE35A2D58273F004E807F /* StagedSample.swift */,
 				EB1565112D558F1F00A3D339 /* Sample.swift */,
 			);
 			path = Models;
@@ -135,6 +137,13 @@
 			path = "External Assets";
 			sourceTree = "<group>";
 		};
+		EBA5E5792D77976D00D415DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EBBBFE842CA1F55100E987B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +177,7 @@
 				EBE4E9462C43244D00397EF2 /* rm2000 */,
 				EBE4E9582C43245000397EF2 /* rm2000Tests */,
 				EBE4E9622C43245000397EF2 /* rm2000UITests */,
+				EBA5E5792D77976D00D415DB /* Frameworks */,
 				EBE4E9452C43244D00397EF2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -184,6 +194,7 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EB63A3032D6A8E2800E35AE6 /* AppState.swift */,
 				EB1565102D558F0700A3D339 /* Models */,
 				EB91DD322CE3135A00F1C37E /* External Assets */,
 				EB516E3E2CB75BD100A1C1E6 /* README.md */,
@@ -243,8 +254,8 @@
 			);
 			name = rm2000;
 			packageProductDependencies = (
-				EB15650E2D55879D00A3D339 /* FZMetadata */,
-				EBDBF5EE2D63E037004E807F /* SettingsAccess */,
+				EBFCB10F2D77987800A9A226 /* FZMetadata */,
+				EBFCB1122D77988600A9A226 /* SettingsAccess */,
 			);
 			productName = replica;
 			productReference = EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */;
@@ -275,8 +286,8 @@
 			);
 			mainGroup = EBE4E93B2C43244D00397EF2;
 			packageReferences = (
-				EB15650D2D55879D00A3D339 /* XCLocalSwiftPackageReference "../../../Downloads/FZMetadata-main" */,
-				EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */,
+				EBA5E5782D7796F800D415DB /* XCLocalSwiftPackageReference "../../Downloads/FZMetadata-main" */,
+				EBFCB1112D77988600A9A226 /* XCRemoteSwiftPackageReference "SettingsAccess" */,
 			);
 			productRefGroup = EBE4E9452C43244D00397EF2 /* Products */;
 			projectDirPath = "";
@@ -308,8 +319,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB64CD142D1A0E1500F2B65E /* Shared.swift in Sources */,
-				EBDBE35B2D58275A004E807F /* StagedSample.swift in Sources */,
 				EBBBFE8D2CA2583800E987B1 /* StreamManager.swift in Sources */,
+				EB63A3022D6A88AB00E35AE6 /* SampleStorage.swift in Sources */,
+				EB63A3042D6A8E2A00E35AE6 /* AppState.swift in Sources */,
 				EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */,
 				EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */,
 				EB4467CC2D07C52F000DDE5A /* SampleBrowserView.swift in Sources */,
@@ -482,7 +494,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = "0.1 Alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.rm2000;
 				PRODUCT_NAME = "RM2000 Tape Recorder";
@@ -518,7 +530,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = "0.1 Alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = marceloexc.rm2000;
 				PRODUCT_NAME = "RM2000 Tape Recorder";
@@ -552,14 +564,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		EB15650D2D55879D00A3D339 /* XCLocalSwiftPackageReference "../../../Downloads/FZMetadata-main" */ = {
+		EBA5E5782D7796F800D415DB /* XCLocalSwiftPackageReference "../../Downloads/FZMetadata-main" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../Downloads/FZMetadata-main";
+			relativePath = "../../Downloads/FZMetadata-main";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */ = {
+		EBFCB1112D77988600A9A226 /* XCRemoteSwiftPackageReference "SettingsAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/orchetect/SettingsAccess";
 			requirement = {
@@ -570,13 +582,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB15650E2D55879D00A3D339 /* FZMetadata */ = {
+		EBFCB10F2D77987800A9A226 /* FZMetadata */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = EBA5E5782D7796F800D415DB /* XCLocalSwiftPackageReference "../../Downloads/FZMetadata-main" */;
 			productName = FZMetadata;
 		};
-		EBDBF5EE2D63E037004E807F /* SettingsAccess */ = {
+		EBFCB1122D77988600A9A226 /* SettingsAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EBDBF5ED2D63E037004E807F /* XCRemoteSwiftPackageReference "SettingsAccess" */;
+			package = EBFCB1112D77988600A9A226 /* XCRemoteSwiftPackageReference "SettingsAccess" */;
 			productName = SettingsAccess;
 		};
 /* End XCSwiftPackageProductDependency section */

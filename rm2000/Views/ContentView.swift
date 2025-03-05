@@ -28,12 +28,10 @@ struct ContentView: View {
 
 			}
 			
-//			TODO this variable does not belong in recordingState but instead in this cv
 			.sheet(isPresented: $recordingState.showRenameDialogInMainWindow) {
 				if let newRecording = recordingState.activeRecording {
-					EditSampleView(newRecording: newRecording) { stagedSample in
-						recordingState.stagedSample = stagedSample
-						recordingState.applySampleEdits(from: recordingState.stagedSample!)
+					EditSampleView(recording: newRecording) { FileRepresentable in
+						print(FileRepresentable)
 					}
 				}
 			}
