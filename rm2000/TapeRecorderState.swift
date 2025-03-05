@@ -6,6 +6,9 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	@Published var currentSampleFilename: String?
 	@Published var showRenameDialogInMainWindow: Bool = false
 	@Published var activeRecording: NewRecording?
+	@Published var elapsedTimeRecording: TimeInterval = 0
+	
+	private var timer: Timer?
 	
 	let recorder = TapeRecorder()
 	
@@ -13,12 +16,13 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 		recorder.delegate = self
 	}
 	
+	@MainActor
 	func startRecording() {
 		Task {
 			await MainActor.run {
 				self.isRecording = true
 			}
-			
+			startTimer()
 			let newRecording = NewRecording()
 			currentSampleFilename = newRecording.fileURL.lastPathComponent
 			self.activeRecording = newRecording 
@@ -29,8 +33,18 @@ class TapeRecorderState: ObservableObject, TapeRecorderDelegate {
 	
 	func stopRecording() {
 		recorder.stopRecording()
+		timer?.invalidate()
+		timer = nil
 		showRenameDialogInMainWindow = true
 		Logger.sharedStreamState.info("showing edit sample sheet")
+	}
+	
+	private func startTimer() {
+		self.elapsedTimeRecording = 0
+		timer?.invalidate()
+		timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+			self.elapsedTimeRecording += 1
+		}
 	}
 	
 	func tapeRecorderDidStartRecording(_ recorder: TapeRecorder) {

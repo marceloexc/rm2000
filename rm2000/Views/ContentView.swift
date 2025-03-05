@@ -75,7 +75,7 @@ struct LCDScreenView: View {
 					Spacer()
 				}
 
-				Text(" FLAC ")
+				Text(" M4A ")
 					.font(Font.custom("Tachyo", size: 41))
 					.foregroundColor(Color("LCDTextColor"))
 					.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
@@ -84,7 +84,7 @@ struct LCDScreenView: View {
 					.kerning(-1.5)
 				
 				if recordingState.isRecording {
-					Text(" REC ")
+					Text(timeString(recordingState.elapsedTimeRecording))
 						.font(Font.custom("Tachyo", size: 41))
 						.foregroundColor(Color("LCDTextColor"))
 						.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
@@ -107,6 +107,12 @@ struct LCDScreenView: View {
 				.resizable()
 				.frame(width: 330)
 		}
+	}
+	
+	private func timeString(_ time: TimeInterval) -> String {
+		let minutes = Int(time) / 60
+		let seconds = Int(time) % 60
+		return String(format: " %02d:%02d ", minutes, seconds)
 	}
 }
 

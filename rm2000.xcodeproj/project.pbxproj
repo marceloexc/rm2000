@@ -195,6 +195,7 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EB6065182C850A300017CB33 /* TapeRecorderState.swift */,
 				EB63A3032D6A8E2800E35AE6 /* AppState.swift */,
 				EB1565102D558F0700A3D339 /* Models */,
 				EB91DD322CE3135A00F1C37E /* External Assets */,
