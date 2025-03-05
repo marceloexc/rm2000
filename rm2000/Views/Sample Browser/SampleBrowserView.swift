@@ -40,7 +40,7 @@ struct SampleBrowserView: View {
 struct OpenInFinderButton: View {
 	var body: some View {
 		Button(action: {
-			NSWorkspace.shared.open(WorkingDirectory.applicationSupportPath())
+			NSWorkspace.shared.open(SampleStorage.shared.UserDirectory.directory)
 		}) {
 			Image(systemName: "folder.fill")
 				.font(.system(size: 16, weight: .black))

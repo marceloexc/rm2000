@@ -28,7 +28,7 @@ class SampleDirectory: ObservableObject {
 	// todo - refactor indexedTags to automatically be called
 	// when [files] changes in size
 	@Published var indexedTags: Set<String> = []
-	private var directory: URL
+	var directory: URL
 	private var query = MetadataQuery()
 
 	init(directory: URL) {
@@ -36,7 +36,7 @@ class SampleDirectory: ObservableObject {
 		startInitialFileScan()
 		setupDirectoryWatching()
 	}
-
+	
 	private func startInitialFileScan() {
 		do {
 			let directoryContents = try FileManager.default.contentsOfDirectory(
