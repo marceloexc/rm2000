@@ -22,7 +22,7 @@ struct MenuBarView: View {
 			}
 		}
 		Button("Print Debug information to console") {
-			_ = print("\(sampleStorage.UserDirectory.files)")
+			print("\(sampleStorage.UserDirectory.files)")
 		}
 		Divider()
 		Button("Quit RM2000") {

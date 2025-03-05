@@ -89,7 +89,7 @@ struct Sample: Identifiable {
 	
 	private func constructSampleFilename(title: String, tags: [String]) -> String {
 		let title = title
-		let tags = tags
+		_ = tags
 
 //		let formattedTags = tags.replacingOccurrences(of: " ", with: "_")
 

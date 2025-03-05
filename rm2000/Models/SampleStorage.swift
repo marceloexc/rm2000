@@ -58,7 +58,6 @@ class SampleDirectory: ObservableObject {
 	func applySampleEdits(fromFile: URL, createdSample: Sample) {
 
 		let fileManager = FileManager.default
-		let appendingPathComponent = createdSample.filename
 
 		do {
 			try fileManager.moveItem(at: fromFile, to: createdSample.fileURL)
@@ -128,6 +127,7 @@ class SampleDirectory: ObservableObject {
 						Logger.appState.info("New content detected: \(String(describing: new.url))")
 						self?.files.append(createdSample)
 						self?.indexedTags.formUnion(createdSample.tags)
+						print(self?.indexedTags as Any)
 					} else {
 						Logger.appState.info("Newly added content rejected: \(String(describing: new.url))")
 					}
