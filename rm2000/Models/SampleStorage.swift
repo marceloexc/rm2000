@@ -24,8 +24,10 @@ final class SampleStorage: ObservableObject {
 
 class SampleDirectory: ObservableObject {
 
-	@Published var files: [MetadataItem] = []
-	@Published var indexedTags: [String] = []
+	@Published var files: [Sample] = []
+	// todo - refactor indexedTags to automatically be called
+	// when [files] changes in size
+	@Published var indexedTags: Set<String> = []
 	private var directory: URL
 	private var query = MetadataQuery()
 
@@ -41,8 +43,9 @@ class SampleDirectory: ObservableObject {
 				at: self.directory, includingPropertiesForKeys: nil)
 
 			for fileURL in directoryContents {
-				if let fileMetadata = MetadataItem(url: fileURL) {
-					files.append(fileMetadata)
+				if let SampleFile = Sample(fileURL: fileURL) {
+					files.append(SampleFile)
+					indexedTags.formUnion(SampleFile.tags)
 				}
 			}
 			Logger.appState.info("Added \(directoryContents.count) files as FZMetadata to \(self.directory.description)")
@@ -65,6 +68,8 @@ class SampleDirectory: ObservableObject {
 				setDescriptionFieldInFile(
 					createdSample, (createdSample.description)!)
 			}
+			
+			indexedTags.formUnion(createdSample.tags)
 		} catch {
 			Logger.appState.error("Can't move file")
 		}
@@ -112,25 +117,37 @@ class SampleDirectory: ObservableObject {
 		 https://en.wikipedia.org/wiki/Advanced_Audio_Coding
 		 */
 		query.predicate = { $0.contentType == [.mp3, .wav, UTType("public.aac-audio")] }
-
+		
 		query.monitorResults = true
 		
 		query.resultsHandler = { [weak self] items, difference in
 			DispatchQueue.main.async {
 				for new in difference.added {
-					Logger.appState.info("New content detected: \(String(describing: new.url))")
-					self?.files.append(new)
+					
+					if let createdSample = Sample(fileURL: new.url!) {
+						Logger.appState.info("New content detected: \(String(describing: new.url))")
+						self?.files.append(createdSample)
+						self?.indexedTags.formUnion(createdSample.tags)
+					} else {
+						Logger.appState.info("Newly added content rejected: \(String(describing: new.url))")
+					}
 				}
 				
 				for removed in difference.removed {
-					self?.files.remove(removed)
-					Logger.appState.info("Content removed:: \(String(describing: removed.url))")
+					if let deletedSample = Sample(fileURL: removed.url!) {
+						Logger.appState.info("Deleting sample from library: \(String(describing: removed.url))")
+						
+						// ugly chatgpt slop
+						if let index = self?.files.firstIndex(where: { $0.fileURL == deletedSample.fileURL }) {
+							self?.files.remove(at: index)
+						}
+						Logger.appState.info("Content removed:: \(String(describing: removed.url))")
+					}
+					
+					// TODO - add something for .changed difference
 				}
-				
-				// TODO - add something for .changed difference
 			}
 		}
 		query.start()
 	}
-
 }

@@ -23,6 +23,10 @@ struct Sample: Identifiable {
 		Sample.getDuration(fileURL: fileURL)
 	}
 	
+	var metadata: MetadataItem {
+		fileURL.metadata!
+	}
+	
 	init(newRecording: NewRecording, title: String, tags: String, description: String?) {
 		self.id = newRecording.id
 		self.fileURL = newRecording.fileURL
