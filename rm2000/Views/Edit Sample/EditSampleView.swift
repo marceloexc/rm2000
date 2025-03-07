@@ -9,7 +9,7 @@ struct EditSampleView<Model: FileRepresentable>: View {
 	@State private var description: String?
 	@State private var forwardEndTime: CMTime? = nil
 	@State private var reverseEndTime: CMTime? = nil
-	private let onComplete: (FileRepresentable) -> Void
+	private let onComplete: (Sample) -> Void
 	
 	init(recording: Model, onComplete: @escaping (FileRepresentable) -> Void) {
 		self.onComplete = onComplete
@@ -113,6 +113,7 @@ struct PreviewFilenameView: View {
 			.background(Color.black)
 	}
 	
+	// TODO - hardcoded file extension string
 	private func generatePreviewFilename() -> String {
 		return ("\(title)__\(tags).aac")
 	}
