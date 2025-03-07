@@ -30,6 +30,9 @@
 		EBBBFE912CA2590100E987B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE902CA2590100E987B1 /* Extensions.swift */; };
 		EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE922CA2593900E987B1 /* Protocols.swift */; };
 		EBCA46E22CACBEE700040159 /* EditSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46E12CACBEE700040159 /* EditSampleView.swift */; };
+		EBCA8F8B2D7918BB0041B03B /* TASAExplorer-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBCA8F8A2D7918BB0041B03B /* TASAExplorer-SemiBold.otf */; };
+		EBCA8F8D2D79FCD10041B03B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBCA8F8C2D79FCD10041B03B /* Info.plist */; };
+		EBCA8F8F2D7A952D0041B03B /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = EBCA8F8E2D7A952D0041B03B /* Credits.rtfd */; };
 		EBCF5FEC2CEAD8950047405A /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF5FEB2CEAD8950047405A /* TitleBar.swift */; };
 		EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35C2D583606004E807F /* NewRecording.swift */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
@@ -65,6 +68,9 @@
 		EBBBFE902CA2590100E987B1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EBBBFE922CA2593900E987B1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EBCA46E12CACBEE700040159 /* EditSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSampleView.swift; sourceTree = "<group>"; };
+		EBCA8F8A2D7918BB0041B03B /* TASAExplorer-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TASAExplorer-SemiBold.otf"; sourceTree = "<group>"; };
+		EBCA8F8C2D79FCD10041B03B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBCA8F8E2D7A952D0041B03B /* Credits.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = Credits.rtfd; sourceTree = "<group>"; };
 		EBCF5FEB2CEAD8950047405A /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
 		EBDBE35C2D583606004E807F /* NewRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecording.swift; sourceTree = "<group>"; };
 		EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Tape Recorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +139,7 @@
 			children = (
 				EB91DD332CE315A800F1C37E /* Tachyo-1.0.0.otf */,
 				EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */,
-				EB63A3082D6ACE5D00E35AE6 /* TASAExplorer-SemiBold.otf */,
+				EBCA8F8A2D7918BB0041B03B /* TASAExplorer-SemiBold.otf */,
 			);
 			path = "External Assets";
 			sourceTree = "<group>";
@@ -206,9 +212,10 @@
 				EBE4E94B2C43244F00397EF2 /* Assets.xcassets */,
 				EBE4E9502C43244F00397EF2 /* rm2000.entitlements */,
 				EBE4E94D2C43244F00397EF2 /* Preview Content */,
-				EB6065182C850A300017CB33 /* TapeRecorderState.swift */,
 				EBAF02622C8A132800520D44 /* Logging.swift */,
 				EB64CD132D1A0E1500F2B65E /* Shared.swift */,
+				EBCA8F8C2D79FCD10041B03B /* Info.plist */,
+				EBCA8F8E2D7A952D0041B03B /* Credits.rtfd */,
 			);
 			path = rm2000;
 			sourceTree = "<group>";
@@ -305,12 +312,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB63A3092D6ACE5D00E35AE6 /* TASAExplorer-SemiBold.otf in Resources */,
+				EBCA8F8F2D7A952D0041B03B /* Credits.rtfd in Resources */,
+				EBCA8F8B2D7918BB0041B03B /* TASAExplorer-SemiBold.otf in Resources */,
 				EB91DD312CE3134100F1C37E /* TINY5x3-100.otf in Resources */,
 				EB91DD342CE315AF00F1C37E /* Tachyo-1.0.0.otf in Resources */,
 				EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */,
 				EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */,
 				EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */,
+				EBCA8F8D2D79FCD10041B03B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +502,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = rm2000/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Tape Recorder";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -529,6 +539,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = rm2000/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "RM2000 Tape Recorder";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";

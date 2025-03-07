@@ -9,7 +9,7 @@ struct EditSampleView<Model: FileRepresentable>: View {
 	@State private var description: String?
 	@State private var forwardEndTime: CMTime? = nil
 	@State private var reverseEndTime: CMTime? = nil
-	private let onComplete: (FileRepresentable) -> Void
+	private let onComplete: (Sample) -> Void
 	
 	init(recording: Model, onComplete: @escaping (FileRepresentable) -> Void) {
 		self.onComplete = onComplete
@@ -96,28 +96,6 @@ struct EditSampleView<Model: FileRepresentable>: View {
 			.frame(minWidth: 350, maxWidth: 400, minHeight: 300)
 		}
 	}
-	
-	private func applySampleEdits() {
-//		guard let oldFilename = currentSampleFilename else {
-//			Logger.sharedStreamState.error("No current recording to rename!")
-//			return
-//		}
-//	
-//		let newFilename = constructSampleFilename(from: stagedSample)
-//		let newURL = stagedSample.fileURL.deletingLastPathComponent().appendingPathComponent(newFilename)
-//
-//		// Move the file to the new location
-//		
-//		let fileManager = FileManager.default
-//		do {
-//			try fileManager.moveItem(at: stagedSample.fileURL, to: newURL)
-//			Logger.sharedStreamState.info("Renamed recording from \(stagedSample.fileURL) to \(newURL)")
-//		} catch {
-//			Logger.sharedStreamState.error("Failed to rename file: \(error.localizedDescription)")
-//		}
-//		
-//		showRenameDialogInMainWindow = false
-	}
 }
 
 struct PreviewFilenameView: View {
@@ -135,6 +113,7 @@ struct PreviewFilenameView: View {
 			.background(Color.black)
 	}
 	
+	// TODO - hardcoded file extension string
 	private func generatePreviewFilename() -> String {
 		return ("\(title)__\(tags).aac")
 	}

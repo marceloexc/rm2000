@@ -23,10 +23,7 @@ struct SampleBrowserView: View {
 		.navigationTitle("Sample Browser")
 		.navigationSubtitle(String(totalSamples))
 		.toolbar {
-			ToolbarItemGroup(placement: .status) {
-				NewRecordingButton()
-				NewCollectionButton()
-				ShareButton()
+			ToolbarItem {
 				OpenInFinderButton()
 			}
 		}
@@ -42,63 +39,23 @@ struct OpenInFinderButton: View {
 		Button(action: {
 			NSWorkspace.shared.open(SampleStorage.shared.UserDirectory.directory)
 		}) {
-			Image(systemName: "folder.fill")
-				.font(.system(size: 16, weight: .black))
-				.foregroundColor(.blue)
-				.padding(8)
-				.contentShape(Rectangle())		}
+//			Label("Open in Finder", image: "Finder")
+//				.scaledToFit()
+//				.frame(width: 34, height: 34)
+			VStack {
+				Image(nsImage: NSWorkspace.shared.icon(forFile: "/System/Library/CoreServices/Finder.app"))
+					.resizable()
+					.scaledToFit()
+					.frame(width: 20, height: 20) // Adjust size as needed
+				Text("Show in Finder")
+					.font(.caption)
+			}
+		}
 		.buttonStyle(PlainButtonStyle())
 		.help("Open in Finder")
 	}
 }
 
-struct NewRecordingButton: View {
-	var body: some View {
-		Button(action: {
-			let _ = print("new recording")
-		}) {
-			Image(systemName: "waveform.badge.plus")
-				.font(.system(size: 16, weight: .black))
-				.foregroundColor(.green)
-				.padding(8)
-				.contentShape(Rectangle())
-		}
-		.buttonStyle(PlainButtonStyle())
-		.help("New Recording")
-	}
-}
-
-struct ShareButton : View {
-	var body: some View {
-		Button(action: {
-			let _ = print("share button")
-		}) {
-			Image(systemName: "square.and.arrow.up")
-				.font(.system(size: 16, weight: .black))
-				.foregroundColor(.orange)
-				.padding(8)
-				.contentShape(Rectangle())
-		}
-		.buttonStyle(PlainButtonStyle())
-		.help("New Recording")
-	}
-}
-
-struct NewCollectionButton: View {
-	var body: some View {
-		Button(action: {
-			let _ = print("share button")
-		}) {
-			Image(systemName: "rectangle.stack.fill.badge.plus")
-				.font(.system(size: 16, weight: .black))
-				.foregroundColor(.purple)
-				.padding(8)
-				.contentShape(Rectangle())
-		}
-		.buttonStyle(PlainButtonStyle())
-		.help("New Recording")
-	}
-}
 
 @MainActor
 class SampleBrowserViewModel: ObservableObject {

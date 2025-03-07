@@ -31,7 +31,7 @@ struct Sample: Identifiable {
 		self.id = newRecording.id
 		self.fileURL = newRecording.fileURL
 		self.title = title
-		self.tags = tags.components(separatedBy: "_")
+		self.tags = tags.components(separatedBy: ",")
 		self.storedDescription = description
 	}
 
@@ -87,14 +87,13 @@ struct Sample: Identifiable {
 		(try? regString.wholeMatch(in: pathName)) != nil
 	}
 	
-	private func constructSampleFilename(title: String, tags: [String]) -> String {
-		let title = title
-		_ = tags
-
-//		let formattedTags = tags.replacingOccurrences(of: " ", with: "_")
-
+	func finalFilename() -> String {
+		
 		// Construct the filename in the format "title--tag1_tag2_tag3.aac"
-		let filename = "\(title)--changeme.aac"
+		let formattedTags = tags.joined(separator: "_")
+		
+		// TODO - hardcoded file extension string
+		let filename = "\(title)--\(formattedTags).aac"
 		return filename
 	}
 }

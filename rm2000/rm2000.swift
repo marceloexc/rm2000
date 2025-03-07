@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	let recordingState = TapeRecorderState()
 	
 	func applicationDidFinishLaunching(_ notification: Notification) {
+		NSApp.dockTile.badgeLabel = "Beta 😱😱"
 		if AppState.shared.hasCompletedOnboarding {
 			showMainWindow()
 		} else {
