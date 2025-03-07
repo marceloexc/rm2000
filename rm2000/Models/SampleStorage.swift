@@ -127,10 +127,11 @@ class SampleDirectory: ObservableObject {
 		
 		query.resultsHandler = { [weak self] items, difference in
 			DispatchQueue.main.async {
+				
 				for new in difference.added {
 					
 					if let createdSample = Sample(fileURL: new.url!) {
-						Logger.appState.info("New content detected: \(String(describing: new.url))")
+						Logger.appState.info("New content detected: \(String(describing: new.url)) for \(self?.directory)")
 						self?.files.append(createdSample)
 						self?.indexedTags.formUnion(createdSample.tags)
 						print(self?.indexedTags as Any)
@@ -138,19 +139,28 @@ class SampleDirectory: ObservableObject {
 						Logger.appState.info("Newly added content rejected: \(String(describing: new.url))")
 					}
 				}
+				for changed in difference.changed {
+					if let movedSample = Sample(fileURL: changed.url!) {
+						print("\(movedSample) has moved!")
+					}
+				}
 				
 				for removed in difference.removed {
 					if let deletedSample = Sample(fileURL: removed.url!) {
-						Logger.appState.info("Deleting sample from library: \(String(describing: removed.url))")
-						
-						// ugly chatgpt slop
-						if let index = self?.files.firstIndex(where: { $0.fileURL == deletedSample.fileURL }) {
-							self?.files.remove(at: index)
+						// Check if the file actually doesn't exist before removing it
+						let fileManager = FileManager.default
+						if !fileManager.fileExists(atPath: removed.url!.path) {
+							Logger.appState.info("Deleting sample from library: \(String(describing: removed.url))")
+							
+							// Remove from files array
+							if let index = self?.files.firstIndex(where: { $0.fileURL == deletedSample.fileURL }) {
+								self?.files.remove(at: index)
+							}
+							Logger.appState.info("Content removed: \(String(describing: removed.url))")
+						} else {
+							Logger.appState.info("File reported as removed but still exists: \(String(describing: removed.url))")
 						}
-						Logger.appState.info("Content removed:: \(String(describing: removed.url))")
 					}
-					
-					// TODO - add something for .changed difference
 				}
 			}
 		}
