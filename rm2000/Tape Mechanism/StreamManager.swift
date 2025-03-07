@@ -22,6 +22,7 @@ class StreamManager: NSObject, SCStreamDelegate {
 		streamConfiguration.sampleRate = 48000
 		streamConfiguration.channelCount = 2
 		streamConfiguration.capturesAudio = true
+		streamConfiguration.minimumFrameInterval = CMTime(seconds: 1.0 / 2.0, preferredTimescale: 600)
 	  
 		let availableContent = try await SCShareableContent.current
 		guard let display = availableContent.displays.first(where: { $0.displayID == CGMainDisplayID() }) else {
@@ -38,7 +39,7 @@ class StreamManager: NSObject, SCStreamDelegate {
 		}
 	  
 		try stream.addStreamOutput(self, type: .audio, sampleHandlerQueue: .global())
-		try stream.startCapture()
+		stream.startCapture()
 	}
   
 	func stopCapture() {
