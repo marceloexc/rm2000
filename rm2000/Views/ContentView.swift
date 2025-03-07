@@ -1,5 +1,5 @@
-import SwiftUI
 import OSLog
+import SwiftUI
 
 struct ContentView: View {
 	@Environment(\.openWindow) var openWindow
@@ -9,17 +9,17 @@ struct ContentView: View {
 		ZStack {
 			Image("BodyBackgroundTemp")
 				.scaledToFill()
-				.ignoresSafeArea(.all) // extend under the titlebar
-			VStack(spacing:10) {
+				.ignoresSafeArea(.all)  // extend under the titlebar
+			VStack(spacing: 10) {
 				LCDScreenView()
 					.frame(height: 225)
 					.padding(.top, -45)
-				
+
 				HStack(spacing: 5) {
 					UtilityButtons()
 				}
 				.padding(.top, -5)
-				
+
 				if recordingState.isRecording {
 					ActiveRecordButton(onPress: stopRecording)
 				} else {
@@ -40,15 +40,15 @@ struct ContentView: View {
 			}
 		}
 	}
-	
+
 	private func startRecording() {
 		recordingState.startRecording()
 	}
-	
+
 	private func stopRecording() {
 		recordingState.stopRecording()
 	}
-	
+
 }
 
 struct LCDScreenView: View {
@@ -60,30 +60,62 @@ struct LCDScreenView: View {
 				.resizable()
 				.scaledToFit()
 				.frame(width: 300)
-				.offset(x:0, y:0)
+				.offset(x: 0, y: 0)
+			
+			VStack(alignment: .leading) {
+				HStack {
+					VStack(alignment: .leading, spacing: 4) {
+						Text("STEREO 44.1kHz")
+							.font(Font.custom("TASAExplorer-SemiBold", size: 14))
+							.foregroundColor(Color("LCDTextColor"))
+						
+
+						Text("16 BIT")
+							.font(Font.custom("TASAExplorer-SemiBold", size: 14))
+							.foregroundColor(Color("LCDTextColor"))
+							.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
+					}
+					Spacer()
+				}
+
+				Text(" M4A ")
+					.font(Font.custom("Tachyo", size: 41))
+					.foregroundColor(Color("LCDTextColor"))
+					.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
+					.padding(.top, 10)
+					.offset(x: -15)
+					.kerning(-1.5)
+				
+				if recordingState.isRecording {
+					Text(timeString(recordingState.elapsedTimeRecording))
+						.font(Font.custom("Tachyo", size: 41))
+						.foregroundColor(Color("LCDTextColor"))
+						.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
+						.fixedSize()
+						.offset(x: -15)
+						.kerning(-1.5)
+				} else {
+					Text(" STBY ")
+						.font(Font.custom("Tachyo", size: 41))
+						.foregroundColor(Color("LCDTextColor"))
+						.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
+						.fixedSize()
+						.offset(x: -15)
+						.kerning(-1.5)
+				}
+			}
+			.frame(width: 200, height: 168)
+			
 			Image("LCDOuterGlow")
 				.resizable()
 				.frame(width: 330)
-
-			VStack {
-				if recordingState.isRecording {
-					Text("Recording!")
-						.font(Font.custom("TINY5x3-100", size: 24))
-						.foregroundColor(Color("LCDTextColor"))
-				}
-				Text("RM2000")
-					.font(Font.custom("TINY5x3-100", size: 24))
-					.foregroundColor(Color("LCDTextColor"))
-				
-				Text("00:00")
-					.font(Font.custom("Tachyo", size: 50))
-					.foregroundColor(Color("LCDTextColor"))
-				
-				Text("AAC Format 44.1/k")
-					.font(Font.custom("TINY5x3-100", size: 20))
-					.foregroundColor(Color("LCDTextColor"))
-			}
 		}
+	}
+	
+	private func timeString(_ time: TimeInterval) -> String {
+		let minutes = Int(time) / 60
+		let seconds = Int(time) % 60
+		return String(format: " %02d:%02d ", minutes, seconds)
 	}
 }
 
@@ -97,13 +129,13 @@ struct UtilityButtons: View {
 			Image("SettingsButton")
 		}
 		.buttonStyle(AnimatedButtonStyle())
-		
+
 		Button(action: { openWindow(id: "recordings-window") }) {
 			Image("FolderButton")
 				.renderingMode(.original)
-		}									.buttonStyle(AnimatedButtonStyle())
+		}.buttonStyle(AnimatedButtonStyle())
 
-		Button(action: { print("Source Button pressed")}) {
+		Button(action: { print("Source Button pressed") }) {
 			Image("SourceButton")
 		}
 		.buttonStyle(AnimatedButtonStyle())
@@ -115,34 +147,36 @@ struct AnimatedButtonStyle: ButtonStyle {
 		configuration.label
 			.background(.clear)
 			.scaleEffect(configuration.isPressed ? 0.94 : 1.0)
-			.animation(.spring(response: 0.3, dampingFraction: 0.6), value: configuration.isPressed)
+			.animation(
+				.spring(response: 0.3, dampingFraction: 0.6),
+				value: configuration.isPressed)
 	}
 }
 
 struct StandbyRecordButton: View {
 	var onPress: () -> Void
-	
+
 	var body: some View {
 		ZStack {
 			Image("RecordButtonIndent")
 			Image("RecordButtonTemp")
 			Image("RecordButtonGlow")
-			
+
 			Button(action: onPress) {
 				Rectangle()
-				// stupid fucking hack below
-				// i cant have opactiy(0) on a button, because then that disables it completely
-				// it needs to be transparent becuase the images _are_ the buttons.
-				
-				// i still think having assets in lieu of skeuemorphic elements are really cheap
-				// (hinders actual reactivity and im at the mercy of exporting everything from sketch),
-				// but i still havent learned core animation / CALayers yet, so this will do...
+					// stupid fucking hack below
+					// i cant have opactiy(0) on a button, because then that disables it completely
+					// it needs to be transparent becuase the images _are_ the buttons.
+
+					// i still think having assets in lieu of skeuemorphic elements are really cheap
+					// (hinders actual reactivity and im at the mercy of exporting everything from sketch),
+					// but i still havent learned core animation / CALayers yet, so this will do...
 					.fill(Color.white.opacity(0.001))
 					.frame(width: 70, height: 70)
 			}
 			.buttonStyle(AnimatedButtonStyle())
 		}
-		.frame(height:80)
+		.frame(height: 80)
 	}
 }
 
@@ -156,15 +190,15 @@ struct ActiveRecordButton: View {
 			Image("RecordButtonActiveTemp")
 				.pulseEffect()
 			Image("RecordButtonGlow")
-			
+
 			Button(action: onPress) {
 				Rectangle()
-					.fill(Color.white.opacity(0.001)) //stupid hack again
+					.fill(Color.white.opacity(0.001))  //stupid hack again
 					.frame(width: 70, height: 70)
 			}
 			.buttonStyle(AnimatedButtonStyle())
 		}
-		.frame(height:80)
+		.frame(height: 80)
 	}
 }
 
@@ -183,12 +217,16 @@ struct PulseEffect: ViewModifier {
 		content
 			.opacity(pulseIsInMaxState ? range.lowerBound : range.upperBound)
 			.onAppear { pulseIsInMaxState = false }
-			.animation(.easeInOut(duration: duration).repeatForever(), value: pulseIsInMaxState)
+			.animation(
+				.easeInOut(duration: duration).repeatForever(),
+				value: pulseIsInMaxState)
 	}
 }
 
-public extension View {
-	func pulseEffect(range: ClosedRange<Double> = 0.1...1, duration: TimeInterval = 1) -> some View  {
+extension View {
+	public func pulseEffect(
+		range: ClosedRange<Double> = 0.1...1, duration: TimeInterval = 1
+	) -> some View {
 		modifier(PulseEffect(range: range, duration: duration))
 	}
 }
