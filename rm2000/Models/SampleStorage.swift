@@ -60,12 +60,18 @@ class SampleDirectory: ObservableObject {
 		let fileManager = FileManager.default
 
 		do {
-			try fileManager.moveItem(at: fromFile, to: createdSample.fileURL)
+			
+			// TODO - hardcoded
+			let uglyStringPleaseFixMePleasePlease = createdSample.finalFilename()
+			
+			try fileManager.moveItem(at: fromFile, to: self.directory.appendingPathComponent(uglyStringPleaseFixMePleasePlease))
+			
+			Logger().info("Applying sample edits and moving from \(fromFile) to \(self.directory.appendingPathComponent(uglyStringPleaseFixMePleasePlease))")
 
 			// TODO - this is ugly
 			if !((createdSample.description?.isEmpty) != nil) {
 				setDescriptionFieldInFile(
-					createdSample, (createdSample.description)!)
+					createdSample, (createdSample.description ?? ""))
 			}
 			
 			indexedTags.formUnion(createdSample.tags)
