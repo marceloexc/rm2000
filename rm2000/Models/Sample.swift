@@ -93,7 +93,7 @@ struct Sample: Identifiable {
 		let formattedTags = tags.joined(separator: "_")
 		
 		// TODO - hardcoded file extension string
-		let filename = "\(title)--\(formattedTags).m4a"
+		let filename = "\(title)--\(formattedTags).aac"
 		return filename
 	}
 }
