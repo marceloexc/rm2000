@@ -8,8 +8,8 @@ class WindowController: NSWindowController {
 	}
 }
 
-final class AppDelegate: NSObject, NSApplicationDelegate {
-	private var mainWindowController: WindowController?
+class AppDelegate: NSObject, NSApplicationDelegate {
+	var mainWindowController: WindowController?
 	private var onboardingWindowController: NSWindowController?
 	let recordingState = TapeRecorderState()
 	
@@ -30,7 +30,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		)
 		
 		let contentView = ContentView()
-			.environmentObject(recordingState)
+			.environmentObject(self.recordingState)
 			.openSettingsAccess()
 		
 		window.contentView = NSHostingView(rootView: contentView)
@@ -71,11 +71,12 @@ struct rm2000: App {
 				.environmentObject(appDelegate.recordingState)
 				.environmentObject(sampleStorage)
 		}
+		.menuBarExtraStyle(.window)
 		
 		Window("Recordings", id: "recordings-window") {
 			SampleBrowserView()
 				.environmentObject(sampleStorage)
-		}.windowToolbarStyle(.unifiedCompact)
+		}
 
 		WindowGroup("Welcome", id: "onboarding") {
 			OnboardingView(viewModel: OnboardingViewModel())

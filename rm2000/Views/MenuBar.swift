@@ -7,12 +7,19 @@ struct MenuBarView: View {
 	@EnvironmentObject private var sampleStorage: SampleStorage
 	@Environment(\.openWindow) private var openWindow
 	
+	private var appDelegate = AppDelegate()
+	
 	var body: some View {
 		Text("RM2000 Public Beta")
 		Divider()
 		Button("Open") {
-			openWindow(id: "main-window")
+			appDelegate.showMainWindow()
 		}
+		
+		if recordingState.isRecording {
+			ElapsedTime(textString: $recordingState.elapsedTimeRecording)
+		}
+		
 		Button(recordingState.isRecording ? "Stop Recording" : "Start Recording") {
 			if recordingState.isRecording {
 				Logger.sharedStreamState.info("Changing state in the menubar")
@@ -28,5 +35,13 @@ struct MenuBarView: View {
 		Button("Quit RM2000") {
 			NSApplication.shared.terminate(nil)
 		}.keyboardShortcut("q")
+	}
+}
+
+struct ElapsedTime: View {
+	@Binding var textString: TimeInterval
+
+	var body: some View {
+		Text(textString.description)
 	}
 }
