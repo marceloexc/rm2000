@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB07B4442D7CF24C0052B58E /* Tachyo.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB07B4432D7CF24C0052B58E /* Tachyo.otf */; };
 		EB13CF402D31A36400E2EC4B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */; };
 		EB1565122D558F2100A3D339 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1565112D558F1F00A3D339 /* Sample.swift */; };
 		EB296DF32D65355C008427DF /* TrimmablePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB296DF22D653556008427DF /* TrimmablePlayerView.swift */; };
@@ -21,7 +20,6 @@
 		EB8313F22D4DCDD600B343FF /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8313F12D4DCDD600B343FF /* SidebarView.swift */; };
 		EB8313F42D4DF59700B343FF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8313F32D4DF59700B343FF /* DetailView.swift */; };
 		EB8313F62D51C14C00B343FF /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8313F52D51C14B00B343FF /* InspectorView.swift */; };
-		EB91DD312CE3134100F1C37E /* TINY5x3-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */; };
 		EBAF02632C8A132800520D44 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF02622C8A132800520D44 /* Logging.swift */; };
 		EBBBFE862CA1F57300E987B1 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE852CA1F57300E987B1 /* MenuBar.swift */; };
 		EBBBFE8B2CA2569600E987B1 /* TapeMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE8A2CA2569600E987B1 /* TapeMechanism.swift */; };
@@ -31,10 +29,10 @@
 		EBBBFE932CA2593900E987B1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBFE922CA2593900E987B1 /* Protocols.swift */; };
 		EBCA46E22CACBEE700040159 /* EditSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA46E12CACBEE700040159 /* EditSampleView.swift */; };
 		EBCA8F8B2D7918BB0041B03B /* TASAExplorer-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBCA8F8A2D7918BB0041B03B /* TASAExplorer-SemiBold.otf */; };
-		EBCA8F8D2D79FCD10041B03B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBCA8F8C2D79FCD10041B03B /* Info.plist */; };
 		EBCA8F8F2D7A952D0041B03B /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = EBCA8F8E2D7A952D0041B03B /* Credits.rtfd */; };
 		EBCF5FEC2CEAD8950047405A /* TitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF5FEB2CEAD8950047405A /* TitleBar.swift */; };
 		EBDBE35D2D583608004E807F /* NewRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBE35C2D583606004E807F /* NewRecording.swift */; };
+		EBDF782E2D80146E00941981 /* Tachyo.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBDF782D2D80146E00941981 /* Tachyo.otf */; };
 		EBE4E9482C43244D00397EF2 /* rm2000.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9472C43244D00397EF2 /* rm2000.swift */; };
 		EBE4E94A2C43244D00397EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE4E9492C43244D00397EF2 /* ContentView.swift */; };
 		EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE4E94B2C43244F00397EF2 /* Assets.xcassets */; };
@@ -44,7 +42,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EB07B4432D7CF24C0052B58E /* Tachyo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Tachyo.otf; path = "rm2000/External Assets/Tachyo.otf"; sourceTree = SOURCE_ROOT; };
 		EB13CF3F2D31A36400E2EC4B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EB1565112D558F1F00A3D339 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		EB296DF22D653556008427DF /* TrimmablePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmablePlayerView.swift; sourceTree = "<group>"; };
@@ -59,7 +56,6 @@
 		EB8313F12D4DCDD600B343FF /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		EB8313F32D4DF59700B343FF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EB8313F52D51C14B00B343FF /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
-		EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TINY5x3-100.otf"; sourceTree = "<group>"; };
 		EBAF02622C8A132800520D44 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		EBBBFE852CA1F57300E987B1 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		EBBBFE8A2CA2569600E987B1 /* TapeMechanism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapeMechanism.swift; sourceTree = "<group>"; };
@@ -69,10 +65,11 @@
 		EBBBFE922CA2593900E987B1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EBCA46E12CACBEE700040159 /* EditSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSampleView.swift; sourceTree = "<group>"; };
 		EBCA8F8A2D7918BB0041B03B /* TASAExplorer-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TASAExplorer-SemiBold.otf"; sourceTree = "<group>"; };
-		EBCA8F8C2D79FCD10041B03B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBCA8F8E2D7A952D0041B03B /* Credits.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = Credits.rtfd; sourceTree = "<group>"; };
 		EBCF5FEB2CEAD8950047405A /* TitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBar.swift; sourceTree = "<group>"; };
 		EBDBE35C2D583606004E807F /* NewRecording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecording.swift; sourceTree = "<group>"; };
+		EBDF782D2D80146E00941981 /* Tachyo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tachyo.otf; sourceTree = "<group>"; };
+		EBDF782F2D8016A700941981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EBE4E9442C43244D00397EF2 /* RM2000 Tape Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RM2000 Tape Recorder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE4E9472C43244D00397EF2 /* rm2000.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rm2000.swift; sourceTree = "<group>"; };
 		EBE4E9492C43244D00397EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,14 +131,13 @@
 			path = Sidebar;
 			sourceTree = "<group>";
 		};
-		EB91DD322CE3135A00F1C37E /* External Assets */ = {
+		EB91DD322CE3135A00F1C37E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				EB91DD302CE3132D00F1C37E /* TINY5x3-100.otf */,
 				EBCA8F8A2D7918BB0041B03B /* TASAExplorer-SemiBold.otf */,
-				EB07B4432D7CF24C0052B58E /* Tachyo.otf */,
+				EBDF782D2D80146E00941981 /* Tachyo.otf */,
 			);
-			path = "External Assets";
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		EBA5E5792D77976D00D415DB /* Frameworks */ = {
@@ -201,10 +197,11 @@
 		EBE4E9462C43244D00397EF2 /* rm2000 */ = {
 			isa = PBXGroup;
 			children = (
+				EBDF782F2D8016A700941981 /* Info.plist */,
 				EB6065182C850A300017CB33 /* TapeRecorderState.swift */,
 				EB63A3032D6A8E2800E35AE6 /* AppState.swift */,
 				EB1565102D558F0700A3D339 /* Models */,
-				EB91DD322CE3135A00F1C37E /* External Assets */,
+				EB91DD322CE3135A00F1C37E /* Fonts */,
 				EB516E3E2CB75BD100A1C1E6 /* README.md */,
 				EBBBFE892CA2514800E987B1 /* Tape Mechanism */,
 				EBBBFE842CA1F55100E987B1 /* Views */,
@@ -214,7 +211,6 @@
 				EBE4E94D2C43244F00397EF2 /* Preview Content */,
 				EBAF02622C8A132800520D44 /* Logging.swift */,
 				EB64CD132D1A0E1500F2B65E /* Shared.swift */,
-				EBCA8F8C2D79FCD10041B03B /* Info.plist */,
 				EBCA8F8E2D7A952D0041B03B /* Credits.rtfd */,
 			);
 			path = rm2000;
@@ -313,13 +309,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBCA8F8F2D7A952D0041B03B /* Credits.rtfd in Resources */,
-				EB07B4442D7CF24C0052B58E /* Tachyo.otf in Resources */,
+				EBDF782E2D80146E00941981 /* Tachyo.otf in Resources */,
 				EBCA8F8B2D7918BB0041B03B /* TASAExplorer-SemiBold.otf in Resources */,
-				EB91DD312CE3134100F1C37E /* TINY5x3-100.otf in Resources */,
 				EB516E3F2CB75BD100A1C1E6 /* README.md in Resources */,
 				EBE4E94F2C43244F00397EF2 /* Preview Assets.xcassets in Resources */,
 				EBE4E94C2C43244F00397EF2 /* Assets.xcassets in Resources */,
-				EBCA8F8D2D79FCD10041B03B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
