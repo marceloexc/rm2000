@@ -20,6 +20,8 @@ struct FinalOnboardingCompleteView: View {
 
 	var body: some View {
 		Text("Complete!")
+		
+		Text("App will now close. Please restart")
 		HStack {
 			Button("Back") {
 				viewModel.currentStep = .settings
@@ -50,17 +52,12 @@ struct SettingsStepView: View {
 	@State private var showFileChooser: Bool = false
 
 	var body: some View {
-		Text("Settings")
+		Text("Set directory for all samples to get saved in")
 		HStack {
 			TextField("Set RM2000 Sample Directory", text: Binding(
 				get: { appState.sampleDirectory?.path ?? "" },
 				set: { appState.sampleDirectory = URL(fileURLWithPath: $0) }
 			))
-
-			Button("Print Directory") {
-				print(appState.sampleDirectory?.path ?? "No directory set")
-			}
-
 			Button("Browse") {
 				showFileChooser = true
 			}
@@ -119,9 +116,18 @@ struct WelcomeView:View {
 	
 	@ObservedObject var viewModel: OnboardingViewModel
 	var body: some View {
-		Text("Welcome to RM2000")
-			.font(.title)
-		Text("Before you continue, you will have to:\n\nenable system permissions\n\nset a directory\n\nset preferred audio format (mp3 default)")
+		VStack {
+			Image(nsImage: NSApp.applicationIconImage)
+			Text("Welcome to RM2000")
+				.font(.title)
+		}
+		Text("This build is considered ")
+		+ Text("incredibly fragile")
+			.foregroundColor(.red)
+		
+		Text("Consider all the samples you record with this app as ephemeral")
+		
+		Text("More stable builds will follow in the next weeks")
 		HStack {
 			Button("Next") {
 				viewModel.currentStep = .settings
