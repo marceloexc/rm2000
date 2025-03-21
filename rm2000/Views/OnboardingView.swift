@@ -64,6 +64,12 @@ struct SettingsStepView: View {
 			.fileImporter(isPresented: $showFileChooser, allowedContentTypes: [.directory]) { result in
 				switch result {
 				case .success(let directory):
+					
+					// get security scoped bookmark
+					guard directory.startAccessingSecurityScopedResource() else {
+						Logger.appState.error("Could not get security scoped to the directory \(directory)")
+						return
+					}
 					appState.sampleDirectory = directory
 					Logger.viewModels.info("Set new sampleDirectory as \(directory)")
 				case .failure(let error):
