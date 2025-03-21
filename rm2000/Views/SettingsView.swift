@@ -56,6 +56,12 @@ struct SettingsView: View {
 						) { result in
 							switch result {
 							case .success(let directory):
+								
+								// get security scoped bookmark
+								guard directory.startAccessingSecurityScopedResource() else {
+									Logger.appState.error("Could not get security scoped to the directory \(directory)")
+									return
+								}
 								appState.sampleDirectory = directory
 								workingDirectory = directory
 								Logger.appState.info(
