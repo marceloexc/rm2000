@@ -4,7 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Fonts/Tachyo.otf</string>
+		<string>Tachyo.otf</string>
+		<string>TASAExplorer-SemiBold.otf</string>
 	</array>
 </dict>
 </plist>
