@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	let recordingState = TapeRecorderState()
 	
 	func applicationDidFinishLaunching(_ notification: Notification) {
+		registerCustomFonts()
 		NSApp.dockTile.badgeLabel = "Beta 😱😱"
 		if AppState.shared.hasCompletedOnboarding {
 			showMainWindow()
@@ -56,6 +57,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		onboardingWindowController?.showWindow(nil)
 		window.center()
 	}
+	
+	/*
+	 A function like this should never exist.
+	 However, even after I followed all of the tutorials,
+	 Xcode simply wouldn't bundle my otf fonts.
+	 */
+	private func registerCustomFonts() {
+		let fonts = Bundle.main.urls(forResourcesWithExtension: "otf", subdirectory: nil)
+		fonts?.forEach { url in
+			CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+		}
+	}
+
 }
 
 @main

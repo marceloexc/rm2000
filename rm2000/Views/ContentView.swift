@@ -79,7 +79,8 @@ struct LCDScreenView: View {
 				}
 
 				Text(" M4A ")
-					.font(Font.custom("Tachyo", size: 41))
+					.font(.custom("Tachyo", size: 41))
+					.fontWeight(.thin)
 					.foregroundColor(Color("LCDTextColor"))
 					.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
 					.padding(.top, 10)
@@ -97,6 +98,7 @@ struct LCDScreenView: View {
 				} else {
 					Text(" STBY ")
 						.font(Font.custom("Tachyo", size: 41))
+						.fontWeight(.medium)
 						.foregroundColor(Color("LCDTextColor"))
 						.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
 						.fixedSize()
@@ -231,7 +233,12 @@ extension View {
 	}
 }
 
-#Preview {
+#Preview("Main Window") {
 	ContentView()
+		.environmentObject(TapeRecorderState())
+}
+
+#Preview("LCD Screen") {
+	LCDScreenView()
 		.environmentObject(TapeRecorderState())
 }
