@@ -51,82 +51,8 @@ struct ContentView: View {
 
 }
 
-struct LCDScreenView: View {
-	@EnvironmentObject private var recordingState: TapeRecorderState
-
-	var body: some View {
-		ZStack {
-			Image("LCDScreenEmptyTemp")
-				.resizable()
-				.scaledToFit()
-				.frame(width: 300)
-				.offset(x: 0, y: 0)
-			
-			VStack(alignment: .leading) {
-				HStack {
-					VStack(alignment: .leading, spacing: 4) {
-						Text("STEREO 44.1kHz")
-							.font(Font.custom("TASAExplorer-SemiBold", size: 14))
-							.foregroundColor(Color("LCDTextColor"))
-						
-
-						Text("16 BIT")
-							.font(Font.custom("TASAExplorer-SemiBold", size: 14))
-							.foregroundColor(Color("LCDTextColor"))
-							.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
-					}
-					Spacer()
-				}
-
-				Text(" M4A ")
-					.font(.custom("Tachyo", size: 41))
-					.fontWeight(.thin)
-					.foregroundColor(Color("LCDTextColor"))
-					.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
-					.padding(.top, 10)
-					.offset(x: -15)
-					.kerning(-1.5)
-				
-				if recordingState.isRecording {
-					Text(timeString(recordingState.elapsedTimeRecording))
-						.font(Font.custom("Tachyo", size: 41))
-						.foregroundColor(Color("LCDTextColor"))
-						.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
-						.fixedSize()
-						.offset(x: -15)
-						.kerning(-1.5)
-				} else {
-					Text(" STBY ")
-						.font(Font.custom("Tachyo", size: 41))
-						.fontWeight(.medium)
-						.foregroundColor(Color("LCDTextColor"))
-						.shadow(color: .black.opacity(0.25), radius: 1, x: 0, y: 4)
-						.fixedSize()
-						.offset(x: -15)
-						.kerning(-1.5)
-				}
-			}
-			.frame(width: 200, height: 168)
-			
-			Image("LCDOuterGlow")
-				.resizable()
-				.frame(width: 330)
-		}
-	}
-	
-	private func timeString(_ time: TimeInterval) -> String {
-		let minutes = Int(time) / 60
-		let seconds = Int(time) % 60
-		return String(format: " %02d:%02d ", minutes, seconds)
-	}
-}
 
 #Preview("Main Window") {
 	ContentView()
-		.environmentObject(TapeRecorderState())
-}
-
-#Preview("LCD Screen") {
-	LCDScreenView()
 		.environmentObject(TapeRecorderState())
 }
