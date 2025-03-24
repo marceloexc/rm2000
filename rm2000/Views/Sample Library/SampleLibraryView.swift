@@ -3,7 +3,7 @@ import Combine
 import SwiftUI
 
 @MainActor
-struct SampleBrowserView: View {
+struct SampleLibraryView: View {
 	@StateObject private var viewModel: SampleBrowserViewModel
 	@Environment(\.openURL) private var openURL
 	

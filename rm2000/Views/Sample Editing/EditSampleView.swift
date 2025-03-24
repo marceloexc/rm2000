@@ -24,7 +24,7 @@ struct EditSampleView<Model: FileRepresentable>: View {
 			VStack(alignment: .leading, spacing: 12) {
 				Text("Rename Recording")
 					.font(.headline)
-				TrimmablePlayerView(
+				TrimmingPlayerView(
 					recording: model,
 					forwardEndTime: $forwardEndTime,
 					reverseEndTime: $reverseEndTime)

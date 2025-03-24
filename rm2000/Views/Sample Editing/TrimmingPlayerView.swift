@@ -86,7 +86,7 @@ class PlayerViewModel: ObservableObject {
 	}
 }
 
-struct TrimmablePlayerView<Model: FileRepresentable>: View {
+struct TrimmingPlayerView<Model: FileRepresentable>: View {
 	@StateObject private var viewModel: PlayerViewModel
 	// optional's as the CMTime's can be of NaN
 	@Binding var forwardEndTime: CMTime?
